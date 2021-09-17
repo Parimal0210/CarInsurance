@@ -1,0 +1,35 @@
+<!-- <p>otp works!</p> -->
+<div class="container-fluid">
+    <div class="d-flex justify-content-center row align-items-center" style="height:100vh; background-color: #F3F3F3;">
+        <div class="card col-10 col-md-6 col-lg-6 col-xl-3 p-3">
+
+
+            <div class="card-body">
+                <div class="text-center mb-2">
+                    <img src="../../assets/Images/50Fifty Logo.svg" alt="5050 logo" class="w-50 mb-5">
+                    <p class="mb-4">Enter your OTP</p>
+                </div>
+
+                 <form class="form" #loginForm="ngForm" (ngSubmit)="login_now(loginForm)">
+                <div>
+                    <div class="mb-3">
+                        <label>OTP</label>
+                        <input type="text" class="form-control" placeholder="Enter OTP" id="otpnumber" [(ngModel)]="otp" [ngModelOptions]="{standalone: true}" [value]="otp" required>
+                        <div class="d-flex justify-content-end">
+                            <small (click)="ResendOTP(loginForm)" class="hand-cursor text-center mt-1">Resend OTP ?</small>
+                        </div>
+                    </div>
+                    <div class="d-grid">
+                        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Login Now </button>
+                        <small (click)="Goback()" class="hand-cursor text-center mt-3">Back</small>
+
+                    </div>
+                </div>
+              </form>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

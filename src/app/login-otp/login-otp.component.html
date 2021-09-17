@@ -1,0 +1,32 @@
+<!-- <p>login-otp works!</p> -->
+<div class="container-fluid">
+  <div class="d-flex justify-content-center row align-items-center" style="height:100vh; background-color: #F3F3F3;">
+    <div class="card col-10 col-md-6 col-lg-6 col-xl-3 p-3">
+      <div class="card-body">
+        <div class="text-center mb-2">
+          <img src="../../assets/Images/50Fifty Logo.svg" alt="5050 logo" class="w-50 mb-5">
+          <p class="mb-4">Please log in to your account</p>
+        </div>
+        <!--test-->
+        <form class="form" #loginForm="ngForm" (ngSubmit)="GetOTP(loginForm)">
+          <div class="">
+            <div class="mb-3">
+              <label>Username</label>
+              <input name="email" type="text" class="form-control" placeholder="Enter Username"
+                [(ngModel)]="loginUserData" required>
+
+            </div>
+            <div class="d-grid">
+              <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Get OTP </button>
+            </div>
+          </div>
+        </form>
+
+        <!-- 2nd screen -->
+
+
+      </div>
+
+    </div>
+  </div>
+</div>

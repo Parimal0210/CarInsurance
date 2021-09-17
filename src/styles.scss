@@ -1,0 +1,297 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    font-family: 'DM Sans', sans-serif;
+}
+
+
+/*
+ul{
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+
+a{
+  transition:all 0.5s;
+}
+
+a:hover{
+  text-decoration:none;
+  outline:none;
+}
+
+a:focus{
+  outline:none;
+  text-decoration:none;
+  outline-offset:inherit;
+}
+
+body{
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 15px !important;
+  background: #F0F0F0 !important;
+}
+
+.navbar #fiftylogo{
+  background-color: #000000;
+  margin-right: 20px;
+  padding: 19px 28px;
+}
+.navbar {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 0;
+  padding-right: 30px;
+
+}
+.navbar #navbarDropdownMenuLink {
+  color: #ffffff;
+  font-weight: 600;
+  position: relative;
+  padding: 10px;
+  padding-right: 14px;
+}
+
+.rightMenu .dropdown-toggle::after {
+  border: none;
+  position: absolute;
+  content: "";
+  font-family: FontAwesome;
+  right: 0;
+  top: 18px;
+}
+
+.leftMenu .nav-item{
+color: #ffffff;
+margin-right: 50px;
+}
+
+.leftMenu .navbar-nav .nav-link {
+  font-weight: 600;
+  border-bottom: #282828 solid 4px;
+}
+
+.navbar svg {
+  margin: 0 1 rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  padding: 18px 10px;
+}
+
+.navbar-dark .navbar-nav .active>.nav-link, .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+  border-bottom: #EE1234 solid 4px;
+}
+
+.leftMenu .nav-link:hover {
+  border-bottom: #EE1234 solid 4px;
+  color: #ffffff;
+}
+
+.navbar-dark .navbar-nav.leftMenu .nav-item .nav-link:focus, .navbar-dark .navbar-nav.leftMenu .nav-item .nav-link:hover {
+  border-bottom: #EE1234 solid 4px;
+  color: #ffffff !important;
+}
+
+.RightDropDown {
+  left: inherit;
+  right: 0;
+}
+
+.username{
+  display: block;
+  font-size: 12px;
+  color: #ffffff;
+}
+.slide{
+  position:absolute;
+  bottom: 0;
+  left: 0;
+
+height: 3px;
+background-color: #ee1234;
+transition: .5s;
+}
+
+
+.rateBoxWarp {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.rateBox {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 20px #0000000D;
+  border-radius: 5px;
+  padding: 16px;
+}
+
+.rateBox h2 {
+  color: #282828;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.rateBox h3{
+  color: #282828;
+  font-size: 25px;
+}
+
+.rateBox h3 span {
+  display: block;
+  color: #282828;
+  font-size: 10px;
+  opacity: 0.5;
+  font-weight: 400;
+}
+
+.middleArea {
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 20px #0000000D;
+  border-radius: 5px;
+}
+
+.dateUl  {
+  text-align: right;
+  margin: 0;
+}
+
+.dateUl li {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.dateList {
+    color: #24282A;
+    font-size: 14px;
+    font-weight: 700;
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.dateList:before {
+  position: absolute;
+  content: '\f0dd';
+  font-family: FontAwesome;
+  right: -15px;
+  top: -3px;
+
+}
+
+.dateList {
+  color: #24282A;
+  font-size: 14px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.btn.uploadBtn{
+  background: #EE1234;
+  box-shadow: 0px 10px 20px #0000000D;
+  border-radius: 5px;
+  border: #EE1234 solid 1px;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 6px 20px;
+  display: inline-block;
+}
+.btn.uploadBtn:hover{
+  background: #282828 ;
+  border: #282828 solid 1px;
+}
+
+.headingArea {
+  padding: 20px;
+  border-bottom: #e9e9e9 solid 1px;
+}
+
+.headingArea h2 {
+  color: #282828;
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.tableStyle {
+  padding: 20px;
+}
+
+.tableStyle .table thead th {
+  color: #282828;
+  opacity: 0.6;
+  font-size: 12px;
+  text-transform: capitalize;
+  border: none;
+  border-bottom: #e9e9e9 solid 1px !important;
+}
+
+.tableStyle .table td {
+  border: none;
+  border-bottom: #e9e9e9 solid 1px;
+  color: #282828;
+  font-size: 14px;
+}
+
+.tableStyle .table td .red{
+  color: #E81D2C;
+}
+ */
+
+
+/* Graphs SCSS */
+
+.ngxdatepicker .form-control {
+    display: inline-block;
+    border: none;
+    color: #000000!important;
+    font-size: 14px;
+    font-weight: 600;
+    // width: auto;
+    text-align: right;
+    cursor: pointer;
+}
+
+.ngxdatepicker .form-control:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.ngxdatepicker ::placeholder {
+    color: #000000!important;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+span#basic-addon2 {
+    width: 200px;
+    height: 40px;
+}
+
+.upload-year-doc-section .form-control {
+    height: 40px;
+}
+
+.input-group {
+    display: inline-flex!important;
+    width: 75%!important;
+}
+
+.upload-year-doc-section .btn-danger {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+form.ngxdatepicker::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    width: 0;
+    top: 13px;
+    height: 0;
+    border-top: 10px solid black;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    cursor: pointer;
+}

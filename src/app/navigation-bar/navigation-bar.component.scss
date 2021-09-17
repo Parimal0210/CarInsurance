@@ -1,0 +1,106 @@
+.navbar #fiftylogo {
+    background-color: #000000;
+    height: 64px;
+    width: 150px;
+    padding: 20px;
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.navbar {
+    /*position: absolute; */
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3 rem;
+    display: flex;
+    align-items: center;
+    background-color: #282828;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 0.5 rem;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.navbar #navbarDropdownMenuLink {
+    color: #ffffff;
+    /* font-weight: 600; */
+    position: relative;
+    padding: 10px;
+    padding-right: 14px;
+    font-size: 14px;
+    text-align: right;
+}
+
+.rightMenu .dropdown-toggle::after {
+    border: none;
+    position: absolute;
+    content: "";
+    font-family: FontAwesome;
+    right: 0;
+    top: 18px;
+}
+
+leftMenu .navbar-nav .nav-link {
+    font-weight: 600;
+    border-bottom: #282828 solid 4px;
+}
+
+.navbar svg {
+    margin: 0 1 rem;
+}
+
+.nav-item {
+    color: #ffffff;
+    /*border-bottom: #EE1234 solid 1px; */
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    padding: 18px 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.navbar-dark .navbar-nav .active>.nav-link,
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link.show {
+    border-bottom: #EE1234 solid 4px;
+}
+
+.leftMenu .nav-link:hover {
+    border-bottom: #EE1234 solid 4px;
+    color: #ffffff;
+}
+
+.navbar-dark .navbar-nav.leftMenu .nav-item .nav-link:focus,
+.navbar-dark .navbar-nav.leftMenu .nav-item .nav-link:hover {
+    border-bottom: #EE1234 solid 4px;
+    color: #ffffff !important;
+}
+
+.RightDropDown {
+    left: inherit;
+    right: 0;
+}
+
+.ml-auto {
+    position: absolute;
+    right: 0;
+}
+
+.username {
+    display: block;
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.slide {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    /* width: calc(); */
+    height: 3px;
+    background-color: #ee1234;
+    transition: .5s;
+}

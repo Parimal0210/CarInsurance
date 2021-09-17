@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <span class="logo-bg" id="fiftylogo">
+  <img src="assets/Images/50Fifty Logo White.svg" width="100" height="30"  />
+</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/main-dashboard">Dashboard <span class="sr-only" id="dashboard"></span></a>
+            </li>
+
+            <li class="nav-item ">
+                <!-- <a class="nav-link" href=""> <span class="sr-only" id="refund" [routerLink]="['/info-cards']"> Refund </span> </a> -->
+                <a class="nav-link" routerLink="/info-cards"> Refund<span class="sr-only" id="refund"> </span> </a>
+
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item dropdown text-right rightMenu">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          John Doe
+          <span class="username">Administrator</span>
+
+        </a>
+                <div class="dropdown-menu RightDropDown" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+        <!-- slider-->
+        <span class="slide"></span>
+    </div>
+</nav>

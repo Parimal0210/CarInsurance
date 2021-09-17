@@ -1,0 +1,187 @@
+<!-- <p>info-cards works!</p> -->
+
+
+<app-navigation-bar></app-navigation-bar>
+<!-- <app-cust-policy-saving-cards></app-cust-policy-saving-cards> -->
+<div class="container rateBoxWarp">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="rateBox">
+                <h2>Customers</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>1292
+                            <span>As of Nov 20, 2019</span>
+                        </h3>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <h3>76
+                            <span>MTD Nov 2019</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="rateBox">
+                <h2>Policies</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>2043
+                            <span>As of Nov 20, 2019</span>
+                        </h3>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <h3>98
+                            <span>MTD Nov 2019</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="rateBox">
+                <h2>Customer Savings</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>R 320k
+                            <span>As of Nov 20, 2019</span>
+                        </h3>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <h3>R 23k
+                            <span>MTD Nov 2019</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="rateBox">
+                <h2>Not Decided Yet</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>134
+                            <span>As of Nov 20, 2019</span>
+                        </h3>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <h3>94
+                            <span>MTD Nov 2019</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="middleArea">
+                <div class="headingArea">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h2>Refund</h2>
+                        </div>
+                        <div class="col-md-8 text-right">
+                            <div class="row">
+                                <div class="col-md-4 p-0">
+                                    <div class="dropdown">
+                                        <form class="ngxdatepicker">
+                                            <input [(ngModel)]="modelDate" autocomplete="off" class="form-control" name="date" bsDatepicker [bsConfig]="{dateInputFormat: 'MMMM YYYY'}" (onShown)="onOpenCalendar($event)" placeholder="May 2021"> {{modelDate}}
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="upload-year-doc-section">
+                                        <div class="input-group">
+                                            <!-- <label class="pl-10 form-control">Report.xlsx</label> -->
+                                            <span class="input-group-text" id="basic-addon2">
+                                                 <input type="file" class="" id="file" formControlName="jarUrl">
+                                           </span>
+                                        </div>
+                                        <button class="btn btn-danger ml-3" (click)="onUpload()">Upload</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <ul class="dateUl">
+                                    <li class="text-right">
+
+                                    </li>
+                                    <li class="upload-new-doc-file">
+
+                                    </li>
+                                </ul> -->
+
+
+                        </div>
+                    </div>
+                </div>
+                <!--table code here-->
+                <div class="tableStyle">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>CUSTOMER NAME</th>
+                                <th>POLICY NO.</th>
+                                <th>TOTAL PREMIUM</th>
+                                <th>Refund</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Uesugi Suzuki</td>
+                                <td>M 2586545-5659</td>
+                                <td>R 210</td>
+                                <td><span class="red">R 105</span></td>
+                            </tr>
+                            <tr>
+                                <td>Uesugi Suzuki</td>
+                                <td>M 2586545-5659</td>
+                                <td>R 210</td>
+                                <td><span class="red">R 105</span></td>
+                            </tr>
+                            <tr>
+                                <tr>
+                                    <td>Uesugi Suzuki</td>
+                                    <td>M 2586545-5659</td>
+                                    <td>R 210</td>
+                                    <td><span class="red">R 105</span></td>
+                                </tr>
+                                <tr>
+                                    <tr>
+                                        <td>Uesugi Suzuki</td>
+                                        <td>M 2586545-5659</td>
+                                        <td>R 210</td>
+                                        <td><span class="red">R 105</span></td>
+                                    </tr>
+                                    <tr>
+                                        <tr>
+                                            <td>Uesugi Suzuki</td>
+                                            <td>M 2586545-5659</td>
+                                            <td>R 210</td>
+                                            <td><span class="red">R 105</span></td>
+                                        </tr>
+                                        <tr>
+                                            <tr>
+                                                <td>Uesugi Suzuki</td>
+                                                <td>M 2586545-5659</td>
+                                                <td>R 210</td>
+                                                <td><span class="red">R 105</span></td>
+                                            </tr>
+                                            <tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--Table code ends-->
+            </div>
+        </div>
+    </div>
+</div>
