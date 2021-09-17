@@ -62,10 +62,10 @@ export class InfoCardsComponent implements OnInit {
 }
 
   constructor(private monthyear: UploadCheckExcelService, private fileUploadService: UploadExcelService) {
-    this.monthyear.get_CheckMonthYear().subscribe(data =>{
+    //this.monthyear.get_CheckMonthYear().subscribe(data =>{
      // alert("Excel File for Month Year = "+data);
-      console.warn("Check Excel File for Month Year = "+data);
-    })
+    //  console.warn("Check Excel File for Month Year = "+data);
+    //})
     //test code
    /*  this.UIForm = new FormGroup({
       CalMonth: new FormControl(moment()),
@@ -75,7 +75,7 @@ export class InfoCardsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onUpload() {
+  /* onUpload() {
         this.loading = !this.loading;
         console.log(this.file);
         this.fileUploadService.upload(this.file).subscribe(
@@ -91,7 +91,7 @@ export class InfoCardsComponent implements OnInit {
                 }
             }
         );
-    }
+    } */
 
 
 }

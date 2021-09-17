@@ -41,10 +41,10 @@ getLoginData(){
 
 }
 login_now(loginForm : NgForm){
-debugger;
+//debugger;
 let val1 = this.otp
 console.log("Value = "+val1);
-    const data = {
+   const data = {
   emailOrMobile: this.val,
   otpCode : val1,
   type: 'Registration'
@@ -66,10 +66,16 @@ console.log("Data in OTP = "+data)
   }
 
   ResendOTP(loginForm : NgForm){
-     this.auth.send_otp(loginForm.value).subscribe(
+    let val2 = this.otp;
+    const data = {
+  emailOrMobile: this.val,
+  otpCode : val2,
+  type: 'Registration'
+  };
+     this.auth.send_otp(data).subscribe(
       res => {
                 console.log("user is = "+res)
-                this.router.navigate(['/login-otp']);
+               // this.router.navigate(['/login-otp']);
        } ,
       err => console.log("something went wrong = "+err)
     )
