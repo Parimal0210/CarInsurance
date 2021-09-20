@@ -6,6 +6,7 @@ import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE} from '@angular/material/
 import * as moment from 'moment';
 import { FormControl, FormGroup } from '@angular/forms';
 import { UploadExcelService } from '../services/upload-excel.service';
+import { DatePipe } from '@angular/common';
 
 export const MY_FORMATS = {
   parse: {
@@ -16,6 +17,7 @@ export const MY_FORMATS = {
     monthYearLabel: 'MMMM YYYY', // this is showing on the calendar
   },
 };
+
 //
 @Component({
   selector: 'app-info-cards',
@@ -23,14 +25,7 @@ export const MY_FORMATS = {
   styleUrls: ['./info-cards.component.scss'],
 
   //test code
-   providers: [
-    {
-      provide: DateAdapter,
-      useClass: MomentDateAdapter,
-      deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
-    },
-
-    {provide: MAT_DATE_FORMATS, useValue: MY_FORMATS},
+   providers: [DatePipe
   ],
   //
 
@@ -39,6 +34,7 @@ export const MY_FORMATS = {
 export class InfoCardsComponent implements OnInit {
 
    modelDate = '';
+   currentDate = new Date();
   //UIForm: FormGroup;
 
    // Variable to store shortLink from api response
@@ -52,6 +48,11 @@ export class InfoCardsComponent implements OnInit {
      //ngxdatepicker.store.dispatch(ngxdatepicker._actions.select(event.date));
     ngxdatepicker.value = event.date;
     this.modelDate = ngxdatepicker.value;
+    //-------------------------
+    //  this.scope.getDatetime = function() {
+  //return (new Date).toLocaleFormat("%A, %B %e, %Y");
+
+    //------------------------
     return;
     };
     ngxdatepicker.setViewMode('month');
@@ -61,7 +62,9 @@ export class InfoCardsComponent implements OnInit {
     console.log($event.target.files[0]); // outputs the first file
 }
 
-  constructor(private monthyear: UploadCheckExcelService, private fileUploadService: UploadExcelService) {
+  constructor(private monthyear: UploadCheckExcelService, private fileUploadService: UploadExcelService,
+    private datePipe: DatePipe) {
+     // this.currentDate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
     //this.monthyear.get_CheckMonthYear().subscribe(data =>{
      // alert("Excel File for Month Year = "+data);
     //  console.warn("Check Excel File for Month Year = "+data);
