@@ -4,16 +4,25 @@ import { NavigationBarComponent } from '../navigation-bar/navigation-bar.compone
 import { CustPolicySavingCardsComponent } from '../cust-policy-saving-cards/cust-policy-saving-cards.component';
 import { RouterModule, Routes } from '@angular/router';
 import { InfoCardsComponent } from '../info-cards/info-cards.component';
+import { CardsComponent } from '../cards/cards.component';
 
-const routes: Routes = [{path: 'info-cards', component: InfoCardsComponent }]
+const routes: Routes = [
+  {path: 'info-cards', component: InfoCardsComponent },
+  // {path: 'cards', component: CardsComponent}
+]
 @NgModule({
-  declarations: [NavigationBarComponent
+  declarations: [
+    NavigationBarComponent,
+    CardsComponent
     //CustPolicySavingCardsComponent
   ],
   imports: [
     CommonModule,RouterModule.forRoot(routes)
   ],
- exports: [NavigationBarComponent
+ exports: [
+   NavigationBarComponent,
+   
+   CardsComponent
   //CustPolicySavingCardsComponent
 ],
  schemas:[CUSTOM_ELEMENTS_SCHEMA]

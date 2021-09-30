@@ -1,0 +1,78 @@
+<div class="container rateBoxWarp">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="rateBox">
+                <h2>Customers</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>{{totalCustomers}}
+                            <span>As of {{yesterday | date:'MMM dd yyyy'}}</span>
+                        </h3>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <h3>{{summary[0].customersCount}}
+                            <span>MTD {{modelDate | date:'MMM yyyy'}}</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+  
+        <div class="col-md-3">
+            <div class="rateBox">
+                <h2>Vehicles</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>{{totalVehicles}}
+                            <span>As of {{yesterday | date:'MMM dd yyyy'}}</span>
+                        </h3>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <h3>{{summary[0].vehiclesCount}}
+                            <span>MTD {{modelDate | date:'MMM yyyy'}}</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+      
+        <div class="col-md-3">
+            <div class="rateBox">
+                <h2>Refunds</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>R {{totalRefund}}
+                            <span>As of {{yesterday | date:'MMM dd yyyy'}}</span>
+                        </h3>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <h3>R {{summary[0].totalRefund}}
+                            <span>MTD {{modelDate | date:'MMM yyyy'}}</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+
+        <div class="col-md-3">
+            <div class="rateBox">
+                <h2>Not Decided Yet</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>134
+                            <span>As of Nov 20, 2019</span>
+                        </h3>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <h3>94
+                            <span>MTD Nov 2019</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

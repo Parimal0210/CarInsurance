@@ -21,12 +21,12 @@
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item dropdown text-right rightMenu">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          John Doe
+          {{currentUser | titlecase}}
           <span class="username">Administrator</span>
 
         </a>
                 <div class="dropdown-menu RightDropDown" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" (click) ="logoutAdmin()">Logout</a>
                     <a class="dropdown-item" href="#">Another action</a>
                     <a class="dropdown-item" href="#">Something else here</a>
                 </div>

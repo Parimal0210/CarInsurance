@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UploadExcelService {
-private upload_excelfile_url = "http://49.248.214.214:8080/rebate_data/uploadExcelFile";
+private upload_excelfile_url = "http://localhost:8080/rebate_data/uploadExcelFile";
 
 constructor(private httpClient: HttpClient) { }
 

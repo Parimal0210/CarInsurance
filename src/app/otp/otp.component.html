@@ -10,7 +10,7 @@
                     <p class="mb-4">Enter your OTP</p>
                 </div>
 
-                 <form class="form" #loginForm="ngForm" (ngSubmit)="login_now(loginForm)">
+                 <form class="form" #loginForm="ngForm" (ngSubmit)="login_now(loginForm.value)">
                 <div>
                     <div class="mb-3">
                         <label>OTP</label>

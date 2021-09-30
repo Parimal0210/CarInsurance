@@ -11,12 +11,20 @@ import { Router } from '@angular/router';
 export class NavigationBarComponent implements OnInit {
 
   //constructor(private router: Router) { }
+
+  currentUser: any;
 constructor(private router: Router) { }
   ngOnInit(): void {
+    this.currentUser = sessionStorage.getItem('currentLoggedInUser');
   }
 
   /*showRefunds(){
     this.router.navigate(['./app/info-cards']);
   }*/
+  logoutAdmin(){
+    localStorage.removeItem('token');
+    sessionStorage.removeItem('currentLoggedInUser');
+    this.router.navigate(['/']);
+  }
 
 }

@@ -39,7 +39,6 @@ export class LoginOtpComponent implements OnInit {
       res => {
                 //console.log("user is = "+loginForm.value)
                let UserData : any = loginForm.value;
-               console.log(UserData);
                 this.router.navigate(['/otp']/* ,{
                   queryParams: {UserData: JSON.stringify(UserData)}
                 } */

@@ -1,9 +1,8 @@
-<!-- <p>customer-dashboard works!</p> -->
 <app-navigation-bar></app-navigation-bar>
   <div class="header-customer container-fluid">
         <div class="container">
             <i class="fa fa-arrow-left"></i>
-            <h6> <span>Customer</span>Pablo Cambeiro</h6>
+            <h6> <span>Customer</span>{{cname}}</h6>
         </div>
     </div>
     <!-- head section end-->
@@ -14,19 +13,20 @@
             <div class="sumary-inner-area">
                 <ul>
                     <li class="active">
-                        <h6>50Fifty Summary <span>As of Nov 20, 2019</span></h6>
+                        <h6>50Fifty Summary <span ng-app ng-controller="Ctrl">As of {{myDate | date: 'mediumDate' }}
+                        </span></h6>
                     </li>
                     <li>
-                        <h6>5<span>Policies</span></h6>
+                        <h6>{{cpolicies}}<span>Policies</span></h6>
                     </li>
                     <li>
-                        <h6>R 42000 <span>Total Base Premium</span></h6>
+                        <h6>{{ctotalBasePremium}} <span>Total Base Premium</span></h6>
                     </li>
                     <li>
-                        <h6>R 30000 <span>Total Premium Paid</span></h6>
+                        <h6>0.0 <span>Total Savings</span></h6>
                     </li>
                     <li>
-                        <h6>R 12000 <span>Total Savings</span></h6>
+                        <h6>{{ctotalPremiumPaid}} <span>Total Premium Paid</span></h6>
                     </li>
                 </ul>
             </div>
@@ -66,38 +66,17 @@
                                 <thead>
                                     <tr>
                                         <th>VEHICLES</th>
+                                        <th>MANUFACTURER YEAR</th>
                                         <th>POLICY NO</th>
                                         <th>BASE PREMIUM</th>
-                                        <th>RENEWAL</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td> <img src="assets/Images/bmw-logo.png" class="product-icon" alt="brand"> <h6> BDB 382 EC <span>Mercedes E Class Wagon</span> </h6></td>
-                                        <td>43242534</td>
-                                        <td>R 1 200.00</td>
-                                        <td>S12 Oct 2019</td>
-                                    </tr>
-                                    <tr>
-                                        <td> <img src="assets/Images/bmw-logo.png" class="product-icon" alt=""> <h6> BDB 382 EC <span>Mercedes E Class Wagon</span> </h6></td>
-                                        <td>43242534</td>
-                                        <td>R 1 200.00</td>
-                                        <td>S12 Oct 2019</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td> <img src="assets/Images/bmw-logo.png" class="product-icon" alt=""> <h6> BDB 382 EC <span>Mercedes E Class Wagon</span> </h6></td>
-                                        <td>43242534</td>
-                                        <td>R 1 200.00</td>
-                                        <td>S12 Oct 2019</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td> <img src="assets/Images/bmw-logo.png" class="product-icon" alt=""> <h6> BDB 382 EC <span>Mercedes E Class Wagon</span> </h6></td>
-                                        <td>43242534</td>
-                                        <td>R 1 200.00</td>
-                                        <td>S12 Oct 2019</td>
-                                    </tr>
+                                    <tr  *ngFor="let cp of customerPolicies">
+                                        <td> <img src="{{cp.imagePath}}" class="product-icon" alt="brand"> <h6> {{cp.licensePlateNumber}} <span>{{ cp.model}}</span> </h6></td>
+                                       <td>{{ cp.manufacturerYear}}</td>
+                                       <td>{{ cp.policyNumber}}</td>
+                                       <td >{{ cp.basePremium}}</td>
                                     <tr>
                                 </tbody>
                             </table>
@@ -121,22 +100,28 @@
                   <div class="customer-details">
                       <ul>
                           <li>
-                              <h6><span>NAME</span>Yasaman Foroutan</h6>
+                              <h6><span>NAME</span>{{cname}}</h6>
                            </li>
                           <li>
-                               <h6><span>EMAIL</span>sanford.marcella@yahoo.com</h6>
+                               <h6><span>EMAIL</span>{{cemail}}</h6>
                            </li>
                            <li>
-                               <h6><span>PHONE</span>775-143-9291</h6>
+                               <h6><span>MOBILE NUMBER</span>{{cmobileNumber}}</h6>
                            </li>
                            <li>
-                               <h6><span>ADDRESS</span>2242 Carey Street Apt. 125 Johannesburg SA 343231</h6>
+                               <h6><span>ADDRESS</span>{{caddress1}}</h6>
                            </li>
                            <li>
-                               <h6><span>ID NUMBER</span>543534232</h6>
+                               <h6><span>CITY</span>{{ccity}}</h6>
                            </li>
                            <li>
-                               <h6><span>OCCUPATION</span>Businessman</h6>
+                               <h6><span>PROVINCE</span>{{cprovince}}</h6>
+                           </li>
+                           <li>
+                               <h6><span>POSTAL CODE</span>{{cpostalCode}}</h6>
+                           </li>
+                           <li>
+                               <h6><span>ID NUMBER</span>{{cidNumber}}</h6>
                            </li>
                        </ul>
                    </div>

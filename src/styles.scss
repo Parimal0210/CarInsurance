@@ -1,8 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-body {
-    font-family: 'DM Sans', sans-serif;
-}
+
 
 
 /*
@@ -294,4 +292,327 @@ form.ngxdatepicker::after {
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     cursor: pointer;
+}
+
+/*font-family: 'Poppins', sans-serif;
+font-family: 'Roboto', sans-serif;*/
+
+ul{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+a{
+    transition:all 0.5s;
+}
+
+a:hover{
+    text-decoration:none;
+    outline:none;
+}
+
+a:focus{
+    outline:none;
+    text-decoration:none;
+    outline-offset:inherit;
+}
+
+body{
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    background: #00000033;
+}
+
+.rateBoxWarp {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.rateBox {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 20px #0000000D;
+    border-radius: 5px;
+    padding: 16px;
+}
+
+.rateBox h2 {
+    color: #282828;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.rateBox h3{
+    color: #282828;
+    font-size: 25px;
+}
+
+.rateBox h3 span {
+    display: block;
+    color: #282828;
+    font-size: 10px;
+    opacity: 0.5;
+    font-weight: 400;
+}
+
+.middleArea {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 10px 20px #0000000D;
+    border-radius: 5px;
+}
+
+.dateUl li {
+    display: inline-block;
+    margin-left: 18px;
+}
+
+.dateList {
+    color: #24282A;
+    font-size: 14px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.uploadBtn{
+    background: #EE1234;
+    box-shadow: 0px 10px 20px #0000000D;
+    border-radius: 5px;
+    border: #EE1234 solid 1px;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 6px 20px;
+    display: inline-block;
+}
+
+.headingArea {
+    padding: 20px;
+    border-bottom: #e9e9e9 solid 1px;
+}
+
+.headingArea h2 {
+    color: #282828;
+    font-size: 21px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.tableStyle {
+    padding: 20px;
+}
+
+.tableStyle .table thead th {
+    color: #282828;
+    opacity: 0.6;
+    font-size: 12px;
+    text-transform: capitalize;
+    border: none;
+    border-bottom: #e9e9e9 solid 1px;
+}
+
+.tableStyle .table td {
+    border: none;
+    border-bottom: #e9e9e9 solid 1px;
+    color: #282828;
+    font-size: 14px;
+}
+
+.tableStyle .table td .red{
+    color: #E81D2C;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* customer page */
+
+.header-customer{
+    margin: 30px 0 17px;
+}
+
+.header-customer i{
+    width: 25px;
+    height: 42px;
+    background: #E6E6E6;
+    display: inline-block;
+    border-radius: 3px;
+    opacity: 1;
+    color: #E81D2C;
+    padding: 14px 0;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 12px;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+
+.header-customer h6{
+    display: inline-block;
+    margin-bottom: 0;
+    color: #282828;
+    letter-spacing: 0.14px;
+    font-size: 24px;
+    font-weight: 600;
+    opacity: 1;
+}
+
+.header-customer span{
+    display: block;
+    font-weight: normal;
+    color: #282828;
+    font-size: 16px;
+}
+
+
+.sumary-inner-area{
+    background: #fff;
+    margin-bottom: 30px;
+    border-radius: 5px 0px 0px 5px;
+opacity: 1;
+box-shadow: 0px 10px 20px #0000000D;
+}
+
+.sumary-inner-area ul li{
+    display: inline-block;
+    width: 19.50%;
+    text-align: center;
+    padding: 23px 0 21px;
+}
+.sumary-inner-area ul li h6{
+    margin-bottom: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+.sumary-inner-area ul li span{
+    display: block;
+    font-size: 10px;
+    color: #282828;
+    padding-top: 4px;
+    font-weight: normal;
+}
+
+.sumary-inner-area ul li.active{
+    background: #282828;
+    border-radius: 3px 0 0 3px;
+    color: #fff;
+}
+
+
+.sumary-inner-area ul li.active span{
+    color: #fff;
+}
+
+.sumary-inner-area ul li:last-child{
+    color: #25BA2A;
+}
+
+.table-section .dateUl i{
+    cursor: pointer;
+}
+
+.table-section img{
+    height: 32px;
+    width: 32px;
+    margin-right: 12px;
+    vertical-align: top;
+}
+
+.table-section h6{
+    display: inline-block;
+    margin-bottom: 0;
+}
+.table-section span{
+    display: block;
+    font-size: 10px;
+    counter-reset: #282828;
+}
+
+.table-section h2{
+    font-size: 16px;
+}
+.table-section td{
+    vertical-align: top!important;
+}
+
+.table-section table{
+    margin-bottom: 0;
+}
+
+
+.table-section .tableStyle .table tr:last-child td{
+    border-bottom: none!important;
+}
+
+.customer-details{
+    padding: 20px;
+}
+.customer-details li{
+    margin-bottom: 12px;
+}
+.customer-details span {
+    display: inline-block;
+    width: 100px;
+    font-size: 12px;
+    opacity: 0.6;
+    color: #282828;
+}
+
+.customer-details h6 {
+    font-size: 14px;
+}
+ul.dateUl span.red {
+    font-size: 14px;
+    color: #e81d2c;
+    letter-spacing: 0.26px;
+}
+
+.otp-table .red{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.data-not-found-section .upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.data-not-found-section .btn {
+  border: 1px solid #dc3545;
+  background-color: #dc3545;
+  padding: 4px 20px;
+  border-radius: 6px;
+  height: 36px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.data-not-found-section .upload-btn-wrapper input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.data-not-found-section p {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.data-not-found-section {
+  text-align: center;
+  padding: 30px;
+}
+
+.modal-footer {
+  text-align: center;
+  margin: auto;
+}
+
+.modal-footer .btn {
+  width: 97px;
+  margin-left: 20px;
 }
