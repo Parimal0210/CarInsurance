@@ -36,7 +36,7 @@ export class InfoCardsComponent implements OnInit {
   modelDate : Date | any;
   yesterday : Date;
   datePicker: Partial<BsDatepickerConfig> | any;
-  statusMessage : String;
+  statusMessage : string;
   statusMessageDone : String;
   dateCustomClasses: DatepickerDateCustomClasses[] | any;
 
@@ -215,40 +215,51 @@ flag:Boolean =false;
         formData.append("file", this.file, this.file.name);
 
 
-        this._service1.post_uploadExcelFile(formData).subscribe(
-            (event: any) => {
-                if (typeof (event) === 'object') {
-  
-                    // Short link via api response
-                    this.shortLink = event.link;
-  
-                    this.loading = false; // Flag variable 
-                }
-                this.filePath = event.response
-                console.log("File path: "+this.filePath)
-                
-            },error =>{
-              console.log(error)
-            }
-        );
-       // this.filePath="D:\\iSynergy\\LCI_NEW\\reports\\F0942F20.xlsx"
-          this._service1.post_addRebateData(this.filePath).subscribe((data:any) => {
-            if(data.statusCode == 200){
-              this.statusMessageDone = data.statusMessage;
-              console.log("Status: "+this.statusMessageDone)
+        this._service1.get_CheckMonthYear().subscribe((data:any)=>{
 
-              this._service.get_RefundData(this.modelDate.getMonth()+1,this.modelDate.getFullYear()).subscribe((data:any)=>{
-                this.refunds = data.response;
-                             
-              },(error) => {
-                this.statusMessage = error.error.statusMessage;
-                console.log("Error: "+this.statusMessage)
-              })
-            }
-          },(error) => {                
-              this.statusMessage = error.error.statusMessage;
-              console.log("Error: "+this.statusMessage)
-          })
+          if(data.statusCode == 200 && !data.response){
+
+            this._service1.post_uploadExcelFile(formData).subscribe(
+              (event: any) => {
+                  if (typeof (event) === 'object') {
+    
+                      // Short link via api response
+                      this.shortLink = event.link;
+    
+                      this.loading = false; // Flag variable 
+                  }
+                  this.filePath = event.response
+                  console.log("File path: "+this.filePath)
+  
+                  console.log("File path main: "+this.filePath)
+                  this._service1.post_addRebateData(this.filePath).subscribe((data:any) => {
+                    if(data.statusCode == 200){
+                      this.statusMessageDone = data.statusMessage;
+                      console.log("Status: "+this.statusMessageDone)
+        
+                      this._service.get_RefundData(this.modelDate.getMonth()+1,this.modelDate.getFullYear()).subscribe((data:any)=>{
+                        this.refunds = data.response;
+                                     
+                      },(error) => {
+                        this.statusMessage = error.error.statusMessage;
+                        console.log("Error: "+this.statusMessage)
+                      })
+                    }
+                  },(error) => {                
+                      this.statusMessage = error.error.statusMessage;
+                      console.log("Error1: "+this.statusMessage)
+                  })
+                  
+              },error =>{
+                console.log(error)
+              }
+          )
+
+          }else if(data.statusCode == 200 && data.response){
+            this.statusMessage = "Data of current month already exists!";
+            console.log("Error2: "+this.statusMessage)
+          }
+        })      
 
   }
 

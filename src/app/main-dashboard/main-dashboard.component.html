@@ -90,6 +90,7 @@
                     <td>{{ customer.policies }}</td>
                     <td>{{ customer.amount }}</td>
                     <td>{{ customer.createdDate }}</td>
+
                   </tr>
                 </tbody>
               </table>
@@ -138,11 +139,12 @@
                         | paginate: { itemsPerPage: 10, currentPage: potps }
                     "
                   >
-                    <td>{{ o.customerName | titlecase }}</td>
+                    <td>{{ o.name | titlecase }}</td>
                     <td>{{ o.email }}</td>
-                    <td>{{ o.phoneNumber }}</td>
-                    <td>{{ o.otpCode }}</td>
+                    <td>{{ o.mobileNumber }}</td>
+                    <td>{{ o.code }}</td>
                     <td>{{ o.expiryDate }}</td>
+
                   </tr>
                 </tbody>
               </table>

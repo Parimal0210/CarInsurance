@@ -1,15 +1,17 @@
 export class Otp {
-    customerName:string;
+    name:string;
     email: string;
-    phoneNumber: number;
-    otpCode: number;
+    mobileNumber: number;
+    code: number;
     expiryDate: string;
+    expiry:number;
         
-    constructor(customerName: string, email: string,  phoneNumber: number, otpCode: number, expiryDate: string){
-        this.customerName = customerName;
+    constructor(name: string, email: string,  mobileNumber: number, code: number, expiryDate: string,expiry:number){
+        this.name = name;
         this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.otpCode = otpCode;
+        this.mobileNumber = mobileNumber;
+        this.code = code;
         this.expiryDate = expiryDate;
+        this.expiry = expiry;
     }
 }
