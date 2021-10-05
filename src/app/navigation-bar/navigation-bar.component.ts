@@ -12,6 +12,14 @@ export class NavigationBarComponent implements OnInit {
 
   //constructor(private router: Router) { }
 
+  selectOption:boolean =false;
+  selectRefund(){
+    this.selectOption = true;
+  }
+  selectDashboard(){
+    this.selectOption = false
+  }
+
   currentUser: any;
 constructor(private router: Router) { }
   ngOnInit(): void {

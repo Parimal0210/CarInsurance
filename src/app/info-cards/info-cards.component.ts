@@ -32,8 +32,9 @@ import { RefundData } from 'src/RefundData';
 export class InfoCardsComponent implements OnInit {
  //date = new FormControl(moment());
 
-
+  errorMessage: String = "\n\nPlease rectify the error and upload the file again.";
   modelDate : Date | any;
+  today: Date;
   yesterday : Date;
   datePicker: Partial<BsDatepickerConfig> | any;
   statusMessage : string;
@@ -47,52 +48,52 @@ export class InfoCardsComponent implements OnInit {
 //-------------------------------------------------------------------
 //graph data
 //title = 'Char api';
-title1 = 'Customer';  
-title2 = 'Vehicles'; 
-title3 = 'Refund'; 
+// title1 = 'Customer';  
+// title2 = 'Vehicles'; 
+// title3 = 'Refund'; 
 
-type = 'AreaChart';  
+// type = 'AreaChart';  
 
-data1 = new Array <number[]>();
-data2 = new Array <number[]>();
-data3 = new Array <number[]>();
-//data1 : Array<{summaryDataId: number, customersCount: number}>=[];
+// data1 = new Array <number[]>();
+// data2 = new Array <number[]>();
+// data3 = new Array <number[]>();
+// //data1 : Array<{summaryDataId: number, customersCount: number}>=[];
 
-data = [  
-  ['Name1', 5.0],  
-  ['Name2', 36.8],  
-  ['Name3', 42.8],  
-  ['Name4', 18.5],  
-  ['Name5', 16.2]  
-]; 
+// data = [  
+//   ['Name1', 5.0],  
+//   ['Name2', 36.8],  
+//   ['Name3', 42.8],  
+//   ['Name4', 18.5],  
+//   ['Name5', 16.2]  
+// ]; 
 
-options = {      
-  curveType: 'function',
-  smoothLine:'true', 
-  legend: { position: 'bottom' },
-   vAxis: {
-    gridlines: {
-        color: 'transparent'
-    },
-    textPosition: 'none',
-},
-  hAxis: {
-    gridlines: {
-      color: 'transparent'
-  },
-  textPosition: 'none'
-},
-};  
-width = 300;  
-height = 300;  
+// options = {      
+//   curveType: 'function',
+//   smoothLine:'true', 
+//   legend: { position: 'bottom' },
+//    vAxis: {
+//     gridlines: {
+//         color: 'transparent'
+//     },
+//     textPosition: 'none',
+// },
+//   hAxis: {
+//     gridlines: {
+//       color: 'transparent'
+//   },
+//   textPosition: 'none'
+// },
+// };  
+// width = 300;  
+// height = 300;  
 
-summaryAll : TotalSummaryData;
+// summaryAll : TotalSummaryData;
 
-totalCustomers : Number;
-totalVehicles : Number;
-totalRefund : Number;
+// totalCustomers : Number;
+// totalVehicles : Number;
+// totalRefund : Number;
 
-summary : SummaryData[];
+// summary : SummaryData[];
 //-------------------------------------------------------------------
  /* chosenYearHandler(normalizedYear: Moment) {
     const ctrlValue = this.date.value;
@@ -161,41 +162,7 @@ summary : SummaryData[];
     })
   }
 
-  getChart(){
-    this._service.getGraphData().subscribe((data:any) =>{
-      console.log(data)
-      this.summaryAll = data.response;
-      this.summary = this.summaryAll.allSummaryDatas
-      console.log("Response: "+this.summary);
-
-    this.totalCustomers = this.summaryAll.totalCustomerCount;
-    this.totalVehicles = this.summaryAll.totalVehicleCount;
-    this.totalRefund = this.summaryAll.totalRefundAmount;
-
-    console.log("Customers: "+this.totalCustomers);
-      // this.summary.forEach((x:SummaryData) => {
-      //   this.data1.push({summaryDataId: x.summaryDataId,customersCount:x.customersCount})
-      // })
-      this.summary.forEach((x:SummaryData) =>{
-       let arr = new Array(x.summaryDataId,x.customersCount)
-        this.data1.push(arr)
-      })
-      console.log("data1"+this.data1)
-
-      this.summary.forEach((x:SummaryData) => {
-        let arr = new Array(x.summaryDataId,x.vehiclesCount)
-        this.data2.push(arr)
-      })
-      console.log(this.data2)
-
-      this.summary.forEach((x:SummaryData) => {
-        let arr = new Array(x.summaryDataId,x.totalRefund)
-        this.data3.push(arr)
-      })
-      console.log(this.data3)
-    })
-
-  }
+ 
 
   shortLink: string = "";
   loading: boolean = false; // Flag variable
@@ -213,11 +180,6 @@ flag:Boolean =false;
         const formData = new FormData();
 
         formData.append("file", this.file, this.file.name);
-
-
-        this._service1.get_CheckMonthYear().subscribe((data:any)=>{
-
-          if(data.statusCode == 200 && !data.response){
 
             this._service1.post_uploadExcelFile(formData).subscribe(
               (event: any) => {
@@ -253,13 +215,7 @@ flag:Boolean =false;
               },error =>{
                 console.log(error)
               }
-          )
-
-          }else if(data.statusCode == 200 && data.response){
-            this.statusMessage = "Data of current month already exists!";
-            console.log("Error2: "+this.statusMessage)
-          }
-        })      
+          )    
 
   }
 
@@ -268,13 +224,12 @@ flag:Boolean =false;
 
   ngOnInit(): void {
 
-    
+    this.today = new Date()
 
     this.modelDate = new Date()
     this.yesterday = new Date();
     this.yesterday.setDate(this.yesterday.getDate()-1);
 
-    this.getChart();
     
     this.getAllData(this.modelDate);
 

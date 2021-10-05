@@ -101,3 +101,32 @@ body{
 .tableStyle .table td .red{
     color: #E81D2C;
 }
+.close-button {
+  background: #d73e4d;
+        background: rgba(215, 62, 77, 0.75);
+        border: 0 none !important;
+        color: #fff7cc;
+        display: inline-block;
+        float: right;
+        font-size: 34px;
+        height: 40px;
+        line-height: 1;
+        margin: 0px 1px;
+        opacity: 1;
+        text-align: center;
+        text-shadow: none;
+        -webkit-transition: background 0.2s ease-in-out;
+        transition: background 0.2s ease-in-out;
+        vertical-align: top;
+        width: 46px;
+}
+
+.topright {
+  position: absolute;
+  right: 0;
+  top: 0
+}
+
+.no-border{
+  border:none;
+}
