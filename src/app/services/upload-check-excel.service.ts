@@ -17,15 +17,17 @@ const httpOptions = {
 })
 
 export class UploadCheckExcelService {
-private excelfile_api = `${environment.apiUrl}/uploadExcelFile`;
-private check_monthyear_api = `${environment.apiUrl}/checkMonthYear`;
+
 
 // private check_excelFile_url = "http://49.248.214.214:8080/rebate_data/checkMonthYear";
 // private upload_excelfile_url = "http://49.248.214.214:8080/rebate_data/uploadExcelFile";
 
-private check_excelFile_url = "http://localhost:8080/rebate_data/checkMonthYear";
-private upload_excelFile_url = "http://localhost:8080/rebate_data/uploadExcelFile";
-private add_rebateData_url = "http://localhost:8080/rebate_data/getRebateData";
+private baseApiUrl="http://49.248.214.214:8080/rebate_data/";
+//private baseApiUrl = "http://localhost:8080/rebate_data/"
+
+private check_excelFile_url = this.baseApiUrl+"checkMonthYear";
+private upload_excelFile_url = this.baseApiUrl+"uploadExcelFile";
+private add_rebateData_url = this.baseApiUrl+"getRebateData";
 
   constructor(private http: HttpClient) { }
 

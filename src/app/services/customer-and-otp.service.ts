@@ -7,6 +7,8 @@ import { HttpParams, HttpClient } from '@angular/common/http';
 })
 export class CustomerAndOtpService {
 
+  private baseApiUrl="http://49.248.214.214:8080/rebate_data/";
+  //private baseApiUrl="http://localhost:8080/rebate_data/";
   constructor(private _http: HttpClient) { }
 
   getToken(){
@@ -14,11 +16,11 @@ export class CustomerAndOtpService {
   }
 
   public latestOtp():Observable<any>{
-    return this._http.get<any>("http://localhost:8080/rebate_data/getOtpList");
+    return this._http.get<any>(this.baseApiUrl+"getOtpList");
   }
 
   public customerInfo():Observable<any>{
-    return this._http.get<any>("http://localhost:8080/rebate_data/getCustomerInfo");
+    return this._http.get<any>(this.baseApiUrl+"getCustomerInfo");
   }
 
 
@@ -26,7 +28,7 @@ export class CustomerAndOtpService {
     const httpOptions = {
       params: { fname, lname}
   };
-    return this._http.get<any>("http://localhost:8080/rebate_data/getCustomerDetails", httpOptions);
+    return this._http.get<any>(this.baseApiUrl+"getCustomerDetails", httpOptions);
   }
 
   
@@ -34,11 +36,11 @@ export class CustomerAndOtpService {
     const httpOptions = {
       params: { fname, lname}
   };
-    return this._http.get<any>("http://localhost:8080/rebate_data/getPolicyDetails", httpOptions);
+    return this._http.get<any>(this.baseApiUrl+"getPolicyDetails", httpOptions);
   }
 
   public getRefundEachData(customerId: number):Observable<any>{
-    return this._http.get<any>(`http://localhost:8080/rebate_data/displayEachRefundData/${customerId}`);
+    return this._http.get<any>(this.baseApiUrl+"displayEachRefundData/"+customerId);
   }
  
 
