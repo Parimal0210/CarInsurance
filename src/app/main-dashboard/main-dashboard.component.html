@@ -64,7 +64,7 @@
             </div>
 
             <div class="tableStyle">
-              <table class="table">
+              <table class="table table-hover">
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -85,7 +85,7 @@
                         routerLink="/customer-dashboard"
                          >
 
-                   <td  id="customerName" >{{ customer.name }}</td>
+                   <td  id="customerName" >{{ customer.name | titlecase}}</td>
                     <td>{{ customer.vehicles }}</td>
                     <td>{{ customer.policies }}</td>
                     <td>{{ customer.amount }}</td>

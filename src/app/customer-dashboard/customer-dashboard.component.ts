@@ -32,6 +32,7 @@ export class CustomerDashboardComponent implements OnInit {
   cpolicies: any;
   ctotalBasePremium: any;
   ctotalPremiumPaid: any;
+  ctotalSaving: any;
 
   constructor(
     private _service: CustomerAndOtpService,
@@ -59,7 +60,9 @@ export class CustomerDashboardComponent implements OnInit {
         this.cpolicies = this.customerPolicies[0].policies;
         this.ctotalBasePremium = this.customerPolicies[0].totalBasePremium;
         this.ctotalPremiumPaid = this.sessionamount;
+        this.ctotalSaving = this.customerPolicies[0].totalSaving;
 
+        console.log("Policies: ");
         console.log(this.customerPolicies);
         console.log(this.cpolicies+" "+this.ctotalBasePremium);
       });

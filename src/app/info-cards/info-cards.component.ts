@@ -17,6 +17,8 @@ import { GetRebateDataService } from '../services/get-rebatedata.service';
 import { TotalSummaryData } from 'src/TotalSummaryData';
 import { SummaryData } from 'src/SummaryData';
 import { RefundData } from 'src/RefundData';
+import { CustomerAndOtpService } from '../services/customer-and-otp.service';
+import { RefundEachData } from 'src/RefundEachData';
 
   
  const moment = _rollupMoment || _moment;
@@ -108,6 +110,16 @@ export class InfoCardsComponent implements OnInit {
     datepicker.close();
   } */
 
+  //tableData
+  refundEachDatas: RefundEachData[];
+  isDisplay = false;
+  isShown = false;
+
+  toggleDisplay(){
+    this.isDisplay = ! this.isDisplay;
+    this.isShown = true;
+  }
+
 //----------------------------------------------------------------
   onOpenCalendar(ngxdatepicker: any) {
   //  debugger;
@@ -131,7 +143,7 @@ export class InfoCardsComponent implements OnInit {
     console.log($event.target.files[0]); // outputs the first file
   }
 
-  constructor(public datepipe: DatePipe,private _service: GetRebateDataService,private _service1: UploadCheckExcelService
+  constructor(public datepipe: DatePipe,private _service: GetRebateDataService,private _service1: UploadCheckExcelService,private _service2: CustomerAndOtpService
     ) {
 
    this.fetchedDate = this.datepipe.transform(this.fetchedDate, 'MMMM YYYY')
@@ -221,6 +233,15 @@ flag:Boolean =false;
 
   refunds: RefundData[];
 
+  getValueOfTd(rowCustomerId: any){
+
+    this._service2.getRefundEachData(rowCustomerId).subscribe((data: any)=>{
+      this.refundEachDatas = data.response;
+      console.log("Customer Each Policy Details for Customer Id: "+rowCustomerId);
+      
+      console.log(this.refundEachDatas);
+    });
+  }
 
   ngOnInit(): void {
 

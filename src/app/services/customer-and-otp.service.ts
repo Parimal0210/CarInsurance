@@ -37,6 +37,9 @@ export class CustomerAndOtpService {
     return this._http.get<any>("http://localhost:8080/rebate_data/getPolicyDetails", httpOptions);
   }
 
+  public getRefundEachData(customerId: number):Observable<any>{
+    return this._http.get<any>(`http://localhost:8080/rebate_data/displayEachRefundData/${customerId}`);
+  }
  
 
 }
