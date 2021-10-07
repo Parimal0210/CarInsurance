@@ -16,5 +16,8 @@
         "titleBar.inactiveForeground": "#e7e7e799"
     },
     "peacock.color": "#050400",
-    "editor.linkedEditing": true
+    "editor.linkedEditing": true,
+    "cSpell.words": [
+        "tutuka"
+    ]
 }

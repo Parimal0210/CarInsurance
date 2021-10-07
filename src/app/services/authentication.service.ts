@@ -12,7 +12,7 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
 
-    // public apiurl = "http://49.248.214.214:8080/customerLogin";
+    //public apiurl = "http://49.248.214.214:8080/customerLogin";
     public apiurl = "http://localhost:8080/customerLogin";
 
   emailData = {};

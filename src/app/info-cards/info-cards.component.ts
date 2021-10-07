@@ -169,7 +169,7 @@ export class InfoCardsComponent implements OnInit {
     console.log(date.getMonth()+1+" "+date.getFullYear())
     this._service.get_RefundData(date.getMonth()+1,date.getFullYear()).subscribe((data) => {
       this.refunds = data.response;
-        console.log("Response1: "+this.refunds)
+        console.log(this.refunds)
         console.log("Count: "+this.refunds.length)
     })
   }

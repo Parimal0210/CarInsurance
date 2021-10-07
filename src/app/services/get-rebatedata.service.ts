@@ -15,9 +15,9 @@ export class GetRebateDataService {
 // private check_excelFile_url = "http://49.248.214.214:8080/rebate_data/checkMonthYear";
 // private upload_excelfile_url = "http://49.248.214.214:8080/rebate_data/uploadExcelFile";
 
-// private baseApiUrl="http://49.248.214.214:8080/rebate_data/";
-private baseApiUrl = "http://localhost:8080/rebate_data/";
-// private get_rebateData_url = "http://49.248.214.214:8080/rebate_data/displayRefundData";
+//private baseApiUrl="http://49.248.214.214:8080/rebate_data/";
+private baseApiUrl = "http://localhost:8080/rebate_data/"
+// private get_rebateData_url = "http://49.248.214.214:8080/rebate_data/displayRefundData";s
 
 private get_rebateData_url = this.baseApiUrl+"displayRefundData";
 private get_chart_url = this.baseApiUrl+"getChartData";
