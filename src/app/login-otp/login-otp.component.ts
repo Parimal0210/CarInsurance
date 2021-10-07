@@ -22,10 +22,6 @@ export class LoginOtpComponent implements OnInit {
   ngOnInit(): void {
 
   }
-/* UserData = new FormGroup( {
-      emailOrMobile : new FormControl(''),
-      type : new FormControl('')
-    }) */
 
     GetOTP(loginForm: NgForm){
 
