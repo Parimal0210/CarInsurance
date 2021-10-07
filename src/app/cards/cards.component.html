@@ -1,3 +1,4 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <div class="container rateBoxWarp">
     <div class="row">
         <div class="col-md-3">
@@ -16,9 +17,9 @@
                     </div>
                 </div>
             </div>
-           
+        
         </div>
-  
+      
         <div class="col-md-3">
             <div class="rateBox">
                 <h2>Vehicles</h2>
@@ -73,6 +74,16 @@
                     </div>
                 </div>
             </div>
+           
         </div>
     </div>
 </div>
+
+<google-chart #chart  
+[title]="title3"  
+[type]="type"  
+[data]="data"  
+[options]="options"  
+[width]="width"  
+[height]="height">  
+</google-chart>

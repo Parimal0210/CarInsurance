@@ -17,7 +17,7 @@
                         </div>
                         <div class="col-md-8 text-right">
                             <div class="row">
-                                <div class="col-md-11 p-0">
+                                <div class="col-md-10 p-0">
                                     <div class="dropdown">
                                       <!-- <mat-form-field appearance="fill">
   <mat-label>Month and Year</mat-label>
@@ -33,16 +33,18 @@
 
                                           <form class="ngxdatepicker">
                                              <input [(ngModel)]="modelDate" autocomplete="off" class="form-control" name="date"
-                                             bsDatepicker [bsConfig]="datePicker" [maxDate]="today" style="width: 200px; float: right; "
+                                             bsDatepicker [bsConfig]="datePicker" [maxDate]="today" style="width: 150px; float: right; "
                                              (onShown)="onOpenCalendar($event)"  [bsValue]="modelDate"/>
                                                 <!-- {{modelDate}} -->
-
+                                                
 
                                          </form>
-
                                     </div>
                                 </div>
-                             
+                                <div class="col-md-2">
+                                        <button class="btn btn-danger ml-3" style="float: right;"(click)="tutuka()">
+                                          Upload</button>
+                                </div>
                             </div>
                             <!-- <ul class="dateUl">
                                     <li class="text-right">
@@ -66,6 +68,9 @@
                                 <th>Policies</th>
                                 <th>Vehicles</th>
                                 <th>Refund</th>
+                                <th>Uploaded</th>
+                                <th>Uploaded On</th>
+                                <th>Upload Message</th>
                             </tr>
                         </thead>
                         <tbody *ngIf="refunds">
@@ -74,7 +79,10 @@
                                 <td>{{r.policyCount}}</td>
                                 <td>{{r.vehicles}}</td>
                                 <td><span class="red">R {{r.refund}}</span></td>
-                             </tr>
+                                <td>True</td>
+                                <td>{{today | date:'dd MMM yyyy HH:mm a'}}</td>
+                                <td>This information is uploaded successfully.Please verify it.Thank you.</td>
+                            </tr>
                            
                         </tbody><br><br>
                         <thead *ngIf="isShown">
@@ -108,7 +116,7 @@
                                    </span>
                                 </div> -->
                                 <button class="btn btn-secondary ml-1" data-toggle="modal" data-target="#exampleModal">
-                                  Upload File</button>
+                                  File Upload</button>
                             </div>
                         </div>
                     </div>

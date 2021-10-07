@@ -243,6 +243,7 @@ flag:Boolean =false;
     });
   }
 
+  tutuka(){}
   ngOnInit(): void {
 
     this.today = new Date()

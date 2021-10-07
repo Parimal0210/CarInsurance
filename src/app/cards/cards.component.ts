@@ -75,8 +75,8 @@ options = {
   textPosition: 'none'
 },
 };  
-width = 300;  
-height = 300;  
+width = 30;  
+height = 30;  
 
 
 summaryAll : TotalSummaryData;

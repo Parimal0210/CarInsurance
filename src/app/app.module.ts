@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { InfoCardsComponent } from './info-cards/info-cards.component';
-
+import { GoogleChartsModule } from 'angular-google-charts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,7 +14,6 @@ import { SharedModule } from './shared/shared.module';
 import { CustPolicySavingCardsComponent } from './cust-policy-saving-cards/cust-policy-saving-cards.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { HttpClientModule, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { UploadCheckExcelService } from './services/upload-check-excel.service';
 import { OtpComponent } from './otp/otp.component';
 import { LoginOtpComponent } from './login-otp/login-otp.component';
 import { AuthenticationService } from './services/authentication.service';
@@ -48,7 +47,8 @@ import { DatePipe } from '@angular/common';
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
     SharedModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    GoogleChartsModule,
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
