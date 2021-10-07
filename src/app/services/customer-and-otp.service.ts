@@ -7,8 +7,8 @@ import { HttpParams, HttpClient } from '@angular/common/http';
 })
 export class CustomerAndOtpService {
 
-  private baseApiUrl="http://49.248.214.214:8080/rebate_data/";
-  //private baseApiUrl="http://localhost:8080/rebate_data/";
+  // private baseApiUrl="http://49.248.214.214:8080/rebate_data/";
+  private baseApiUrl="http://localhost:8080/rebate_data/";
   constructor(private _http: HttpClient) { }
 
   getToken(){
