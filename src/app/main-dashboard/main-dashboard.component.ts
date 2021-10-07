@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { Customer } from 'src/customer';
-import { CustomerDetails } from 'src/CustomerDetails';
-import { CustomerPolicy } from 'src/customerpolicy';
-import { Otp } from 'src/otp';
-import { CustomerAndOtpService } from '../services/customer-and-otp.service';
+import { Customer } from '../models/customer';
+import { CustomerDetails } from '../models/CustomerDetails';
+import { CustomerPolicy } from '../models/customerpolicy';
+import { Otp } from '../models/otp';
+import { AdminConsoleService } from '../services/admin_console.service';
 
 
 @Component({
@@ -34,7 +34,7 @@ export class MainDashboardComponent implements OnInit {
  
 
   
-  constructor(private _service: CustomerAndOtpService, private http: HttpClient) { }
+  constructor(private _service: AdminConsoleService, private http: HttpClient) { }
 
   ngOnInit(): void { 
       this.name="";

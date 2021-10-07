@@ -1,13 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { AdminConsoleService } from './admin_console.service';
 
-import { UploadExcelService } from './upload-excel.service';
-
-describe('UploadExcelService', () => {
-  let service: UploadExcelService;
+describe('AdminConsoleService', () => {
+  let service: AdminConsoleService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(UploadExcelService);
+    service = TestBed.inject(AdminConsoleService);
   });
 
   it('should be created', () => {

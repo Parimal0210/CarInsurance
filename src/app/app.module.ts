@@ -19,8 +19,8 @@ import { LoginOtpComponent } from './login-otp/login-otp.component';
 import { AuthenticationService } from './services/authentication.service';
 import { SearchFilterPipe } from './search-filter.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { TokenInterceptorService } from './services/token-interceptor.service';
 import { DatePipe } from '@angular/common';
+import { AdminConsoleService } from './services/admin_console.service';
 
 
 
@@ -56,7 +56,7 @@ import { DatePipe } from '@angular/common';
     DatePipe,
   {
     provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptorService,
+    useClass: AdminConsoleService,
     multi: true
   }
   ],

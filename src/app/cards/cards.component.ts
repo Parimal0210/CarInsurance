@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { BsDatepickerConfig, BsDatepickerModule, DatepickerDateCustomClasses } from 'ngx-bootstrap/datepicker';
-import { UploadCheckExcelService } from '../services/upload-check-excel.service';
 //test code
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import {MatDatepicker} from '@angular/material/datepicker';
 import { FormControl, FormGroup } from '@angular/forms';
-import { UploadExcelService } from '../services/upload-excel.service';
 import { GoogleChartsModule } from 'angular-google-charts';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DatePipe } from '@angular/common';
 import * as _moment from 'moment';
 
 import {default as _rollupMoment, Moment} from 'moment';
-import { GetRebateDataService } from '../services/get-rebatedata.service';
-import { TotalSummaryData } from 'src/TotalSummaryData';
-import { SummaryData } from 'src/SummaryData';
-import { RefundData } from 'src/RefundData';
+import { TotalSummaryData } from 'src/app/models/TotalSummaryData';
+import { SummaryData } from '../models/SummaryData';
+import { RefundData } from '../models/RefundData';
+import { AdminConsoleService } from '../services/admin_console.service';
 
 @Component({
   selector: 'app-cards',
@@ -86,7 +84,7 @@ totalVehicles : Number;
 totalRefund : Number;
 
 summary : SummaryData[];
-  constructor(private _service: GetRebateDataService) { }
+  constructor(private _service: AdminConsoleService) { }
 
 
 
@@ -102,9 +100,6 @@ summary : SummaryData[];
     this.totalRefund = this.summaryAll.totalRefundAmount;
 
     console.log("Customers: "+this.totalCustomers);
-      // this.summary.forEach((x:SummaryData) => {
-      //   this.data1.push({summaryDataId: x.summaryDataId,customersCount:x.customersCount})
-      // })
       this.summary.forEach((x:SummaryData) =>{
        let arr = new Array(x.summaryDataId,x.customersCount)
         this.data1.push(arr)
