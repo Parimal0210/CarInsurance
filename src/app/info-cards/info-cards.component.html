@@ -66,6 +66,9 @@
                                 <th>Policies</th>
                                 <th>Vehicles</th>
                                 <th>Refund</th>
+                                <th>Uploaded</th>
+                                <th>Upload Date</th>
+                                <th>Message</th>
                             </tr>
                         </thead>
                         <tbody *ngIf="refunds">
@@ -74,6 +77,9 @@
                                 <td>{{r.policyCount}}</td>
                                 <td>{{r.vehicles}}</td>
                                 <td><span class="red">R {{r.refund}}</span></td>
+                                <td>{{r.tutukaUploadFlag}}</td>
+                                <td>{{r.uploadedOn}}</td>
+                                <td>{{r.uploadMessage}}</td>
                              </tr>
                            
                         </tbody><br><br>
