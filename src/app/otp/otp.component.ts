@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { _getOptionScrollPosition } from '@angular/material/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../services/authentication.service';
+import { AdminConsoleService } from '../services/admin_console.service';
 
 @Component({
   selector: 'app-otp',
@@ -15,7 +15,7 @@ loginData = {}
 val : any
 otp : any
 
-  constructor(private auth: AuthenticationService,private router: Router) {
+  constructor(private auth: AdminConsoleService,private router: Router) {
 
     }
 

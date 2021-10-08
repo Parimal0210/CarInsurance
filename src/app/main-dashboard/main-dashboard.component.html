@@ -44,7 +44,7 @@
                     *ngFor="
                       let customer of customers
                         | searchFilter: searchValue
-                        | paginate : { itemsPerPage: 10, currentPage: pcustomers } "
+                        | paginate : {  itemsPerPage:3 , currentPage: pageNum } "
                         (click)="getValueOfTd(customer.name, customer.customerId, customer.amount)"
                         routerLink="/customer-dashboard"
                          >
@@ -62,7 +62,7 @@
             <div class="text-center">
               <pagination-controls
                 class="pagination-control"
-                (pageChange)="pcustomers = $event"
+                (pageChange)="pageNum = $event"
                 [responsive]="true"
               ></pagination-controls>
             </div>

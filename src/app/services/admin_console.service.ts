@@ -1,16 +1,12 @@
 import { environment } from 'src/environments/environment';
-import { yearsPerPage } from '@angular/material/datepicker';
 import { User } from './../models/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
-
-
+import { map } from 'rxjs/operators';
 import { Injector } from '@angular/core';
 import { HttpInterceptor } from '@angular/common/http';
-import { isFirstDayOfWeek } from 'ngx-bootstrap/chronos';
+import {  PaginationRequest } from '../models/PaginationRequest';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -32,8 +28,7 @@ export class AdminConsoleService implements HttpInterceptor{
   
     isLoggedIn = false;
 
-    //private baseApiUrl="http://49.248.214.214:8080/rebate_data/";
-    private baseApiUrl = "http://localhost:8080/rebate_data/"
+    private baseApiUrl = environment.apiUrl+"/rebate_data/"
 
 
     private check_excelFile_url = this.baseApiUrl+"checkMonthYear";
@@ -102,8 +97,8 @@ export class AdminConsoleService implements HttpInterceptor{
         return this.http.get<any>(this.get_otpList_url);
       }
     
-      public customerInfo():Observable<any>{
-        return this.http.get<any>(this.get_customerInfo_url);
+      public customerInfo(paginationRequest:PaginationRequest):Observable<any>{
+        return this.http.post<any>(this.get_customerInfo_url,paginationRequest);
       }
 
       //authentication

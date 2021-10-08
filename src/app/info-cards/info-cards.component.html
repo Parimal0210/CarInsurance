@@ -50,8 +50,8 @@
                                 <th>Upload Message</th>
 
                         </thead>
-                        <tbody *ngIf="refunds">
-                            <tr *ngFor = "let r of refunds" (click)="getValueOfTd(r.customerId)" (click)="toggleDisplay()">
+                        <tbody  data-ng-switch on="dayDataCollapse[$index]" *ngIf="refunds">
+                            <tr *ngFor="let r of refunds" (click)="getValueOfTd(r.customerId)" >
                                 <td>{{r.name}}</td>
                                 <td>{{r.policyCount}}</td>
                                 <td>{{r.vehicles}}</td>
@@ -61,24 +61,28 @@
                                 <td>{{r.uploadMessage}}</td>
                              </tr>
                            
-                        </tbody><br><br>
-                        <thead *ngIf="isDisplay">
-                            <tr>
+                            <tr data-ng-switch-when="true" >
                                 <th>Customer Name</th>
                                 <th>Policy Number</th>
                                 <th>Licence Plate Number</th>
                                 <th>Rebate Amount</th>
                              </tr>
-                        </thead>
-                        <tbody *ngIf="isDisplay">
-                            <tr *ngFor="let rd of refundEachDatas">
+                        <ng-container >
+                            <tr  *ngFor="let rd of refundEachDatas">
                                 <td>{{rd.customerName}}</td>
                                 <td>{{rd.policyNumber}}</td>
                                 <td>{{rd.licencePlateNumber}}</td>
                                 <td><span class="red">R {{rd.rebateAmount}}</span></td>
                             </tr>
-                        </tbody>
+                        </ng-container>
+                    </tbody>
+                   
                     </table>
+<!--  -->
+
+
+
+<!--  -->
                     <div class="middleArea" align="center" *ngIf="!refunds">
                         <div class="col-md-10 text-center">
                             <h5>NO DATA FOUND</h5>
@@ -128,3 +132,25 @@
       </div>
   </div>
 </div>
+
+
+
+<!-- Modal For Response-->
+<div class="modal fade" id="responseModal" tabindex="-1" role="dialog" aria-labelledby="responseModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+  
+            <div class="modal-body">
+                <div class="data-not-found-section">
+                    <div class="upload-btn-wrapper">
+                     <p *ngIf="statusMessageDone" style="color: green;"> {{statusMessageDone}}</p>
+                     <p *ngIf="!statusMessageDone" style="color: red;"> {{statusMessage}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+  </div>

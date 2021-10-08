@@ -6,7 +6,7 @@ import { CustomerDetails } from '../models/CustomerDetails';
 import { CustomerPolicy } from '../models/customerpolicy';
 import { Otp } from '../models/otp';
 import { AdminConsoleService } from '../services/admin_console.service';
-
+import {  PaginationRequest } from '../models/PaginationRequest';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -18,7 +18,7 @@ export class MainDashboardComponent implements OnInit {
   name: any;
   customers: Customer[]; 
   otps : Otp[]; 
-  pcustomers : number = 0;
+  pageNum : number = 1;
   potps: number = 0;
   searchValue: string;
   tempName : string = '';
@@ -29,8 +29,9 @@ export class MainDashboardComponent implements OnInit {
   lname: string;
   customerDetails: CustomerDetails[];
   customerPolicies: CustomerPolicy[];
-
+  pageSize:number=10;
   
+  paginationRequest : PaginationRequest;
  
 
   
@@ -38,10 +39,18 @@ export class MainDashboardComponent implements OnInit {
 
   ngOnInit(): void { 
       this.name="";
-     
-      this._service.customerInfo().subscribe((data: any)=>{
-        this.customers = data.response;
+      this.paginationRequest.pageNo=this.pageNum;
+      this.paginationRequest.pageSize=this.pageSize;
+      console.log(this.paginationRequest);
+      
+
+      this._service.customerInfo(this.paginationRequest).subscribe((data: any)=>{
+        this.customers = data.response.list;
+        console.log("All customers")
         console.log(this.customers);
+        this.pageNum = data.response.pageNum;
+        this.pageSize = data.response.pageSize;
+
       });
 
 
