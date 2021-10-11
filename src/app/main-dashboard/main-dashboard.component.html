@@ -60,9 +60,9 @@
               </table>
             </div>
             <div class="text-center">
-              <pagination-controls
+              <pagination-controls 
                 class="pagination-control"
-                (pageChange)="pageNum = $event"
+                (pageChange)="sendPage($event)"
                 [responsive]="true"
               ></pagination-controls>
             </div>

@@ -97,8 +97,8 @@ export class AdminConsoleService implements HttpInterceptor{
         return this.http.get<any>(this.get_otpList_url);
       }
     
-      public customerInfo():Observable<any>{
-        return this.http.get<any>(this.get_customerInfo_url);
+      public customerInfo(pg:any):Observable<any>{
+        return this.http.post<any>(this.get_customerInfo_url,pg);
       }
 
       //authentication

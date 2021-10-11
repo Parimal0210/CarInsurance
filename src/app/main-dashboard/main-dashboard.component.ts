@@ -18,7 +18,7 @@ export class MainDashboardComponent implements OnInit {
   name: any;
   customers: Customer[]; 
   otps : Otp[]; 
-  pageNum : number = 0;
+  pageNum : number = 1;
   potps: number = 0;
   searchValue: string;
   tempName : string = '';
@@ -33,7 +33,10 @@ export class MainDashboardComponent implements OnInit {
   
   paginationRequest : PaginationRequest;
  
-
+ pg = {
+    "pageNo":this.pageNum,
+    "pageSize":this.pageSize
+  }
   
   constructor(private _service: AdminConsoleService, private http: HttpClient) { 
     // this.paginationRequest.pageNo=this.pageNum;
@@ -44,18 +47,16 @@ export class MainDashboardComponent implements OnInit {
   ngOnInit(): void { 
       this.name="";
 
-      // const pg = {
-      //   "pageNo":this.pageNum,
-      //   "pageSize":this.pageSize,
-      // }
+    
       
 
-      this._service.customerInfo().subscribe((data: any)=>{
-        this.customers = data.response;
+      this._service.customerInfo(this.pg).subscribe((data: any)=>{
+        this.customers = data.response.list;
         console.log("All customers")
         console.log(this.customers);
-        // this.pageNum = data.response.pageNum;
-        // this.pageSize = data.response.pageSize;
+         this.pageNum = data.response.pageNum;
+         this.pageSize = data.response.pageSize;
+         console.log(this.pageNum,this.pageSize)
 
       });
 
@@ -67,6 +68,19 @@ export class MainDashboardComponent implements OnInit {
       
   }
 
+  sendPage(event:any){
+    this.pageNum =event
+    this.pg.pageNo = this.pageNum
+    this._service.customerInfo(this.pg).subscribe((data: any)=>{
+      this.customers = data.response.list;
+      console.log("All customers")
+      console.log(this.customers);
+       this.pageNum = data.response.pageNum;
+       this.pageSize = data.response.pageSize;
+       console.log(this.pageNum,this.pageSize)
+
+    });
+  }
   getValueOfTd(customer:any, _customerId: any, _amount: any){
 
     this.fname = customer.split(' ')[0];
