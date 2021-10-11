@@ -40,7 +40,7 @@
                 </div>
                 <!--table code here-->
                 <div class="tableStyle">
-                    <table class="table table-hover">
+                    <table class="table table-hover text-center">
                         <thead>
                             <tr>
                                 <th>Customer Name</th>
@@ -59,8 +59,8 @@
                                 <td>{{r.vehicles}}</td>
                                 <td><span class="red">R {{r.refund}}</span></td>
                                 <td>{{r.tutukaUploadFlag}}</td>
-                                <td>{{r.uploadedOn}}</td>
-                                <td>{{r.uploadMessage}}</td>          
+                                <td *ngIf="r.uploadedOn">{{r.uploadedOn}}</td> <td *ngIf="!r.uploadedOn">NA</td>
+                                <td *ngIf="r.uploadMessage">{{r.uploadMessage}}</td><td *ngIf="!r.uploadMessage">NA</td>          
                             </tr>
 
                             <ng-container *ngIf="i === myIndex">
@@ -103,7 +103,7 @@
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header no-border">
             <h5 class="modal-title" id="exampleModalLabel">File Upload</h5>
@@ -125,30 +125,8 @@
               </div>
           </div>
           <div class="modal-footer no-border">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
       </div>
   </div>
 </div>
-
-
-
-<!-- Modal For Response-->
-<div class="modal fade" id="responseModal" tabindex="-1" role="dialog" aria-labelledby="responseModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-  
-            <div class="modal-body">
-                <div class="data-not-found-section">
-                    <div class="upload-btn-wrapper">
-                     <p *ngIf="statusMessageDone" style="color: green;"> {{statusMessageDone}}</p>
-                     <p *ngIf="!statusMessageDone" style="color: red;"> {{statusMessage}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
-            </div>
-        </div>
-    </div>
-  </div>

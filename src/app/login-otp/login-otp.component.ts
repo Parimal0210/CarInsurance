@@ -10,7 +10,7 @@ import { AdminConsoleService } from '../services/admin_console.service';
 })
 export class LoginOtpComponent implements OnInit {
 
-   loginUserData = {}
+   loginUserData :any;
    loginForm : FormGroup | any
 
 
