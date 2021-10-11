@@ -52,7 +52,7 @@
                    <td  id="customerName" >{{ customer.name | titlecase}}</td>
                     <td>{{ customer.vehicles }}</td>
                     <td>{{ customer.policies }}</td>
-                    <td>{{ customer.amount | number}}</td>
+                    <td>{{ customer.amount | number : '1.2-2' }}</td>
                     <td>{{ customer.createdDate | date:'yyyy-MM-dd' }}</td>
 
                   </tr>
