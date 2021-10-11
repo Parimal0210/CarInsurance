@@ -44,18 +44,18 @@ export class MainDashboardComponent implements OnInit {
   ngOnInit(): void { 
       this.name="";
 
-      const pg = {
-        "pageNo":this.pageNum,
-        "pageSize":this.pageSize,
-      }
+      // const pg = {
+      //   "pageNo":this.pageNum,
+      //   "pageSize":this.pageSize,
+      // }
       
 
-      this._service.customerInfo(pg).subscribe((data: any)=>{
-        this.customers = data.response.list;
+      this._service.customerInfo().subscribe((data: any)=>{
+        this.customers = data.response;
         console.log("All customers")
         console.log(this.customers);
-        this.pageNum = data.response.pageNum;
-        this.pageSize = data.response.pageSize;
+        // this.pageNum = data.response.pageNum;
+        // this.pageSize = data.response.pageSize;
 
       });
 
