@@ -20,13 +20,13 @@
                         <h6>{{cpolicies}}<span>Policies</span></h6>
                     </li>
                     <li>
-                        <h6>{{ctotalBasePremium}} <span>Total Base Premium</span></h6>
+                        <h6>{{ctotalBasePremium | number}} <span>Total Base Premium</span></h6>
                     </li>
                     <li>
-                        <h6>{{ctotalSaving}} <span>Total Savings</span></h6>
+                        <h6>{{ctotalSaving | number}} <span>Total Savings</span></h6>
                     </li>
                     <li>
-                        <h6>{{ctotalPremiumPaid}} <span>Debit Card Balance</span></h6>
+                        <h6>{{ctotalPremiumPaid | number}} <span>Debit Card Balance</span></h6>
                     </li>
                 </ul>
             </div>
@@ -76,7 +76,7 @@
                                         <td> <img src="{{cp.imagePath}}" class="product-icon" alt="brand"> <h6> {{cp.licensePlateNumber}} <span>{{ cp.model}}</span> </h6></td>
                                        <td>{{ cp.manufacturerYear}}</td>
                                        <td>{{ cp.policyNumber}}</td>
-                                       <td align="center">{{ cp.basePremium}}</td>
+                                       <td align="center">{{ cp.basePremium | number}}</td>
                                     <tr>
                                 </tbody>
                             </table>

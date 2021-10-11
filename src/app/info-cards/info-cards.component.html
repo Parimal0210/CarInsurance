@@ -57,7 +57,7 @@
                                 <td>{{r.name}}</td>
                                 <td>{{r.policyCount}}</td>
                                 <td>{{r.vehicles}}</td>
-                                <td><span class="red">R {{r.refund}}</span></td>
+                                <td><span class="red">R {{r.refund | number}}</span></td>
                                 <td>{{r.tutukaUploadFlag}}</td>
                                 <td *ngIf="r.uploadedOn">{{r.uploadedOn}}</td> <td *ngIf="!r.uploadedOn">NA</td>
                                 <td *ngIf="r.uploadMessage">{{r.uploadMessage}}</td><td *ngIf="!r.uploadMessage">NA</td>          
@@ -73,7 +73,7 @@
                                     <tr *ngFor="let rd of refundEachDatas; let j=index">
                                             <td>{{rd.policyNumber}}</td>
                                             <td>{{rd.licencePlateNumber}}</td>
-                                            <td><span class="red">R {{rd.rebateAmount}}</span></td>
+                                            <td><span class="red">R {{rd.rebateAmount | number}}</span></td>
                                     </tr>
                                 </ng-container>
                             </ng-container>

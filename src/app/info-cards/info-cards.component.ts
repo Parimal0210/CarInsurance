@@ -60,6 +60,8 @@ export class InfoCardsComponent implements OnInit {
   statusMessageDone : String;
   dateCustomClasses: DatepickerDateCustomClasses[] | any;
 
+  
+
   filePath : String;
 
   fetchedDate : Date | any
@@ -174,8 +176,6 @@ flag:Boolean =false;
       console.log("Customer Each Policy Details for Customer Id: "+rowCustomerId);
       
       console.log(this.refundEachDatas);
-
-      
     });
   }
   myIndex:any;
