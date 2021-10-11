@@ -1,5 +1,5 @@
 import { BsDatepickerConfig, BsDatepickerModule, DatepickerDateCustomClasses } from 'ngx-bootstrap/datepicker';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UploadCheckExcelService } from '../services/upload-check-excel.service';
 //test code
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
@@ -20,7 +20,11 @@ import { RefundData } from 'src/RefundData';
 import { CustomerAndOtpService } from '../services/customer-and-otp.service';
 import { RefundEachData } from 'src/RefundEachData';
 
-  
+import { trigger, state, style, transition, animate } from '@angular/animations';
+// import { MatTableDataSource } from '@angular/material/table';
+// import {  MatPaginator } from '@angular/material/paginator';
+// import {  MatSort } from '@angular/material/sort';
+
  const moment = _rollupMoment || _moment;
 
 
@@ -29,9 +33,25 @@ import { RefundEachData } from 'src/RefundEachData';
   selector: 'app-info-cards',
   templateUrl: './info-cards.component.html',
   styleUrls: ['./info-cards.component.scss'],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+      state('expanded', style({ height: '*', visibility: 'visible' })),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
 })
 
 export class InfoCardsComponent implements OnInit {
+
+  // displayedColumns = ['Customer Name', 'Policies', 'Vehicles', 'Refund','Uploaded','Uploaded On','Upload Message'];
+  // dataSource: MatTableDataSource<RefundData>;
+
+  // expandedElement: any;
+
+  // @ViewChild('MatPaginator', { static: false }) paginator: MatPaginator;
+  // @ViewChild('sort', { static: false }) sort: MatSort;
+
  //date = new FormControl(moment());
 
   errorMessage: String = "\n\nPlease rectify the error and upload the file again.";
@@ -113,12 +133,9 @@ export class InfoCardsComponent implements OnInit {
   //tableData
   refundEachDatas: RefundEachData[];
   isDisplay = false;
-  isShown = false;
+  isShow = false;
 
-  toggleDisplay(){
-    this.isDisplay = ! this.isDisplay;
-    this.isShown = true;
-  }
+ 
 
 //----------------------------------------------------------------
   onOpenCalendar(ngxdatepicker: any) {
@@ -145,6 +162,7 @@ export class InfoCardsComponent implements OnInit {
 
   constructor(public datepipe: DatePipe,private _service: GetRebateDataService,private _service1: UploadCheckExcelService,private _service2: CustomerAndOtpService
     ) {
+      // this.dataSource = new MatTableDataSource();
 
    this.fetchedDate = this.datepipe.transform(this.fetchedDate, 'MMMM YYYY')
    this.dateCustomClasses = { date: this.fetchedDate };
@@ -240,12 +258,23 @@ flag:Boolean =false;
       console.log("Customer Each Policy Details for Customer Id: "+rowCustomerId);
       
       console.log(this.refundEachDatas);
+
+      
     });
   }
+  myIndex:any;
+  toggleDisplay(i: any){
+      this.isDisplay = ! this.isDisplay;
+      this.myIndex = i;
+      console.log("clicked index: "+this.myIndex);
+  }
+
 
   tutuka(){}
   ngOnInit(): void {
 
+    // this.dataSource.data = this.refunds;
+    
     this.today = new Date()
 
     this.modelDate = new Date()
