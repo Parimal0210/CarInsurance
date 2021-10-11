@@ -89,8 +89,8 @@ export class AdminConsoleService implements HttpInterceptor{
         return this.http.get<any>(this.baseApiUrl+"getPolicyDetails", httpOptions);
       }
     
-      public getRefundEachData(customerId: number):Observable<any>{
-        return this.http.get<any>(this.baseApiUrl+"displayEachRefundData/"+customerId);
+      public getRefundEachData(customerId: number,month: number, year: number):Observable<any>{
+        return this.http.get<any>(this.baseApiUrl+"displayEachRefundData/"+customerId+"/"+month+"/"+year);
       }
     
       public latestOtp():Observable<any>{

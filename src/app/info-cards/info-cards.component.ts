@@ -60,6 +60,8 @@ export class InfoCardsComponent implements OnInit {
   statusMessageDone : String;
   dateCustomClasses: DatepickerDateCustomClasses[] | any;
 
+  
+
   filePath : String;
 
   fetchedDate : Date | any
@@ -169,13 +171,11 @@ flag:Boolean =false;
 
   getValueOfTd(rowCustomerId: any){
 
-    this._service.getRefundEachData(rowCustomerId).subscribe((data: any)=>{
+    this._service.getRefundEachData(rowCustomerId,this.modelDate.getMonth()+1,this.modelDate.getFullYear()).subscribe((data: any)=>{
       this.refundEachDatas = data.response;
       console.log("Customer Each Policy Details for Customer Id: "+rowCustomerId);
       
       console.log(this.refundEachDatas);
-
-      
     });
   }
   myIndex:any;
