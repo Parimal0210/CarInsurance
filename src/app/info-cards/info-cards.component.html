@@ -46,14 +46,6 @@
                                           Upload</button>
                                 </div>
                             </div>
-                            <!-- <ul class="dateUl">
-                                    <li class="text-right">
-
-                                    </li>
-                                    <li class="upload-new-doc-file">
-
-                                    </li>
-                                </ul> -->
 
 
                         </div>
@@ -71,35 +63,33 @@
                                 <th>Uploaded</th>
                                 <th>Uploaded On</th>
                                 <th>Upload Message</th>
-
+                            </tr>
                         </thead>
-                        <tbody *ngIf="refunds">
-                            <tr *ngFor = "let r of refunds" (click)="getValueOfTd(r.customerId)" (click)="toggleDisplay()">
+                        <tbody *ngFor = "let r of refunds;let i =index" >
+                            <tr  (click)="getValueOfTd(r.customerId)" (click)="toggleDisplay(i)">
                                 <td>{{r.name}}</td>
                                 <td>{{r.policyCount}}</td>
                                 <td>{{r.vehicles}}</td>
                                 <td><span class="red">R {{r.refund}}</span></td>
                                 <td>{{r.tutukaUploadFlag}}</td>
                                 <td>{{r.uploadedOn}}</td>
-                                <td>{{r.uploadMessage}}</td>
-                             </tr>
-                           
-                        </tbody><br><br>
-                        <thead *ngIf="isShown">
-                            <tr  [hidden]="isDisplay">
-                                <th>Customer Name</th>
-                                <th>Policy Number</th>
-                                <th>Licence Plate Number</th>
-                                <th>Rebate Amount</th>
-                             </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let rd of refundEachDatas" [hidden]="isDisplay">
-                                <td>{{rd.customerName}}</td>
-                                <td>{{rd.policyNumber}}</td>
-                                <td>{{rd.licencePlateNumber}}</td>
-                                <td><span class="red">R {{rd.rebateAmount}}</span></td>
+                                <td>{{r.uploadMessage}}</td>          
                             </tr>
+
+                            <ng-container *ngIf="i === myIndex">
+                                <ng-container *ngIf="isDisplay">
+                                    <tr>
+                                        <th>Policy Number</th>
+                                        <th>Licence Plate Number</th>
+                                        <th>Refund Amount</th>
+                                     </tr>
+                                    <tr *ngFor="let rd of refundEachDatas; let j=index">
+                                            <td>{{rd.policyNumber}}</td>
+                                            <td>{{rd.licencePlateNumber}}</td>
+                                            <td><span class="red">R {{rd.rebateAmount}}</span></td>
+                                    </tr>
+                                </ng-container>
+                            </ng-container>
                         </tbody>
                     </table>
                     <div class="middleArea" align="center" *ngIf="!refunds">
