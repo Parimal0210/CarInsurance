@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { Customer } from 'src/customer';
-import { CustomerDetails } from 'src/CustomerDetails';
-import { CustomerPolicy } from 'src/customerpolicy';
-import { Otp } from 'src/otp';
-import { CustomerAndOtpService } from '../services/customer-and-otp.service';
-
+import { Customer } from '../models/customer';
+import { CustomerDetails } from '../models/CustomerDetails';
+import { CustomerPolicy } from '../models/customerpolicy';
+import { Otp } from '../models/otp';
+import { AdminConsoleService } from '../services/admin_console.service';
+import {  PaginationRequest } from '../models/PaginationRequest';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -18,7 +18,7 @@ export class MainDashboardComponent implements OnInit {
   name: any;
   customers: Customer[]; 
   otps : Otp[]; 
-  pcustomers : number = 0;
+  pageNum : number = 0;
   potps: number = 0;
   searchValue: string;
   tempName : string = '';
@@ -29,19 +29,34 @@ export class MainDashboardComponent implements OnInit {
   lname: string;
   customerDetails: CustomerDetails[];
   customerPolicies: CustomerPolicy[];
-
+  pageSize:number=10;
   
+  paginationRequest : PaginationRequest;
  
 
   
-  constructor(private _service: CustomerAndOtpService, private http: HttpClient) { }
+  constructor(private _service: AdminConsoleService, private http: HttpClient) { 
+    // this.paginationRequest.pageNo=this.pageNum;
+    // this.paginationRequest.pageSize=this.pageSize;
+    // console.log(this.paginationRequest);
+  }
 
   ngOnInit(): void { 
       this.name="";
-     
-      this._service.customerInfo().subscribe((data: any)=>{
-        this.customers = data.response;
+
+      const pg = {
+        "pageNo":this.pageNum,
+        "pageSize":this.pageSize,
+      }
+      
+
+      this._service.customerInfo(pg).subscribe((data: any)=>{
+        this.customers = data.response.list;
+        console.log("All customers")
         console.log(this.customers);
+        this.pageNum = data.response.pageNum;
+        this.pageSize = data.response.pageSize;
+
       });
 
 

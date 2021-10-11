@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthenticationService } from '../services/authentication.service';
+import { AdminConsoleService } from '../services/admin_console.service';
 
 @Component({
   selector: 'app-login-otp',
@@ -14,7 +14,7 @@ export class LoginOtpComponent implements OnInit {
    loginForm : FormGroup | any
 
 
-  constructor(private auth: AuthenticationService,
+  constructor(private auth: AdminConsoleService,
     private router : Router, private actroute: ActivatedRoute) {
 
     }
@@ -22,10 +22,6 @@ export class LoginOtpComponent implements OnInit {
   ngOnInit(): void {
 
   }
-/* UserData = new FormGroup( {
-      emailOrMobile : new FormControl(''),
-      type : new FormControl('')
-    }) */
 
     GetOTP(loginForm: NgForm){
 

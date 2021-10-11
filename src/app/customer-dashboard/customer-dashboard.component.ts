@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { CustomerDetails } from 'src/CustomerDetails';
-import { CustomerPolicy } from 'src/customerpolicy';
-import { CustomerAndOtpService } from '../services/customer-and-otp.service';
+import { CustomerDetails } from '../models/CustomerDetails';
+import { CustomerPolicy } from '../models/customerpolicy';
 import { DatePipe } from '@angular/common';
+import { AdminConsoleService } from '../services/admin_console.service';
 
 @Component({
   selector: 'app-customer-dashboard',
@@ -35,7 +35,7 @@ export class CustomerDashboardComponent implements OnInit {
   ctotalSaving: any;
 
   constructor(
-    private _service: CustomerAndOtpService,
+    private _service: AdminConsoleService,
     private http: HttpClient,
     private datePipe: DatePipe
   ) {

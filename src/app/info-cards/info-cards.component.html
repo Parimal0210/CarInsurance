@@ -1,9 +1,8 @@
 <!-- <p>info-cards works!</p> -->
-<html>
-<head><script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script></head>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <app-navigation-bar></app-navigation-bar>
 <!-- <app-cust-policy-saving-cards></app-cust-policy-saving-cards> -->
-<body>
+
     <app-cards></app-cards>
 
 <div class="container">
@@ -19,19 +18,7 @@
                             <div class="row">
                                 <div class="col-md-10 p-0">
                                     <div class="dropdown">
-                                      <!-- <mat-form-field appearance="fill">
-  <mat-label>Month and Year</mat-label>
-  <input matInput [matDatepicker]="dp" [formControl]="date">
-  <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-  <mat-datepicker #dp
-                  startView="multi-year"
-                  (yearSelected)="chosenYearHandler($event)"
-                  (monthSelected)="chosenMonthHandler($event, dp)"
-                  panelClass="example-month-picker">
-  </mat-datepicker>
-</mat-form-field> -->
-
-                                          <form class="ngxdatepicker">
+                                        <form class="ngxdatepicker">
                                              <input [(ngModel)]="modelDate" autocomplete="off" class="form-control" name="date"
                                              bsDatepicker [bsConfig]="datePicker" [maxDate]="today" style="width: 150px; float: right; "
                                              (onShown)="onOpenCalendar($event)"  [bsValue]="modelDate"/>
@@ -91,7 +78,9 @@
                                 </ng-container>
                             </ng-container>
                         </tbody>
+                   
                     </table>
+
                     <div class="middleArea" align="center" *ngIf="!refunds">
                         <div class="col-md-10 text-center">
                             <h5>NO DATA FOUND</h5>
@@ -99,12 +88,6 @@
                         
                         <div class="col-md-10 text-center">
                             <div class="upload-year-doc-section">
-                                <!-- <div class="input-group">
-                                     <label class="pl-10 form-control">Report.xlsx</label>
-                                    <span class="input-group-text" id="basic-addon2">
-                                         <input type="file" class="" id="file" formControlName="jarUrl">
-                                   </span>
-                                </div> -->
                                 <button class="btn btn-secondary ml-1" data-toggle="modal" data-target="#exampleModal">
                                   File Upload</button>
                             </div>
@@ -131,49 +114,18 @@
           <div class="modal-body">
             
               <div class="data-not-found-section">
-               
-                <!-- <p>DATA NOT FOUND</p>
-                <div class="upload-btn-wrapper">
-                    <button class="btn">Upload</button>
-                    <input type="file" name="myfile" (change)="onChange($event)" />
-                </div> -->
-
-    <!-- filename to display to the user -->
-    <p id="file-name" class="margin-10 bold-10"></p>
-
-    <!-- Hide this from the users view with css display:none; -->
-    <input class="display-none border" style="margin-right: 2px;" id="file-type" type="file" size="4" (change)="onChange($event)" name="file"/>
-
-    <!-- Style this button with type image or css whatever you wish -->
-    <button class="btn btn-success ml-3" (click)="uploadExcel()" [disabled]="!file" value="Upload">Upload</button>
-
-    <fieldset style="margin-top: 20px;">
-        <textarea name="answerField" [readonly]=true  focus-me="true" *ngIf="!statusMessageDone && !statusMessage" rows="5" cols="40"></textarea>
-        <textarea name="answerField" [readonly]=true  focus-me="true" rows="5" cols="40" *ngIf="statusMessageDone" style="color: green;" ng-model="statusMessageDone">Success: {{statusMessageDone}}</textarea>
-        <textarea name="answerField" [readonly]=true  focus-me="true" rows="5" cols="40" *ngIf="statusMessage" style="color: red;" ng-model="statusMessage">ERROR: {{statusMessage}}{{errorMessage}}</textarea>
-    </fieldset>
-
-    
-
-                <!-- <div class="row">
-                    <div class="col-8">
-                      <label class="btn btn-default p-0">
-                        <input type="file" (change)="onChange($event)" />
-                      </label>
-                    </div>
-                  
-                    <div class="col-4">
-                      <button class="btn btn-success btn-sm" [disabled]="!file" (click)="uploadExcel()">
-                        Upload
-                      </button>
-                    </div>
-                  </div> -->
-
+                  <p id="file-name" class="margin-10 bold-10"></p>
+                  <input class="display-none border" style="margin-right: 2px;" id="file-type" type="file" size="4" (change)="onChange($event)" name="file"/>
+                    <button class="btn btn-success ml-3" (click)="uploadExcel()" [disabled]="!file" value="Upload">Upload</button>
+                    <fieldset style="margin-top: 20px;">
+                        <textarea name="answerField" [readonly]=true  focus-me="true" *ngIf="!statusMessageDone && !statusMessage" rows="5" cols="40"></textarea>
+                        <textarea name="answerField" [readonly]=true  focus-me="true" rows="5" cols="40" *ngIf="statusMessageDone" style="color: green;" ng-model="statusMessageDone">Success: {{statusMessageDone}}</textarea>
+                        <textarea name="answerField" [readonly]=true  focus-me="true" rows="5" cols="40" *ngIf="statusMessage" style="color: red;" ng-model="statusMessage">ERROR: {{statusMessage}}{{errorMessage}}</textarea>
+                    </fieldset>
               </div>
           </div>
           <div class="modal-footer no-border">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-              <!-- <button type="button" (click)="uploadExcel()" data-toggle="modal" data-target="#responseModal" class="btn btn-primary">Save </button> -->
           </div>
       </div>
   </div>
@@ -200,6 +152,3 @@
         </div>
     </div>
   </div>
-    
-</body>
-</html>
