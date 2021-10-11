@@ -44,7 +44,7 @@
                     *ngFor="
                       let customer of customers
                         | searchFilter: searchValue
-                        | paginate : {  itemsPerPage:3 , currentPage: pageNum } "
+                        | paginate : {  itemsPerPage:10 , currentPage: pageNum } "
                         (click)="getValueOfTd(customer.name, customer.customerId, customer.amount)"
                         routerLink="/customer-dashboard"
                          >

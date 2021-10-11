@@ -18,7 +18,7 @@ export class MainDashboardComponent implements OnInit {
   name: any;
   customers: Customer[]; 
   otps : Otp[]; 
-  pageNum : number = 1;
+  pageNum : number = 0;
   potps: number = 0;
   searchValue: string;
   tempName : string = '';
@@ -35,16 +35,22 @@ export class MainDashboardComponent implements OnInit {
  
 
   
-  constructor(private _service: AdminConsoleService, private http: HttpClient) { }
+  constructor(private _service: AdminConsoleService, private http: HttpClient) { 
+    // this.paginationRequest.pageNo=this.pageNum;
+    // this.paginationRequest.pageSize=this.pageSize;
+    // console.log(this.paginationRequest);
+  }
 
   ngOnInit(): void { 
       this.name="";
-      this.paginationRequest.pageNo=this.pageNum;
-      this.paginationRequest.pageSize=this.pageSize;
-      console.log(this.paginationRequest);
+
+      const pg = {
+        "pageNo":this.pageNum,
+        "pageSize":this.pageSize,
+      }
       
 
-      this._service.customerInfo(this.paginationRequest).subscribe((data: any)=>{
+      this._service.customerInfo(pg).subscribe((data: any)=>{
         this.customers = data.response.list;
         console.log("All customers")
         console.log(this.customers);
