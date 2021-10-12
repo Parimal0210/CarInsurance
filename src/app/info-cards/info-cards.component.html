@@ -118,7 +118,7 @@
                   <input class="display-none border" style="margin-right: 2px;" id="file-type" type="file" size="4" (change)="onChange($event)" name="file"/>
                     <button class="btn btn-success ml-3" (click)="uploadExcel()" [disabled]="!file" value="Upload">Upload</button>
                     <fieldset style="margin-top: 20px;">
-                        <textarea name="answerField" [readonly]=true  focus-me="true" *ngIf="!statusMessageDone && !statusMessage" rows="5" cols="40"></textarea>
+                        <textarea name="answerField" [readonly]=true  focus-me="true" *ngIf="!statusMessageDone && !statusMessage" rows="5" cols="52"></textarea>
                         <textarea name="answerField" [readonly]=true  focus-me="true" rows="5" cols="40" *ngIf="statusMessageDone" style="color: green;" ng-model="statusMessageDone">Success: {{statusMessageDone}}</textarea>
                         <textarea name="answerField" [readonly]=true  focus-me="true" rows="5" cols="40" *ngIf="statusMessage" style="color: red;" ng-model="statusMessage">ERROR: {{statusMessage}}{{errorMessage}}</textarea>
                     </fieldset>

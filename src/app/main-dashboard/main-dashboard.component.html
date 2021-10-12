@@ -59,21 +59,17 @@
                 </tbody>
               </table>
             </div>
-            <div class="text-center">
-              <pagination class="my-pagination text-center"
+            <div>
+              <pagination class="my-pagination"
               [directionLinks]="true" 
               [totalItems]="totalItems"
               [itemsPerPage]="pageSize"
-              [maxSize]="5"
+              [maxSize]="3"
               previousText="<<"   
               nextText=">>"
               [align]="true"
               (pageChanged)="sendPage($event)"></pagination>
-              <!-- <pagination-controls 
-                class="pagination-control"
-                (pageChanged)="sendPage($event)"
-                [responsive]="true"
-              ></pagination-controls> -->
+             
             </div>
           </div>
         </div>
@@ -115,12 +111,12 @@
                 </tbody>
               </table>
             </div>
-            <div class="text-center">
-              <pagination class="my-pagination text-center"
+            <div style="text-align: center;">
+              <pagination class="my-pagination"
               [directionLinks]="true" 
-              [totalItems]="totalItems"
+              [totalItems]="totalOtpItems"
               [itemsPerPage]="pageSize"
-              [maxSize]="5"
+              [maxSize]="3"
               previousText="<<"   
               nextText=">>"
               [align]="true"
