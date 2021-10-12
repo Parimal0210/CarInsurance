@@ -22,7 +22,7 @@ export class MainDashboardComponent implements OnInit {
   pageNum : number = 1;
   totalPages:number;
   totalItems:number
-  potps: number = 0;
+  potps: number = 1;
   searchValue: string;
   tempName : string = '';
   origName : string = ''; 
@@ -80,7 +80,7 @@ export class MainDashboardComponent implements OnInit {
         this.pageSize = data.response.pagesize;
         this.totalOtpPages = data.response.totalPageSize;
         this.totalOtpItems =  this.totalOtpPages * this.pageSize
-        
+        console.log(this.potps,this.totalOtpPages,this.totalOtpItems)  
     })
       
   }
@@ -103,7 +103,7 @@ export class MainDashboardComponent implements OnInit {
 
   sendOtpPage(event: PageChangedEvent){
     this.potps =event.page
-    this.pg.pageNo = this.potps-1
+    this.pgOtp.pageNo = this.potps-1
 
     this._service.latestOtp(this.pgOtp).subscribe((data: any)=>{
       this.otps = data.response.list;
@@ -111,7 +111,7 @@ export class MainDashboardComponent implements OnInit {
       this.pageSize = data.response.pagesize;
       this.totalOtpPages = data.response.totalPageSize;
       this.totalOtpItems =  this.totalOtpPages * this.pageSize
-      
+      console.log(this.potps,this.totalOtpPages,this.totalOtpItems)
   })
   }
 
