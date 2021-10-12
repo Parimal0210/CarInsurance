@@ -80,7 +80,7 @@ export class MainDashboardComponent implements OnInit {
         this.pageSize = data.response.pagesize;
         this.totalOtpPages = data.response.totalPageSize;
         this.totalOtpItems =  this.totalOtpPages * this.pageSize
-        
+        console.log(this.potps,this.totalOtpPages,this.totalOtpItems)  
     })
       
   }
@@ -111,7 +111,7 @@ export class MainDashboardComponent implements OnInit {
       this.pageSize = data.response.pagesize;
       this.totalOtpPages = data.response.totalPageSize;
       this.totalOtpItems =  this.totalOtpPages * this.pageSize
-      
+      console.log(this.potps,this.totalOtpPages,this.totalOtpItems)
   })
   }
 
