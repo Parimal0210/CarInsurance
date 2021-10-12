@@ -19,7 +19,7 @@ import { SearchFilterPipe } from './search-filter.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { DatePipe } from '@angular/common';
 import { AdminConsoleService } from './services/admin_console.service';
-
+import { PaginationModule,PaginationConfig } from 'ngx-bootstrap/pagination';
 
 
 
@@ -47,11 +47,13 @@ import { AdminConsoleService } from './services/admin_console.service';
     SharedModule,
     NgxPaginationModule,
     GoogleChartsModule,
+    PaginationModule
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [AdminConsoleService,
     DatePipe,
+    PaginationConfig,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: AdminConsoleService,

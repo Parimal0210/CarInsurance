@@ -41,7 +41,7 @@ export class AdminConsoleService implements HttpInterceptor{
     private get_otpList_url = this.baseApiUrl+"getOtpList";
     private get_customerInfo_url =this.baseApiUrl+"getCustomerInfo";
 
-    private login_url = "http://localhost:8080/customerLogin";
+    private login_url = environment.apiUrl+"/customerLogin";
 
     constructor(private http: HttpClient,private injector: Injector) { }
 
@@ -93,8 +93,8 @@ export class AdminConsoleService implements HttpInterceptor{
         return this.http.get<any>(this.baseApiUrl+"displayEachRefundData/"+customerId+"/"+month+"/"+year);
       }
     
-      public latestOtp():Observable<any>{
-        return this.http.get<any>(this.get_otpList_url);
+      public latestOtp(pgOtp:any):Observable<any>{
+        return this.http.post<any>(this.get_otpList_url,pgOtp);
       }
     
       public customerInfo(pg:any):Observable<any>{

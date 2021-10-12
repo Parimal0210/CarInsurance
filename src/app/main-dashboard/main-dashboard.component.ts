@@ -7,6 +7,7 @@ import { CustomerPolicy } from '../models/customerpolicy';
 import { Otp } from '../models/otp';
 import { AdminConsoleService } from '../services/admin_console.service';
 import {  PaginationRequest } from '../models/PaginationRequest';
+import { PageChangedEvent } from 'ngx-bootstrap/pagination';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -19,6 +20,8 @@ export class MainDashboardComponent implements OnInit {
   customers: Customer[]; 
   otps : Otp[]; 
   pageNum : number = 1;
+  totalPages:number;
+  totalItems:number
   potps: number = 0;
   searchValue: string;
   tempName : string = '';
@@ -31,10 +34,18 @@ export class MainDashboardComponent implements OnInit {
   customerPolicies: CustomerPolicy[];
   pageSize:number=10;
   
+  totalOtpItems:number
+  totalOtpPages:number
+
   paginationRequest : PaginationRequest;
  
  pg = {
     "pageNo":this.pageNum,
+    "pageSize":this.pageSize
+  }
+
+  pgOtp={
+    "pageNo":this.potps,
     "pageSize":this.pageSize
   }
   
@@ -49,38 +60,61 @@ export class MainDashboardComponent implements OnInit {
 
     
       
-
+      this.pg.pageNo -=1
       this._service.customerInfo(this.pg).subscribe((data: any)=>{
         this.customers = data.response.list;
-        console.log("All customers")
+        console.log("All customers11")
         console.log(this.customers);
-         this.pageNum = data.response.pageNum;
-         this.pageSize = data.response.pageSize;
-         console.log(this.pageNum,this.pageSize)
+         this.pageNum = data.response.pageNo;
+         this.pageSize = data.response.pagesize;
+         this.totalPages = data.response.totalPageSize;
+         this.totalItems =  this.totalPages * this.pageSize
+         console.log(this.pageNum,this.pageSize,this.totalItems)
 
       });
 
-
-      this._service.latestOtp().subscribe((data: any)=>{
-        this.otps = data.response;
-        console.log(this.otps);
+      this.pgOtp.pageNo -= 1
+      this._service.latestOtp(this.pgOtp).subscribe((data: any)=>{
+        this.otps = data.response.list;
+        this.potps = data.response.pageNo;
+        this.pageSize = data.response.pagesize;
+        this.totalOtpPages = data.response.totalPageSize;
+        this.totalOtpItems =  this.totalOtpPages * this.pageSize
+        
     })
       
   }
 
-  sendPage(event:any){
-    this.pageNum =event
-    this.pg.pageNo = this.pageNum
+  sendPage(event: PageChangedEvent){
+    this.pageNum =event.page
+    this.pg.pageNo = this.pageNum-1
     this._service.customerInfo(this.pg).subscribe((data: any)=>{
       this.customers = data.response.list;
       console.log("All customers")
       console.log(this.customers);
-       this.pageNum = data.response.pageNum;
-       this.pageSize = data.response.pageSize;
-       console.log(this.pageNum,this.pageSize)
+       this.pageNum = +data.response.pageNo;
+       this.pageSize = +data.response.pagesize;
+       this.totalPages = +data.response.totalPageSize;
+       this.totalItems =  this.totalPages * this.pageSize
+       console.log(this.pageNum,this.pageSize,this.totalItems)
 
     });
   }
+
+  sendOtpPage(event: PageChangedEvent){
+    this.potps =event.page
+    this.pg.pageNo = this.potps-1
+
+    this._service.latestOtp(this.pgOtp).subscribe((data: any)=>{
+      this.otps = data.response.list;
+      this.potps = data.response.pageNo;
+      this.pageSize = data.response.pagesize;
+      this.totalOtpPages = data.response.totalPageSize;
+      this.totalOtpItems =  this.totalOtpPages * this.pageSize
+      
+  })
+  }
+
   getValueOfTd(customer:any, _customerId: any, _amount: any){
 
     this.fname = customer.split(' ')[0];

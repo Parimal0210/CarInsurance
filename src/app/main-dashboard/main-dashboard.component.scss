@@ -351,3 +351,10 @@ a, a:hover{
 tr:hover {
     cursor:pointer;
    }
+
+.my-pagination::ng-deep .page-item.active .page-link {
+    z-index: 1;
+    color: #FFFFFF;
+    background-color:rgb(97, 152, 233) !important;
+    border-color: rgb(131, 148, 173);
+}

@@ -44,7 +44,7 @@
                     *ngFor="
                       let customer of customers
                         | searchFilter: searchValue
-                        | paginate : {  itemsPerPage:10 , currentPage: pageNum } "
+                        | paginate : {  itemsPerPage:10 , currentPage: pageNum , totalItems: totalItems } "
                         (click)="getValueOfTd(customer.name, customer.customerId, customer.amount)"
                         routerLink="/customer-dashboard"
                          >
@@ -60,11 +60,20 @@
               </table>
             </div>
             <div class="text-center">
-              <pagination-controls 
+              <pagination class="my-pagination text-center"
+              [directionLinks]="true" 
+              [totalItems]="totalItems"
+              [itemsPerPage]="pageSize"
+              [maxSize]="5"
+              previousText="<<"   
+              nextText=">>"
+              [align]="true"
+              (pageChanged)="sendPage($event)"></pagination>
+              <!-- <pagination-controls 
                 class="pagination-control"
-                (pageChange)="sendPage($event)"
+                (pageChanged)="sendPage($event)"
                 [responsive]="true"
-              ></pagination-controls>
+              ></pagination-controls> -->
             </div>
           </div>
         </div>
@@ -93,7 +102,7 @@
                   <tr
                     *ngFor="
                       let o of otps
-                        | paginate: { itemsPerPage: 10, currentPage: potps }
+                        | paginate: { itemsPerPage: 10, currentPage: potps , totalItems:totalOtpItems}
                     "
                   >
                     <td>{{ o.name | titlecase }}</td>
@@ -107,10 +116,19 @@
               </table>
             </div>
             <div class="text-center">
-              <pagination-controls
+              <pagination class="my-pagination text-center"
+              [directionLinks]="true" 
+              [totalItems]="totalItems"
+              [itemsPerPage]="pageSize"
+              [maxSize]="5"
+              previousText="<<"   
+              nextText=">>"
+              [align]="true"
+              (pageChanged)="sendOtpPage($event)"></pagination>
+              <!-- <pagination-controls
                 class="pagination-control"
                 (pageChange)="potps = $event"
-              ></pagination-controls>
+              ></pagination-controls> -->
             </div>
           </div>
         </div>
