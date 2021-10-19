@@ -12,7 +12,7 @@ export class LoginOtpComponent implements OnInit {
 
    loginUserData :any;
    loginForm : FormGroup | any
-
+   userName:any;
 
   constructor(private auth: AdminConsoleService,
     private router : Router, private actroute: ActivatedRoute) {
@@ -20,7 +20,8 @@ export class LoginOtpComponent implements OnInit {
     }
 
   ngOnInit(): void {
-
+    this.userName = document.getElementById('userName');
+    this.userName.focus();
   }
 
     GetOTP(loginForm: NgForm){

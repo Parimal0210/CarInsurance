@@ -12,9 +12,9 @@
           <div class="">
             <div class="mb-3">
               <label>Username</label>
-              <input name="email" type="text" class="form-control" placeholder="Enter Username"
-                [(ngModel)]="loginUserData" required>
-
+              <input name="email" type="text" class="form-control" id="userName" placeholder="Enter Username"
+                [(ngModel)]="loginUserData"  required>
+                
             </div>
             <div class="d-grid">
               <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Get OTP </button>

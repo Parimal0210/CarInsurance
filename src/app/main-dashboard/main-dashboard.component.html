@@ -15,7 +15,7 @@
                    
                     <div class="searchBox">
                       <input type="text" class="searchText" [(ngModel)]="searchValue"  placeholder="Search..">
-                      <a href="#" class="searchBtn">
+                      <a class="searchBtn">
                         <i class="fas fa-search"></i>
                       </a>
                     </div>
@@ -31,6 +31,7 @@
               <table class="table table-hover">
                 <thead>
                   <tr>
+                    <!-- <th (click)="sort('name')">Name</th> -->
                     <th>Name</th>
                     <th>Vehicles</th>
                     <th>Policies</th>
@@ -44,15 +45,25 @@
                     *ngFor="
                       let customer of customers
                         | searchFilter: searchValue
-                        | paginate : {  itemsPerPage:10 , currentPage: pageNum , totalItems: totalItems } "
+                        | paginate : {  itemsPerPage:10 , currentPage: pageNum , totalItems: totalItems } 
+                        "
                         (click)="getValueOfTd(customer.name, customer.customerId, customer.amount)"
                         routerLink="/customer-dashboard"
                          >
+                         <!-- <tr
+                         *ngFor="
+                           let customer of customers
+                             | searchFilter: searchValue
+                             | paginate : {  itemsPerPage:10 , currentPage: pageNum , totalItems: totalItems } 
+                             | orderBy: key: reverse"
+                             (click)="getValueOfTd(customer.name, customer.customerId, customer.amount)"
+                             routerLink="/customer-dashboard"
+                              > -->
 
                    <td  id="customerName" >{{ customer.name | titlecase}}</td>
                     <td>{{ customer.vehicles }}</td>
                     <td>{{ customer.policies }}</td>
-                    <td>{{ customer.amount | number : '1.2-2' }}</td>
+                    <td>R {{ customer.amount | number : '1.2-2'}}</td>
                     <td>{{ customer.createdDate | date:'yyyy-MM-dd' }}</td>
 
                   </tr>

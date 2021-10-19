@@ -20,7 +20,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { DatePipe } from '@angular/common';
 import { AdminConsoleService } from './services/admin_console.service';
 import { PaginationModule,PaginationConfig } from 'ngx-bootstrap/pagination';
-
+import{ Ng2OrderModule } from 'ng2-order-pipe';
 
 
 
@@ -47,7 +47,8 @@ import { PaginationModule,PaginationConfig } from 'ngx-bootstrap/pagination';
     SharedModule,
     NgxPaginationModule,
     GoogleChartsModule,
-    PaginationModule
+    PaginationModule,
+    Ng2OrderModule
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

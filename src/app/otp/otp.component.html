@@ -14,7 +14,7 @@
                 <div>
                     <div class="mb-3">
                         <label>OTP</label>
-                        <input type="text" class="form-control" placeholder="Enter OTP" id="otpnumber" [(ngModel)]="otp" [ngModelOptions]="{standalone: true}" [value]="otp" required>
+                        <input type="text" class="form-control" placeholder="Enter OTP" id="otpnumber" [(ngModel)]="otp" [ngModelOptions]="{standalone: true}" [value]="otp"  #otpF autofocus required>
                         <div class="d-flex justify-content-end">
                             <small (click)="ResendOTP(loginForm)" class="hand-cursor text-center mt-1">Resend OTP ?</small>
                         </div>
