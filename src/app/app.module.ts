@@ -48,7 +48,7 @@ import { CountdownModule  } from 'ngx-countdown';
     SharedModule,
     NgxPaginationModule,
     GoogleChartsModule,
-    PaginationModule
+    PaginationModule,
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

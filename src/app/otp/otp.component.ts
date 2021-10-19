@@ -17,12 +17,16 @@ loginData = {}
 val : any
 otp : any
 invalidOTP:String='';
+fOtp: any;
   constructor(private auth: AdminConsoleService,private router: Router) {
 
     }
 
   ngOnInit(): void {
     this.getLoginData()
+    this.fOtp = document.getElementById('otpnumber');
+    this.fOtp.focus();
+
   }
 getLoginData(){
   this.auth.current__applicantData.subscribe(

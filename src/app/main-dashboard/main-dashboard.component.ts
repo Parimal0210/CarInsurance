@@ -8,6 +8,7 @@ import { Otp } from '../models/otp';
 import { AdminConsoleService } from '../services/admin_console.service';
 import {  PaginationRequest } from '../models/PaginationRequest';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { sortAscendingPriority } from '@angular/flex-layout';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -49,28 +50,33 @@ export class MainDashboardComponent implements OnInit {
     "pageSize":this.pageSize
   }
   
+  // key: string = 'name';
+  // reverse: boolean = false;
+  
   constructor(private _service: AdminConsoleService, private http: HttpClient) { 
     // this.paginationRequest.pageNo=this.pageNum;
     // this.paginationRequest.pageSize=this.pageSize;
     // console.log(this.paginationRequest);
   }
 
+  // sort(key:any){
+  //   this.key = key;
+  //   this.reverse = !this.reverse;
+  // }
   ngOnInit(): void { 
       this.name="";
-
-    
-      
-      this.pg.pageNo -=1
+  
+      this.pg.pageNo -=1;
       this._service.customerInfo(this.pg).subscribe((data: any)=>{
+      
         this.customers = data.response.list;
-        console.log("All customers11")
+        console.log("All customers11");
         console.log(this.customers);
          this.pageNum = data.response.pageNo;
          this.pageSize = data.response.pagesize;
          this.totalPages = data.response.totalPageSize;
          this.totalItems =  this.totalPages * this.pageSize
          console.log(this.pageNum,this.pageSize,this.totalItems)
-
       });
 
       this.pgOtp.pageNo -= 1
@@ -86,8 +92,8 @@ export class MainDashboardComponent implements OnInit {
   }
 
   sendPage(event: PageChangedEvent){
-    this.pageNum =event.page
-    this.pg.pageNo = this.pageNum-1
+    this.pageNum =event.page;
+    this.pg.pageNo = this.pageNum-1;
     this._service.customerInfo(this.pg).subscribe((data: any)=>{
       this.customers = data.response.list;
       console.log("All customers")
@@ -129,4 +135,8 @@ export class MainDashboardComponent implements OnInit {
   }
 }
 
+
+function sort(key: any) {
+  throw new Error('Function not implemented.');
+}
 
