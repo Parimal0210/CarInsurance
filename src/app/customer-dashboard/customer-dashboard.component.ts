@@ -23,6 +23,7 @@ export class CustomerDashboardComponent implements OnInit {
 
   sessionfname: any;
   sessionlname: any;
+  sessionCustomerId: any;
   sessionamount: any;
 
   customerDetails: CustomerDetails[];
@@ -50,9 +51,10 @@ export class CustomerDashboardComponent implements OnInit {
 
     this.myDate = new Date();
 
+    this.sessionCustomerId = sessionStorage.getItem('CustomerId')
 
     this._service
-      .getPolicyDetails(this.sessionfname, this.sessionlname)
+      .getPolicyDetails(this.sessionCustomerId)
       .subscribe((data: any) => {
         this.customerPolicies = data.response.reverse();
 
@@ -67,7 +69,7 @@ export class CustomerDashboardComponent implements OnInit {
         console.log(this.cpolicies+" "+this.ctotalBasePremium);
       });
 
-      this._service.getCustomerDetails(this.sessionfname, this.sessionlname).subscribe((data: any)=>{
+      this._service.getCustomerDetails(this.sessionCustomerId).subscribe((data: any)=>{
         this.customerDetails = data.response;
         console.log(this.customerDetails);
                 

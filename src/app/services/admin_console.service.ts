@@ -74,19 +74,14 @@ export class AdminConsoleService implements HttpInterceptor{
     //     return localStorage.getItem('token')
     //   }
 
-    public getCustomerDetails(fname:string, lname:string):Observable<any>{
-        const httpOptions = {
-          params: { fname, lname}
-      };
-        return this.http.get<any>(this.baseApiUrl+"getCustomerDetails", httpOptions);
+    public getCustomerDetails(custmersId:any):Observable<any>{
+       
+        return this.http.get<any>(this.baseApiUrl+"getCustomerDetails/"+custmersId);
       }
     
       
-      public getPolicyDetails(fname:string, lname:string):Observable<any>{
-        const httpOptions = {
-          params: { fname, lname}
-      };
-        return this.http.get<any>(this.baseApiUrl+"getPolicyDetails", httpOptions);
+      public getPolicyDetails(custmersId:any):Observable<any>{
+        return this.http.get<any>(this.baseApiUrl+"getPolicyDetails/"+custmersId);
       }
     
       public getRefundEachData(customerId: number,month:number,year:number):Observable<any>{

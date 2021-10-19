@@ -30,7 +30,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr
+                    <tr class="hand-cursor"
                       *ngFor="
                         let customer of customers
                           | searchFilter: searchValue
@@ -50,6 +50,7 @@
                 </table>
               </div>
               <div class="d-flex justify-content-end">
+              
                 <pagination class="my-pagination"
                 [directionLinks]="true" 
                 [totalItems]="totalItems"
@@ -58,8 +59,9 @@
                 previousText="<"   
                 nextText=">"
                 [align]="true"
-                (pageChanged)="sendPage($event)"></pagination>
-               
+                (pageChanged)="sendPage($event)">  </pagination>
+                <!-- <div class=" justify-content-start">{{pageNum+1}} of {{totalPages}}</div> -->
+                
               </div>
             </div>
           </div> 

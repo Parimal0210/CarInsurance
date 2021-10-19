@@ -48,7 +48,7 @@ $(document).ready(function() {
                             </tr>
                         </thead>
                         <tbody *ngFor = "let r of refunds;let i =index" >
-                            <tr  (click)="getValueOfTd(r.customerId)" (click)="toggleDisplay(i)">
+                            <tr class="hand-cursor"  (click)="getValueOfTd(r.customerId)" (click)="toggleDisplay(i)">
                                 <td>{{r.name}}</td>
                                 <td>{{r.policyCount}}</td>
                                 <td>{{r.vehicles}}</td>
