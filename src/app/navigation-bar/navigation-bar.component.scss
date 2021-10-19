@@ -15,12 +15,12 @@
     height: 3 rem;
     display: flex;
     align-items: center;
-    background-color: #282828;
+    background-color: #282828 !important;
     color: #ffffff;
     font-weight: 500;
     font-size: 0.5 rem;
     padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'DM-sans', sans-serif;
 }
 
 .navbar #navbarDropdownMenuLink {
@@ -28,10 +28,15 @@
     /* font-weight: 600; */
     position: relative;
     padding: 10px;
-    padding-right: 14px;
+    padding-right: 30px;
     font-size: 14px;
     text-align: right;
-    font-family: 'DM-sans';
+    font-family: 'DM-sans-bold';
+    margin-right: 30px;
+
+    .username{
+        font-family: 'DM-sans';
+    }
 }
 
 .rightMenu .dropdown-toggle::after {
@@ -109,4 +114,18 @@ leftMenu .navbar-nav .nav-link {
 #dropdown-item{
     color: #EE1234;
     font-family: 'DM-sans';
+}
+
+.dropdown-toggle::after{
+    width: 22px;
+    height: 34px;
+    line-height: 29px;
+    background-color: #3D3D3D;
+    border-radius: 3px;
+    text-align: center;
+    top:13px !important;
+}
+
+.dropdown-menu{
+    cursor: pointer !important;
 }

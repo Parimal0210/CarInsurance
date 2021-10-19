@@ -99,7 +99,7 @@ a:focus{
 }
 
 .tableStyle {
-    padding: 20px;
+    padding: 10px;
 }
 
 .tableStyle .table thead th {
@@ -115,7 +115,7 @@ a:focus{
     border: none;
     border-bottom: #e9e9e9 solid 1px;
     color: #282828;
-    font-size: 14px;
+    font-size: 13px;
 }
 
 .tableStyle .table td .red{
@@ -303,16 +303,16 @@ a, a:hover{
 .searchBox{
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;      
+        
 }
 .searchText{
     width: 0;
-    border-radius: 5rem;
+    border-radius: 4px;
     border: none;
     outline: none;
-    order: 1px solid #ccc;
+    border: 1px solid #ccc;
     transition: all 0.2s linear;
+    padding-left: 28px !important;
 }
 .searchText:focus{
     outline: none;
@@ -324,19 +324,26 @@ a, a:hover{
     position: relative;
     display: grid;
     place-items: center;
+    position: absolute;
+    left: 0;
+
+    i{
+        font-size: 10px;
+    }
 }
-.searchBox:hover > .searchText{
+.searchText{
     width: 10rem;
     height: 0.2rem;
-    padding: 1rem;
+    padding: 14px;
+    font-size: 13px;
     border: 0.5px solid gray;
     box-shadow: 0 2rem 2rem -1.5rem rgba(0, 0, 0, 0.5);
 }
-.searchBox:hover > .searchBtn{
-    background: #fff;
-    color: black;
-    position: relative;
-} 
+// .searchBox:hover > .searchBtn{
+//     background: #fff;
+//     color: black;
+//     position: relative;
+// } 
 
 
 // search icon css end
@@ -352,10 +359,4 @@ tr:hover {
     cursor:pointer;
    }
 
-.my-pagination::ng-deep .page-item.active .page-link {
-    z-index: 1;
-    color: #FFFFFF;
-    background-color:rgb(97, 152, 233) !important;
-    border-color: rgb(131, 148, 173);
-    justify-content: center;
-}
+

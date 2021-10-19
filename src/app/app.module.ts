@@ -20,7 +20,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { DatePipe } from '@angular/common';
 import { AdminConsoleService } from './services/admin_console.service';
 import { PaginationModule,PaginationConfig } from 'ngx-bootstrap/pagination';
-
+import { CountdownModule  } from 'ngx-countdown';
 
 
 
@@ -44,6 +44,7 @@ import { PaginationModule,PaginationConfig } from 'ngx-bootstrap/pagination';
     HttpClientModule,
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
+    CountdownModule,
     SharedModule,
     NgxPaginationModule,
     GoogleChartsModule,

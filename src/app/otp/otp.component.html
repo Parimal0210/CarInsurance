@@ -20,6 +20,8 @@
                         </div>
                     </div>
                     <div class="d-grid">
+                        <h6><countdown [config]="{ leftTime: 1200, format: 'mm:ss' }"></countdown></h6>
+                        <label for="invalidOTP" class="label text-center" style="color: red;">{{invalidOTP}}</label>
                         <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Login Now </button>
                         <small (click)="Goback()" class="hand-cursor text-center mt-3">Back</small>
 

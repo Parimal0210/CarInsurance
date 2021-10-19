@@ -50,7 +50,6 @@ export class InfoCardsComponent implements OnInit {
   // @ViewChild('sort', { static: false }) sort: MatSort;
 
  //date = new FormControl(moment());
-
   errorMessage: String = "\n\nPlease rectify the error and upload the file again.";
   modelDate : Date | any;
   today: Date;
@@ -186,7 +185,10 @@ flag:Boolean =false;
       
   }
 
-
+  clearText(){
+    this.statusMessage='';
+    this.statusMessageDone='';
+  }
 
   tutuka(){}
   ngOnInit(): void {

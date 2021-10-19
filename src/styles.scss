@@ -24,6 +24,14 @@
     src:url('assets/fonts/DMSans-Bold.ttf');
 }
 
+.text-bold{
+  font-family: 'DM-sans-bold'!important;
+}
+
+
+body{
+  background-color: #F0F0F0 !important;
+}
 
 
 /*
@@ -309,11 +317,11 @@ span#basic-addon2 {
 form.ngxdatepicker::after {
     content: '';
     position: absolute;
-    right: -1px;
+    right: -3px;
     width: 0;
     top: 13px;
     height: 0;
-    border-top: 10px solid black;
+    border-top: 6px solid black;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     cursor: pointer;
@@ -413,9 +421,13 @@ body{
 }
 
 .headingArea {
-    padding: 20px;
+    padding: 15px;
     border-bottom: #e9e9e9 solid 1px;
-    font-family: 'DM-sans-bold'
+    font-family: 'DM-sans-bold';
+    height:63px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .headingArea h2 {
@@ -647,3 +659,86 @@ ul.dateUl span.red {
   width: 97px;
   margin-left: 20px;
 }
+
+
+.pagination{
+  margin-top: 12px;
+  margin-bottom: 0 !important;
+}
+
+
+
+
+.page-link{
+  padding: 5px 8px !important;
+  font-size: 13px !important;
+  border: none !important;
+  color:#000 !important;
+  margin: 1px;
+}
+
+.page-item.active .page-link
+{
+  z-index: 1;
+  color: #e81d2c !important;
+  background-color:transparent !important;
+  border:1px solid #e81d2c !important;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.page-item.disabled .page-link{
+  color:#ccc !important;
+}
+
+.add-scroll{
+  height:353px;
+  overflow: auto;
+
+}
+
+.custom-card{
+  box-shadow: 0px 10px 20px #0000000d;
+  background-color: #fff;
+}
+
+.bs-datepicker-container{
+  padding: 0 !important;
+}
+
+.close-modal{
+  font-size:30px;
+  line-height: 0.5;
+}
+
+.hand-cursor{
+  cursor:pointer !important;
+}
+
+.btn-primary.disabled, .btn-primary:disabled,
+.btn-primary:hover{
+  background-color: #e81d2c !important;
+  border-color: #e81d2c !important;
+}
+
+.btn-secondary{
+  border:1px solid #e81d2c !important;
+  color: #e81d2c !important;
+  background-color: #fff !important;
+  line-height: 1.5 !important;
+}
+
+.customer-details-table{
+  thead{
+    
+    th{
+      vertical-align: top!important; 
+    }
+  }
+  
+  td{
+    font-size: 14px;
+    padding: 6px;
+  }
+}
+

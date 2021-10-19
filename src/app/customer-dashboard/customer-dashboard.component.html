@@ -40,7 +40,7 @@
     <div class="table-section container-fluid">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-7">
 
                     <div class="middleArea">
                         <div class="headingArea">
@@ -63,10 +63,21 @@
                                 </thead>
                                 <tbody>
                                     <tr  *ngFor="let cp of customerPolicies">
-                                        <td> <img src="{{cp.imagePath}}" class="product-icon" alt="brand"> <h6> {{cp.licensePlateNumber}} <span>{{ cp.model}}</span> </h6></td>
+                                       <td> 
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <img src="{{cp.imagePath}}" class="product-icon" alt="brand">
+                                            </div>
+                                            <div class="flex-grow-1 ms-2">
+                                                <h6 class="text-bold"> {{cp.licensePlateNumber}} <span class="opacity-50">{{ cp.model}}</span> </h6>
+                                            </div>
+                                          </div>
+                                            
+                                           
+                                       </td>
                                        <td>{{ cp.manufacturerYear}}</td>
                                        <td>{{ cp.policyNumber}}</td>
-                                       <td align="center">{{ cp.basePremium | number}}</td>
+                                       <td>{{ cp.basePremium | number}}</td>
                                     <tr>
                                 </tbody>
                             </table>
@@ -74,7 +85,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="middleArea">
                         <div class="headingArea">
                             <div class="row">
@@ -85,32 +96,41 @@
                             </div>
                         </div>
                   <div class="customer-details">
-                      <ul>
-                          <li>
-                              <h6><span>NAME</span>{{cname}}</h6>
-                           </li>
-                          <li>
-                               <h6><span>EMAIL</span>{{cemail}}</h6>
-                           </li>
-                           <li>
-                               <h6><span>MOBILE NUMBER</span>{{cmobileNumber}}</h6>
-                           </li>
-                           <li>
-                               <h6><span>ADDRESS</span>{{caddress1}}</h6>
-                           </li>
-                           <li>
-                               <h6><span>CITY</span>{{ccity}}</h6>
-                           </li>
-                           <li>
-                               <h6><span>PROVINCE</span>{{cprovince}}</h6>
-                           </li>
-                           <li>
-                               <h6><span>POSTAL CODE</span>{{cpostalCode}}</h6>
-                           </li>
-                           <li>
-                               <h6><span>ID NUMBER</span>{{cidNumber}}</h6>
-                           </li>
-                       </ul>
+                      
+                       <table class="w-100 customer-details-table">
+                           <tr>
+                               <td><span>NAME</span></td>
+                               <td>{{cname}}</td>
+                           </tr>
+                           <tr>
+                               <td><span>EMAIL</span></td>
+                               <td>{{cemail}}</td>
+                           </tr>
+                           <tr>
+                               <td><span>MOBILE NUMBER</span></td>
+                               <td>{{cmobileNumber}}</td>
+                           </tr>
+                           <tr>
+                               <td><span>ADDRESS</span></td>
+                               <td>{{caddress1}}</td>
+                           </tr>
+                           <tr>
+                               <td><span>CITY</span></td>
+                               <td>{{ccity}}</td>
+                           </tr>
+                           <tr>
+                               <td><span>PROVINCE</span></td>
+                               <td>{{cprovince}}</td>
+                           </tr>
+                           <tr>
+                               <td><span>POSTAL CODE</span></td>
+                               <td>{{cpostalCode}}</td>
+                           </tr>
+                           <tr>
+                               <td><span>ID NUMBER</span></td>
+                               <td>{{cidNumber}}</td>
+                           </tr>
+                       </table>
                    </div>
                    </div>
                 </div>

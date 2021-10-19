@@ -1,7 +1,9 @@
+import { Time } from '@angular/common';
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { _getOptionScrollPosition } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { interval  } from 'rxjs';
 import { AdminConsoleService } from '../services/admin_console.service';
 
 @Component({
@@ -14,7 +16,7 @@ loginForm : FormGroup | any
 loginData = {}
 val : any
 otp : any
-
+invalidOTP:String='';
   constructor(private auth: AdminConsoleService,private router: Router) {
 
     }
@@ -30,7 +32,7 @@ getLoginData(){
         } else {
           this.val = response.emailOrMobile;
           console.log(" data ", this.val );
-
+         
         }
       },
       (error: any) => {
@@ -55,9 +57,13 @@ console.log("Value = "+val1);
     this.auth.enter_otp(data).subscribe(
       res => {
                 console.log("Data = "+res)
+                this.invalidOTP='';
+                //alert("Logged in successfully!!!")
                 this.router.navigate(['/main-dashboard']);
        } ,
-       err => {} //console.log("something went wrong = "+err)
+       err => {
+         this.invalidOTP='INVALID OTP!';
+       } //console.log("something went wrong = "+err)
     )
 
   }
@@ -76,6 +82,5 @@ console.log("Value = "+val1);
     )
 
   }
-
 
 }
