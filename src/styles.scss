@@ -742,3 +742,21 @@ ul.dateUl span.red {
   }
 }
 
+.container{
+  max-width: 1266px!important;
+}
+
+.otp-date-col{
+  width:130px !important;
+}
+
+.table tr td{
+  padding-left:0px;
+  padding-right:0px;
+}
+
+.policy-table{
+  height:302px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
