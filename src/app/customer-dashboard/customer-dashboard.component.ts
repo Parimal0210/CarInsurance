@@ -81,7 +81,17 @@ export class CustomerDashboardComponent implements OnInit {
         this.ccity = data.response.city;
         this.cprovince = data.response.province;
         this.cpostalCode = data.response.postalCode;
+
         this.cidNumber  = data.response.idNumber;
+        // console.log("CidNumber: ");
+        // console.log(this.cidNumber);
+        
+        var  vis = this.cidNumber.slice(-4),  countNum = '';
+
+        for(let i = (this.cidNumber.length)-4; i>0; i--){
+            countNum += '*';
+        }
+        this.cidNumber = countNum+vis;
     });
     
   }
