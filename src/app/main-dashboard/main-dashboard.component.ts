@@ -33,7 +33,7 @@ export class MainDashboardComponent implements OnInit {
   lname: string;
   customerDetails: CustomerDetails[];
   customerPolicies: CustomerPolicy[];
-  pageSize:number=6;
+  pageSize:number=5;
   
   totalOtpItems:number
   totalOtpPages:number

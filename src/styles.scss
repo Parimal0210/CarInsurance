@@ -424,7 +424,7 @@ body{
     padding: 15px;
     border-bottom: #e9e9e9 solid 1px;
     font-family: 'DM-sans-bold';
-    height:63px;
+    height:52px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -692,7 +692,7 @@ ul.dateUl span.red {
 }
 
 .add-scroll{
-  height:353px;
+  height:270px;
   overflow: auto;
 
 }
@@ -700,6 +700,7 @@ ul.dateUl span.red {
 .custom-card{
   box-shadow: 0px 10px 20px #0000000d;
   background-color: #fff;
+  margin-bottom: 30px;
 }
 
 .bs-datepicker-container{
@@ -742,3 +743,37 @@ ul.dateUl span.red {
   }
 }
 
+.container{
+  max-width: 1266px!important;
+}
+
+.otp-date-col{
+  width:170px !important;
+}
+
+
+
+.policy-table{
+  height:302px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.mt-6{
+  margin-top: 6rem !important;
+}
+
+.page-info{
+  font-family: 'DM-sans';
+  opacity: 0.6;
+  font-size: 12px !important;
+}
+
+.fix-height{
+  height:563px;
+  overflow: auto;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgb(255 255 255) !important;
+}
