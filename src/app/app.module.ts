@@ -21,7 +21,7 @@ import { DatePipe } from '@angular/common';
 import { AdminConsoleService } from './services/admin_console.service';
 import { PaginationModule,PaginationConfig } from 'ngx-bootstrap/pagination';
 import { CountdownModule  } from 'ngx-countdown';
-
+import { NgxMaskModule } from 'ngx-mask'
 
 
 @NgModule({
@@ -44,11 +44,12 @@ import { CountdownModule  } from 'ngx-countdown';
     HttpClientModule,
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
-    CountdownModule,
     SharedModule,
     NgxPaginationModule,
     GoogleChartsModule,
     PaginationModule,
+    CountdownModule,
+    NgxMaskModule
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

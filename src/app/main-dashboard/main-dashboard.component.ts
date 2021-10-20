@@ -24,7 +24,6 @@ export class MainDashboardComponent implements OnInit {
   totalPages:number;
   totalItems:number
   potps: number = 1;
-  searchValue: string;
   tempName : string = '';
   origName : string = ''; 
   customerName: string;
@@ -39,10 +38,15 @@ export class MainDashboardComponent implements OnInit {
   totalOtpPages:number
 
   paginationRequest : PaginationRequest;
- 
- pg = {
+  searchValue:any;
+   pg = {
     "pageNo":this.pageNum,
     "pageSize":this.pageSize
+  }
+
+  searchPg = {
+    "pageNo":0,
+    "pageSize": 6
   }
 
   pgOtp={
@@ -64,10 +68,12 @@ export class MainDashboardComponent implements OnInit {
   //   this.reverse = !this.reverse;
   // }
   ngOnInit(): void { 
+
+    
       this.name="";
-  
+
       this.pg.pageNo -=1;
-      this._service.customerInfo(this.pg).subscribe((data: any)=>{
+      this._service.customerInfo(this.pg,this.searchValue).subscribe((data: any)=>{
       
         this.customers = data.response.list;
         console.log("All customers11");
@@ -78,6 +84,15 @@ export class MainDashboardComponent implements OnInit {
          this.totalItems =  this.totalPages * this.pageSize
          console.log(this.pageNum,this.pageSize,this.totalItems)
       });
+
+      // this._service.searchInfo(this.searchPg,this.searchValue).subscribe((data: any)=>{
+      //   console.log("Searched String");
+      //   console.log(this.searchValue);
+      //   this.customers = data.response.list;
+      //   console.log("Search Customers: ");
+      //   console.log(this.customers);
+      // });
+      
 
       this.pgOtp.pageNo -= 1
       this._service.latestOtp(this.pgOtp).subscribe((data: any)=>{
@@ -94,7 +109,7 @@ export class MainDashboardComponent implements OnInit {
   sendPage(event: PageChangedEvent){
     this.pageNum =event.page;
     this.pg.pageNo = this.pageNum-1;
-    this._service.customerInfo(this.pg).subscribe((data: any)=>{
+    this._service.customerInfo(this.pg,this.searchValue).subscribe((data: any)=>{
       this.customers = data.response.list;
       console.log("All customers")
       console.log(this.customers);
@@ -105,6 +120,20 @@ export class MainDashboardComponent implements OnInit {
        console.log(this.pageNum,this.pageSize,this.totalItems)
 
     });
+  }
+
+
+  searchPage(){
+    if(this.searchValue != ""){
+      this._service.searchInfo(this.searchPg,this.searchValue).subscribe((data: any)=>{
+        console.log("Searched String");
+        console.log(this.searchValue);
+        this.customers = data.response.list;
+        console.log("Search Customers: ");
+        console.log(this.customers);
+      });
+    }
+   
   }
 
   sendOtpPage(event: PageChangedEvent){
