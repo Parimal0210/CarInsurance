@@ -1,28 +1,25 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<div class="container rateBoxWarp">
-    <div class="row">
+
+    <div class="row" style="flex-direction: column;">
 
 
-        <div class="col-md-3">
-            <div class="rateBox" style="padding: 25px;background-color  : #282828;">
-                <h2></h2>
-                <div class="row">
-                    <div class="col-md-16">
-                        <h3 style="color: white;font-family: 'DM-sans-bold';">
+        <!-- <div class="col-md-3">
+            <div class="rateBox d-flex align-items-center justify-content-center" style="padding: 25px;background-color  : #282828; height:100%;">
+                
+                <div class=" ">
+                    
+                        <h3 class="text-bold mb-0 text-white">
                              50Fifty  Summary 
                         </h3>
-                    </div>
-                    <div>
-                        <h1>        
-                         </h1>
-                    </div>
+                   
+                    
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
 
-        <div class="col-md-3">
+        <div class="col-md-12 mb-3">
             <div class="rateBox">
                 <h2>Customers</h2>
                 <div class="row">
@@ -32,16 +29,17 @@
                         </h3>
                     </div>
                     <div class="col-md-6 text-right">
-                        <h3>{{summary[0].customersCount}}
+                        <h3>{{summary[0]?.customersCount}}
                             <span>MTD {{modelDate | date:'MMM yyyy'}}</span>
                         </h3>
                     </div>
                 </div>
+                <canvas id="customer" height="80" class="mt-2">{{ chartOne }}</canvas>
             </div>
         
         </div>
       
-        <div class="col-md-3">
+        <div class="col-md-12 mb-3">
             <div class="rateBox">
                 <h2>Vehicles</h2>
                 <div class="row">
@@ -51,16 +49,17 @@
                         </h3>
                     </div>
                     <div class="col-md-6 text-right">
-                        <h3>{{summary[0].vehiclesCount}}
+                        <h3>{{summary[0]?.vehiclesCount}}
                             <span>MTD {{modelDate | date:'MMM yyyy'}}</span>
                         </h3>
                     </div>
                 </div>
+                <canvas id="vehicle" height="80" class="mt-2">{{ chartTwo }}</canvas>
             </div>
             
         </div>
       
-        <div class="col-md-3">
+        <div class="col-md-12 mb-3">
             <div class="rateBox">
                 <h2>Refunds</h2>
                 <div class="row">
@@ -70,23 +69,25 @@
                         </h3>
                     </div>
                     <div class="col-md-6 text-right">
-                        <h3>R {{summary[0].totalRefund}}
+                        <h3>R {{summary[0]?.totalRefund}}
                             <span>MTD {{modelDate | date:'MMM yyyy'}}</span>
                         </h3>
                     </div>
                 </div>
+                <canvas id="refunds" height="80" class="mt-2">{{ chartThree }}</canvas>
             </div>
            
         </div>
 
     </div>
-</div>
 
-<google-chart #chart  
+
+<!-- <google-chart #chart  
 [title]="title3"  
 [type]="type"  
 [data]="data"  
 [options]="options"  
 [width]="width"  
 [height]="height">  
-</google-chart>
+</google-chart> -->
+

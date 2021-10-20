@@ -44,79 +44,133 @@
                       <td>{{ customer.amount | number : '1.2-2' }}</td>
                       <td>{{ customer.createdDate | date:'yyyy-MM-dd' }}</td>
 
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="d-flex justify-content-end">
-              
-                <pagination class="my-pagination"
-                [directionLinks]="true" 
-                [totalItems]="totalItems"
-                [itemsPerPage]="pageSize"
-                [maxSize]="3"
-                previousText="<"   
-                nextText=">"
-                [align]="true"
-                (pageChanged)="sendPage($event)">  </pagination>
-                <!-- <div class=" justify-content-start">{{pageNum+1}} of {{totalPages}}</div> -->
-                
-              </div>
-            </div>
-          </div> 
-        </div>
-        <div class="col-md-7">
-          <div class="custom-card">
-            <div class="headingArea"> 
-                <h2>Latest OTP</h2> 
-            </div> 
-            <div class="tableStyle">
-              <div class="add-scroll">
-                <table class="table otp-table">
-                  <thead>
-                    <tr>
-                      <th>customerName</th>
-                      <th>email</th>
-                      <th>phoneNumber</th>
-                      <th>otpCode</th>
-                      <th>expiryDate</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr
-                      *ngFor="
-                        let o of otps
-                          | paginate: { itemsPerPage: 10, currentPage: potps , totalItems:totalOtpItems}
-                      "
-                    >
-                      <td>{{ o.name | titlecase }}</td>
-                      <td>{{ o.email }}</td>
-                      <td>{{ o.mobileNumber }}</td>
-                      <td>{{ o.code }}</td>
-                      <td>{{ o.expiryDate }}</td>
+  <!-- <app-info-cards></app-info-cards> -->
+<div class="container mt-6">   
+  <div class="row mt-5">
+    <div class="col-12 col-md-3">
+      <app-cards></app-cards>
+    </div>
+    <div class="col-12 col-md-9">
+      <div class="table-section">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="custom-card">
+              <div class="headingArea"> 
+                  <h2>Latest OTP</h2> 
+              </div> 
+              <div class="tableStyle">
+                <div class="add-scroll">
+                  <table class="table otp-table">
+                    <thead>
+                      <tr>
+                        <th>CUSTOMER NAME</th>
+                        <th>EMAIL</th>
+                        <th>PHONE NUMBER</th>
+                        <th>OTP CODE</th>
+                        <th>EXPIRY DATE</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr
+                        *ngFor="
+                          let o of otps
+                            | paginate: { itemsPerPage: 10, currentPage: potps , totalItems:totalOtpItems}
+                        "
+                      >
+                        <td>{{ o.name | titlecase }}</td>
+                        <td>{{ o.email }}</td>
+                        <td>{{ o.mobileNumber }}</td>
+                        <td>{{ o.code }}</td>
+                        <td class="otp-date-col">{{ o.expiryDate }}</td>
 
-                    </tr>
-                  </tbody>
-                </table>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="d-flex justify-content-end">
+                  <pagination class="my-pagination"
+                  [directionLinks]="true" 
+                  [totalItems]="totalOtpItems"
+                  [itemsPerPage]="pageSize"
+                  [maxSize]="3"
+                  previousText="<"   
+                  nextText=">"
+                  [align]="true"
+                  (pageChanged)="sendOtpPage($event)"></pagination>
+                  <!-- <pagination-controls
+                    class="pagination-control"
+                    (pageChange)="potps = $event"
+                  ></pagination-controls> -->
+                </div>
               </div>
-              <div class="d-flex justify-content-end">
-                <pagination class="my-pagination"
-                [directionLinks]="true" 
-                [totalItems]="totalOtpItems"
-                [itemsPerPage]="pageSize"
-                [maxSize]="3"
-                previousText="<"   
-                nextText=">"
-                [align]="true"
-                (pageChanged)="sendOtpPage($event)"></pagination>
-                <!-- <pagination-controls
-                  class="pagination-control"
-                  (pageChange)="potps = $event"
-                ></pagination-controls> -->
+            </div>   
+          </div>
+          
+          <div class="col-md-12 "> 
+            <div class="custom-card">
+              <div class="headingArea"> 
+                    <h2>Customers</h2> 
+                    <div class="dateUl"> 
+                        <div class="searchBox">
+                          <input type="text" class="searchText" [(ngModel)]="searchValue"  placeholder="Search..">
+                          <a  class="searchBtn">
+                            <i class="fas fa-search"></i>
+                          </a>
+                        </div> 
+                    </div>
+              </div> 
+              <div class="tableStyle">
+                <div class="add-scroll">
+                  <table class="table table-hover customer-table">
+                    <thead>
+                      <tr>
+                        <th>NAME</th>
+                        <th>VEHICLES</th>
+                        <th>POLICIES</th>
+                        <th>CARD AMOUNT</th>
+                        <th>CREATED DATE</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="hand-cursor"
+                        *ngFor="
+                          let customer of customers
+                            | searchFilter: searchValue
+                            | paginate : {  itemsPerPage:10 , currentPage: pageNum , totalItems: totalItems } "
+                            (click)="getValueOfTd(customer.name, customer.customerId, customer.amount)"
+                            routerLink="/customer-dashboard"
+                            >
+
+                      <td  id="customerName" >{{ customer.name | titlecase}}</td>
+                        <td>{{ customer.vehicles }}</td>
+                        <td>{{ customer.policies }}</td>
+                        <td>{{ customer.amount | number : '1.2-2' }}</td>
+                        <td class="otp-date-col">{{ customer.createdDate | date:'yyyy-MM-dd' }}</td>
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="ml-2 page-info">Showing {{pageNum+1}} of {{totalPages}}</span>
+                  <pagination class="my-pagination"
+                  [directionLinks]="true" 
+                  [totalItems]="totalItems"
+                  [itemsPerPage]="pageSize"
+                  [maxSize]="3"
+                  previousText="<"   
+                  nextText=">"
+                  [align]="true"
+                  (pageChanged)="sendPage($event)"><div class=" justify-content-start"></div></pagination>
+                  
+                </div>
               </div>
-            </div>
-          </div>   
+            </div> 
+          </div>
+          
         </div>
       </div>
     </div>
-
+  </div>
+</div>

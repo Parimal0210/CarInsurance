@@ -21,8 +21,12 @@ import { DatePipe } from '@angular/common';
 import { AdminConsoleService } from './services/admin_console.service';
 import { PaginationModule,PaginationConfig } from 'ngx-bootstrap/pagination';
 import { CountdownModule  } from 'ngx-countdown';
-import { NgxMaskModule } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
+
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   declarations: [
@@ -49,8 +53,7 @@ import { NgxMaskModule } from 'ngx-mask'
     GoogleChartsModule,
     PaginationModule,
     CountdownModule,
-    NgxMaskModule
-
+    NgxMaskModule.forRoot(maskConfig),
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [AdminConsoleService,
