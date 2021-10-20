@@ -1,48 +1,4 @@
 <app-navigation-bar></app-navigation-bar>
-<app-cards></app-cards>
-  <!-- <app-info-cards></app-info-cards> -->
-    <div class="container table-section">
-      <div class="row">
-        <div class="col-md-5 "> 
-          <div class="custom-card">
-            <div class="headingArea"> 
-                  <h2>Customers</h2> 
-                  <div class="dateUl"> 
-                      <div class="searchBox">
-                        <input type="text" class="searchText" [(ngModel)]="searchValue" (keyup.enter)="searchPage()" placeholder="Search..">
-                        <a  class="searchBtn">
-                          <i class="fas fa-search" (click)="searchPage()"></i>
-                        </a>
-                      </div> 
-                  </div>
-            </div> 
-            <div class="tableStyle">
-              <div class="add-scroll">
-                <table class="table table-hover">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Vehicles</th>
-                      <th>Policies</th>
-                      <th>Amount</th>
-                      <th>CreatedDate</th>
-                      
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr class="hand-cursor"
-                      *ngFor="
-                        let customer of customers
-                          | paginate : {  itemsPerPage:10 , currentPage: pageNum , totalItems: totalItems } "
-                          (click)="getValueOfTd(customer.name, customer.customerId, customer.amount)"
-                          routerLink="/customer-dashboard"
-                          >
-                          <!-- | searchFilter: searchValue -->
-                    <td  id="customerName" >{{ customer.name | titlecase}}</td>
-                      <td>{{ customer.vehicles }}</td>
-                      <td>{{ customer.policies }}</td>
-                      <td>{{ customer.amount | number : '1.2-2' }}</td>
-                      <td>{{ customer.createdDate | date:'yyyy-MM-dd' }}</td>
 
   <!-- <app-info-cards></app-info-cards> -->
 <div class="container mt-6">   
@@ -112,13 +68,13 @@
               <div class="headingArea"> 
                     <h2>Customers</h2> 
                     <div class="dateUl"> 
-                        <div class="searchBox">
-                          <input type="text" class="searchText" [(ngModel)]="searchValue"  placeholder="Search..">
-                          <a  class="searchBtn">
-                            <i class="fas fa-search"></i>
-                          </a>
-                        </div> 
-                    </div>
+                      <div class="searchBox">
+                        <input type="text" class="searchText" [(ngModel)]="searchValue" (keyup.enter)="searchPage()" placeholder="Search..">
+                        <a  class="searchBtn">
+                          <i class="fas fa-search" (click)="searchPage()"></i>
+                        </a>
+                      </div> 
+                  </div>
               </div> 
               <div class="tableStyle">
                 <div class="add-scroll">
