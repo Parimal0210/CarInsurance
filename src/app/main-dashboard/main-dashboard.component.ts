@@ -38,7 +38,7 @@ export class MainDashboardComponent implements OnInit {
   totalOtpPages:number
 
   paginationRequest : PaginationRequest;
-  searchValue:any;
+  searchValue:string="";
    pg = {
     "pageNo":this.pageNum,
     "pageSize":this.pageSize
@@ -46,7 +46,7 @@ export class MainDashboardComponent implements OnInit {
 
   searchPg = {
     "pageNo":0,
-    "pageSize": 5
+    "pageSize": this.pageSize
   }
 
   pgOtp={
@@ -71,7 +71,7 @@ export class MainDashboardComponent implements OnInit {
 
     
       this.name="";
-
+      this.searchValue=""
       this.pg.pageNo -=1;
       this._service.customerInfo(this.pg,this.searchValue).subscribe((data: any)=>{
       
@@ -123,8 +123,26 @@ export class MainDashboardComponent implements OnInit {
   }
 
 
-  searchPage(){
+  searchPage(event:any){
+    console.log(event.keyCode);
+    
+    if(event.keyCode === 8){
+      this.searchValue = this.searchValue.slice(0, -1);
+      console.log("str: "+this.searchValue);
+      
+    }else{
+      this.searchValue = this.searchValue + event.key;
+    }
     if(this.searchValue != ""){
+      this._service.searchInfo(this.searchPg,this.searchValue).subscribe((data: any)=>{
+        console.log("Searched String");
+        console.log(this.searchValue);
+        this.customers = data.response.list;
+        console.log("Search Customers: ");
+        console.log(this.customers);
+      });
+    }else{
+      this.searchValue=""
       this._service.searchInfo(this.searchPg,this.searchValue).subscribe((data: any)=>{
         console.log("Searched String");
         console.log(this.searchValue);
