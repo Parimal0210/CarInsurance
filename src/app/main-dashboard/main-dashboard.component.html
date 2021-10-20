@@ -101,7 +101,7 @@
                       <td  id="customerName" >{{ customer.name | titlecase}}</td>
                         <td>{{ customer.vehicles }}</td>
                         <td>{{ customer.policies }}</td>
-                        <td>{{ customer.amount | number : '1.2-2' }}</td>
+                        <td>R {{ customer.amount | number : '1.2-2' }}</td>
                         <td class="otp-date-col">{{ customer.createdDate | date:'yyyy-MM-dd' }}</td>
 
                       </tr>
