@@ -148,8 +148,8 @@ summary : SummaryData[];
           {
             label: 'Customers',
             data: [this.data1[6][1],this.data1[5][1],this.data1[4][1],this.data1[3][1],this.data1[2][1],this.data1[1][1]],
-            borderColor: '#FFB200',
-            backgroundColor: 'rgb(255 0 0 / 50%)', 
+            borderColor: 'rgb(255 178 0 / 40%)',
+            backgroundColor: 'rgb(255 178 0 / 50%)', 
             fill: true,
             tension: 0.5
           } 
@@ -169,8 +169,8 @@ summary : SummaryData[];
           {
             label: 'Vehicles',
             data: [this.data2[6][1],this.data2[5][1],this.data2[4][1],this.data2[3][1],this.data2[2][1],this.data2[1][1]],
-            borderColor: '#FFB200',
-            backgroundColor: 'rgb(255 0 250 / 50%)', 
+            borderColor: 'rgb(0 92 255 / 40%)',
+            backgroundColor: 'rgb(0 92 255 / 50%)', 
             fill: true,
             tension: 0.5
           } 
@@ -190,8 +190,8 @@ summary : SummaryData[];
           {
             label: 'Refund',
             data: [this.data3[6][1],this.data3[5][1],this.data3[4][1],this.data3[3][1],this.data3[2][1],this.data3[1][1]],
-            borderColor: 'rgb(255 255 0 / 50%)',
-            backgroundColor: 'rgb(255 255 0 / 50%)', 
+            borderColor: 'rgb(37 186 42 / 40%)',
+            backgroundColor: 'rgb(37 186 42 / 50%)', 
             fill: true,
             tension: 0.5
           } 

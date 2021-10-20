@@ -692,7 +692,7 @@ ul.dateUl span.red {
 }
 
 .add-scroll{
-  height:176px;
+  height:270px;
   overflow: auto;
 
 }
@@ -767,4 +767,13 @@ ul.dateUl span.red {
   font-family: 'DM-sans';
   opacity: 0.6;
   font-size: 12px !important;
+}
+
+.fix-height{
+  height:563px;
+  overflow: auto;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgb(255 255 255) !important;
 }

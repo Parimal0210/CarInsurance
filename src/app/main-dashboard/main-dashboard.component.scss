@@ -106,9 +106,10 @@ a:focus{
     color: #282828;
     opacity: 0.6;
     font-size: 12px;
-    text-transform: capitalize;
+    text-transform: uppercase;
     border: none;
     border-bottom: #e9e9e9 solid 1px;
+    font-weight: 400 !important;
 }
 
 .tableStyle .table td {
@@ -355,7 +356,7 @@ a, a:hover{
 //customer name on dashboard end
 
 
-tr:hover {
+.customer-table tr:hover {
     cursor:pointer;
    }
 
