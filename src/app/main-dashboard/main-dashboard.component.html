@@ -69,9 +69,9 @@
                     <h2>Customers</h2> 
                     <div class="dateUl"> 
                       <div class="searchBox">
-                        <input type="text" class="searchText" [(ngModel)]="searchValue" (keyup.enter)="searchPage()" placeholder="Search..">
+                        <input type="text" class="searchText" (keydown)="searchPage($event)" placeholder="Search..">
                         <a  class="searchBtn">
-                          <i class="fas fa-search" (click)="searchPage()"></i>
+                          <i class="fas fa-search" ></i>
                         </a>
                       </div> 
                   </div>
@@ -93,7 +93,6 @@
                       <tr class="hand-cursor"
                         *ngFor="
                           let customer of customers
-                            | searchFilter: searchValue
                             | paginate : {  itemsPerPage:10 , currentPage: pageNum , totalItems: totalItems } "
                             (click)="getValueOfTd(customer.name, customer.customerId, customer.amount)"
                             routerLink="/customer-dashboard"
