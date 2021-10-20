@@ -46,7 +46,7 @@ export class MainDashboardComponent implements OnInit {
 
   searchPg = {
     "pageNo":0,
-    "pageSize": 6
+    "pageSize": 5
   }
 
   pgOtp={
