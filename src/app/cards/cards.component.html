@@ -32,11 +32,12 @@
                         </h3>
                     </div>
                     <div class="col-md-6 text-right">
-                        <h3>{{summary[0].customersCount}}
+                        <h3>{{summary[0]?.customersCount}}
                             <span>MTD {{modelDate | date:'MMM yyyy'}}</span>
                         </h3>
                     </div>
                 </div>
+                <canvas id="customer" height="80" class="mt-2">{{ chartOne }}</canvas>
             </div>
         
         </div>
@@ -51,11 +52,12 @@
                         </h3>
                     </div>
                     <div class="col-md-6 text-right">
-                        <h3>{{summary[0].vehiclesCount}}
+                        <h3>{{summary[0]?.vehiclesCount}}
                             <span>MTD {{modelDate | date:'MMM yyyy'}}</span>
                         </h3>
                     </div>
                 </div>
+                <canvas id="vehicle" height="80" class="mt-2">{{ chartTwo }}</canvas>
             </div>
             
         </div>
@@ -70,11 +72,12 @@
                         </h3>
                     </div>
                     <div class="col-md-6 text-right">
-                        <h3>R {{summary[0].totalRefund}}
+                        <h3>R {{summary[0]?.totalRefund}}
                             <span>MTD {{modelDate | date:'MMM yyyy'}}</span>
                         </h3>
                     </div>
                 </div>
+                <canvas id="refunds" height="80" class="mt-2">{{ chartThree }}</canvas>
             </div>
            
         </div>
@@ -82,11 +85,12 @@
     </div>
 </div>
 
-<google-chart #chart  
+<!-- <google-chart #chart  
 [title]="title3"  
 [type]="type"  
 [data]="data"  
 [options]="options"  
 [width]="width"  
 [height]="height">  
-</google-chart>
+</google-chart> -->
+

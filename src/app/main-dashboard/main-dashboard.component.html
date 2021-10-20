@@ -49,8 +49,9 @@
                   </tbody>
                 </table>
               </div>
+               
               <div class="d-flex justify-content-end">
-              
+                {{pageNum+1}} of {{totalPages}}
                 <pagination class="my-pagination"
                 [directionLinks]="true" 
                 [totalItems]="totalItems"
@@ -59,9 +60,7 @@
                 previousText="<"   
                 nextText=">"
                 [align]="true"
-                (pageChanged)="sendPage($event)">  </pagination>
-                <!-- <div class=" justify-content-start">{{pageNum+1}} of {{totalPages}}</div> -->
-                
+                (pageChanged)="sendPage($event)"><div class=" justify-content-start"></div></pagination>
               </div>
             </div>
           </div> 
