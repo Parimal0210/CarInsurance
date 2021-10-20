@@ -692,7 +692,7 @@ ul.dateUl span.red {
 }
 
 .add-scroll{
-  height:353px;
+  height:282px;
   overflow: auto;
 
 }
@@ -700,6 +700,7 @@ ul.dateUl span.red {
 .custom-card{
   box-shadow: 0px 10px 20px #0000000d;
   background-color: #fff;
+  margin-bottom: 30px;
 }
 
 .bs-datepicker-container{
@@ -747,16 +748,17 @@ ul.dateUl span.red {
 }
 
 .otp-date-col{
-  width:130px !important;
+  width:170px !important;
 }
 
-.table tr td{
-  padding-left:0px;
-  padding-right:0px;
-}
+
 
 .policy-table{
   height:302px;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.mt-6{
+  margin-top: 6rem !important;
 }
