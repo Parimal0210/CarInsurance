@@ -140,6 +140,10 @@ export class MainDashboardComponent implements OnInit {
         this.customers = data.response.list;
         console.log("Search Customers: ");
         console.log(this.customers);
+        this.pageNum = +data.response.pageNo;
+       this.pageSize = +data.response.pagesize;
+       this.totalPages = +data.response.totalPageSize;
+       this.totalItems =  this.totalPages * this.pageSize
       });
     }else{
       this.searchValue=""
@@ -151,7 +155,6 @@ export class MainDashboardComponent implements OnInit {
         console.log(this.customers);
       });
     }
-   
   }
 
   sendOtpPage(event: PageChangedEvent){
