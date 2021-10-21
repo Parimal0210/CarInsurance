@@ -20,6 +20,7 @@ export class CustomerDashboardComponent implements OnInit {
   cprovince: any;
   cpostalCode: any;
   cidNumber: any;
+  ccompanyName: any;
 
   sessionfname: any;
   sessionlname: any;
@@ -92,6 +93,7 @@ export class CustomerDashboardComponent implements OnInit {
             countNum += '*';
         }
         this.cidNumber = countNum+vis;
+        this.ccompanyName = data.response.company.companyName;
     });
     
   }
