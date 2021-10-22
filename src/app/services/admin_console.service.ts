@@ -3,7 +3,7 @@ import { User } from './../models/user';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
 import { Injector } from '@angular/core';
 import { HttpInterceptor } from '@angular/common/http';
 import {  PaginationRequest } from '../models/PaginationRequest';
@@ -41,6 +41,7 @@ export class AdminConsoleService implements HttpInterceptor{
     private get_otpList_url = this.baseApiUrl+"getOtpList";
     private get_customerInfo_url =this.baseApiUrl+"getCustomerInfo";
 
+    private get_search_url = this.baseApiUrl+"getCustomerInfo";
     private login_url = environment.apiUrl+"/customerLogin";
 
     constructor(private http: HttpClient,private injector: Injector) { }
@@ -92,9 +93,26 @@ export class AdminConsoleService implements HttpInterceptor{
         return this.http.post<any>(this.get_otpList_url,pgOtp);
       }
     
-      public customerInfo(pg:any):Observable<any>{
-        return this.http.post<any>(this.get_customerInfo_url,pg);
+      public customerInfo(paginationRequest:any,firstName:any):Observable<any>{
+        const httpOptions = {
+          paginationRequest,
+          firstName
+      };
+        return this.http.post<any>(this.get_customerInfo_url,httpOptions);
       }
+
+      public searchInfo(paginationRequest:any,firstName:any):Observable<any>{
+          const httpOptions = {
+             paginationRequest,
+             firstName
+         };
+        return this.http.post<any>(this.get_search_url,httpOptions);
+      }
+      // "paginationRequest" :
+      //   {
+      //       "pageNo": 0, "pageSize": 10
+      //   },
+      //   "firstName": "prajwal"
 
       //authentication
       public get currentUserValue(): User {

@@ -13,6 +13,7 @@
             <div class="custom-card">
               <div class="headingArea"> 
                   <h2>Latest OTP</h2> 
+                  <div class="btn"><button class="btn fa fa-refresh" (click)="refreshOTP()"></button></div>
               </div> 
               <div class="tableStyle">
                 <div class="add-scroll">
@@ -30,7 +31,7 @@
                       <tr
                         *ngFor="
                           let o of otps
-                            | paginate: { itemsPerPage: 10, currentPage: potps , totalItems:totalOtpItems}
+                            
                         "
                       >
                         <td>{{ o.name | titlecase }}</td>
@@ -43,8 +44,12 @@
                     </tbody>
                   </table>
                 </div>
-                <div class="d-flex justify-content-end">
-                  <pagination class="my-pagination"
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="ml-2 page-info">Showing {{potps+1}} of {{totalOtpPages}}</span>
+                  <pagination #myPaginator class="my-pagination"
+                  total-items="totalOtpItems"
+                
+                
                   [directionLinks]="true" 
                   [totalItems]="totalOtpItems"
                   [itemsPerPage]="pageSize"
@@ -53,10 +58,6 @@
                   nextText=">"
                   [align]="true"
                   (pageChanged)="sendOtpPage($event)"></pagination>
-                  <!-- <pagination-controls
-                    class="pagination-control"
-                    (pageChange)="potps = $event"
-                  ></pagination-controls> -->
                 </div>
               </div>
             </div>   
@@ -67,13 +68,15 @@
               <div class="headingArea"> 
                     <h2>Customers</h2> 
                     <div class="dateUl"> 
-                        <div class="searchBox">
-                          <input type="text" class="searchText" [(ngModel)]="searchValue"  placeholder="Search..">
-                          <a  class="searchBtn">
-                            <i class="fas fa-search"></i>
-                          </a>
-                        </div> 
-                    </div>
+                      <div class="searchBox"   >
+                        <label  class="searchBtn">
+                          <i class="fas fa-search" ></i>
+                        </label>
+                        <input matInput type="search" #searchVal (keydown)="searchPage($event,searchVal.value)" />
+                       <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()" (click)="searchVal.value=''"> </button>
+                       <!-- <input type="search"  class="search-box" #searchVal (keydown)="searchPage($event,searchVal.value)" placeholder="Search.."/> -->
+                      </div> 
+                  </div>
               </div> 
               <div class="tableStyle">
                 <div class="add-scroll">
@@ -83,7 +86,7 @@
                         <th>NAME</th>
                         <th>VEHICLES</th>
                         <th>POLICIES</th>
-                        <th>CARD AMOUNT</th>
+                        <th>CARD BALANCE</th>
                         <th>CREATED DATE</th>
                         
                       </tr>
@@ -92,7 +95,6 @@
                       <tr class="hand-cursor"
                         *ngFor="
                           let customer of customers
-                            | searchFilter: searchValue
                             | paginate : {  itemsPerPage:10 , currentPage: pageNum , totalItems: totalItems } "
                             (click)="getValueOfTd(customer.name, customer.customerId, customer.amount)"
                             routerLink="/customer-dashboard"
@@ -101,7 +103,7 @@
                       <td  id="customerName" >{{ customer.name | titlecase}}</td>
                         <td>{{ customer.vehicles }}</td>
                         <td>{{ customer.policies }}</td>
-                        <td>{{ customer.amount | number : '1.2-2' }}</td>
+                        <td>R {{ customer.amount | number : '1.2-2' }}</td>
                         <td class="otp-date-col">{{ customer.createdDate | date:'yyyy-MM-dd' }}</td>
 
                       </tr>

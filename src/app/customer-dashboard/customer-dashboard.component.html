@@ -71,6 +71,7 @@
                                         <th>MANUFACTURER YEAR</th>
                                         <th>POLICY NO</th>
                                         <th>BASE PREMIUM</th>
+                                        <th>STATUS</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -90,6 +91,7 @@
                                        <td>{{ cp.manufacturerYear}}</td>
                                        <td>{{ cp.policyNumber}}</td>
                                        <td>{{ cp.basePremium | number}}</td>
+                                       <td>{{ cp.policyStatus }}</td>
                                     <tr>
                                 </tbody>
                             </table>
@@ -124,9 +126,9 @@
                            </tr>
                            <tr>
                                <td><span>ADDRESS</span></td>
-                               <td>{{caddress1}}, {{ccity}}, {{cprovince}}, {{cpostalCode}}, {{cidNumber}}</td>
+                               <td>{{caddress1}},  {{cprovince}}, {{ccity}}, {{cpostalCode}}</td>
                            </tr>
-                           <tr>
+                           <!-- <tr>
                                <td><span>CITY</span></td>
                                <td>{{ccity}}</td>
                            </tr>
@@ -137,10 +139,10 @@
                            <tr>
                                <td><span>POSTAL CODE</span></td>
                                <td>{{cpostalCode}}</td>
-                           </tr>
+                           </tr> -->
                            <tr>
                                <td><span>ID NUMBER</span></td>
-                               <td>{{cidNumber }}</td>
+                               <td>{{cidNumber}}</td> 
                            </tr>
                        </table>
                    </div>

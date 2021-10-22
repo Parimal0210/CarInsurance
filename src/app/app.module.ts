@@ -15,7 +15,6 @@ import { NavigationBarComponent } from './navigation-bar/navigation-bar.componen
 import { HttpClientModule, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OtpComponent } from './otp/otp.component';
 import { LoginOtpComponent } from './login-otp/login-otp.component';
-import { SearchFilterPipe } from './search-filter.pipe';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { DatePipe } from '@angular/common';
 import { AdminConsoleService } from './services/admin_console.service';
@@ -37,7 +36,6 @@ const maskConfig: Partial<IConfig> = {
     CustomerDashboardComponent,
     OtpComponent,
     LoginOtpComponent,
-    SearchFilterPipe
    // NavigationBarComponent
   ],
   imports: [
@@ -48,11 +46,11 @@ const maskConfig: Partial<IConfig> = {
     HttpClientModule,
     BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
-    CountdownModule,
     SharedModule,
     NgxPaginationModule,
     GoogleChartsModule,
     PaginationModule,
+    CountdownModule,
     NgxMaskModule.forRoot(maskConfig),
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

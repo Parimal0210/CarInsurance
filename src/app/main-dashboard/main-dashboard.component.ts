@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Customer } from '../models/customer';
 import { CustomerDetails } from '../models/CustomerDetails';
 import { CustomerPolicy } from '../models/customerpolicy';
@@ -8,15 +8,18 @@ import { Otp } from '../models/otp';
 import { AdminConsoleService } from '../services/admin_console.service';
 import {  PaginationRequest } from '../models/PaginationRequest';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
-import { sortAscendingPriority } from '@angular/flex-layout';
+
 
 @Component({
   selector: 'app-main-dashboard',
   templateUrl: './main-dashboard.component.html',
   styleUrls: ['./main-dashboard.component.scss']
 })
+
+
 export class MainDashboardComponent implements OnInit {
 
+ // @ViewChild(PaginationModule) paginator: PaginationModule
   name: any;
   customers: Customer[]; 
   otps : Otp[]; 
@@ -24,7 +27,6 @@ export class MainDashboardComponent implements OnInit {
   totalPages:number;
   totalItems:number
   potps: number = 1;
-  searchValue: string;
   tempName : string = '';
   origName : string = ''; 
   customerName: string;
@@ -34,15 +36,20 @@ export class MainDashboardComponent implements OnInit {
   customerDetails: CustomerDetails[];
   customerPolicies: CustomerPolicy[];
   pageSize:number=5;
-  
+
   totalOtpItems:number
   totalOtpPages:number
 
   paginationRequest : PaginationRequest;
- 
- pg = {
+  searchValue:string="";
+   pg = {
     "pageNo":this.pageNum,
     "pageSize":this.pageSize
+  }
+
+  searchPg = {
+    "pageNo":0,
+    "pageSize": this.pageSize
   }
 
   pgOtp={
@@ -64,10 +71,12 @@ export class MainDashboardComponent implements OnInit {
   //   this.reverse = !this.reverse;
   // }
   ngOnInit(): void { 
+
+    
       this.name="";
-  
+      this.searchValue=""
       this.pg.pageNo -=1;
-      this._service.customerInfo(this.pg).subscribe((data: any)=>{
+      this._service.customerInfo(this.pg,this.searchValue).subscribe((data: any)=>{
       
         this.customers = data.response.list;
         console.log("All customers11");
@@ -78,6 +87,15 @@ export class MainDashboardComponent implements OnInit {
          this.totalItems =  this.totalPages * this.pageSize
          console.log(this.pageNum,this.pageSize,this.totalItems)
       });
+
+      // this._service.searchInfo(this.searchPg,this.searchValue).subscribe((data: any)=>{
+      //   console.log("Searched String");
+      //   console.log(this.searchValue);
+      //   this.customers = data.response.list;
+      //   console.log("Search Customers: ");
+      //   console.log(this.customers);
+      // });
+      
 
       this.pgOtp.pageNo -= 1
       this._service.latestOtp(this.pgOtp).subscribe((data: any)=>{
@@ -94,7 +112,7 @@ export class MainDashboardComponent implements OnInit {
   sendPage(event: PageChangedEvent){
     this.pageNum =event.page;
     this.pg.pageNo = this.pageNum-1;
-    this._service.customerInfo(this.pg).subscribe((data: any)=>{
+    this._service.customerInfo(this.pg,this.searchValue).subscribe((data: any)=>{
       this.customers = data.response.list;
       console.log("All customers")
       console.log(this.customers);
@@ -105,6 +123,56 @@ export class MainDashboardComponent implements OnInit {
        console.log(this.pageNum,this.pageSize,this.totalItems)
 
     });
+  }
+
+  clearSearch(){
+    this.searchValue=""
+    this._service.searchInfo(this.searchPg,this.searchValue).subscribe((data: any)=>{
+      console.log("Searched String33");
+      console.log(this.searchValue);
+      this.customers = data.response.list;
+      console.log("Search Customers: ");
+      console.log(this.customers);
+    });
+  }
+
+
+  aCap:any=64
+  zCap:any=91
+  a:any=96
+  z:any=123
+  searchPage(event:any,searchVal:string){
+    console.log(event.keyCode);
+  
+      if(event.keyCode === 8){
+        this.searchValue = this.searchValue.slice(0, -1);
+        console.log("str: "+this.searchValue);
+      
+      }else{
+        this.searchValue = searchVal + event.key;
+      }
+      
+      console.log("new  string: "+this.searchValue);
+      
+      if(this.searchValue != ""){
+    
+        this._service.searchInfo(this.searchPg,this.searchValue).subscribe((data: any)=>{
+          console.log("Searched String11");
+          console.log(this.searchValue);
+          this.customers = data.response.list;
+          console.log("Search Customers: ");
+          console.log(this.customers);
+        });
+      }else{
+        this.searchValue=""
+        this._service.searchInfo(this.searchPg,this.searchValue).subscribe((data: any)=>{
+          console.log("Searched String22");
+          console.log(this.searchValue);
+          this.customers = data.response.list;
+          console.log("Search Customers: ");
+          console.log(this.customers);
+        });
+      }
   }
 
   sendOtpPage(event: PageChangedEvent){
@@ -133,7 +201,26 @@ export class MainDashboardComponent implements OnInit {
     sessionStorage.setItem('CustomerId',_customerId);
     sessionStorage.setItem('Amount',_amount);
   }
+
+  pageChanged:PageChangedEvent;
+  refreshOTP(){
+    // this.pageChanged.page = 1
+    // this.sendOtpPage(this.pageChanged)
+   
+    this.potps =1
+    this.pgOtp.pageNo = this.potps-1
+
+    this._service.latestOtp(this.pgOtp).subscribe((data: any)=>{
+      this.otps = data.response.list;
+      this.potps = data.response.pageNo;
+      this.pageSize = data.response.pagesize;
+      this.totalOtpPages = data.response.totalPageSize;
+      this.totalOtpItems =  this.totalOtpPages * this.pageSize
+      console.log(this.potps,this.totalOtpPages,this.totalOtpItems)
+  })
+  }
 }
+
 
 
 function sort(key: any) {
