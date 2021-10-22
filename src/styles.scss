@@ -11,17 +11,20 @@
 
 @font-face{
     font-family: 'DM-sans';
-    src:url('assets/fonts/DMSans-Regular.ttf');
+    // src:url('assets/fonts/DMSans-Regular.ttf');
+    src:url('assets/fonts/Barlow-Regular.ttf');
 }
 
 @font-face{
     font-family: 'DM-sans-medium';
-    src:url('assets/fonts/DMSans-Medium.ttf');
+    // src:url('assets/fonts/DMSans-Medium.ttf');
+    src:url('assets/fonts/Barlow-Medium.ttf');
 }
 
 @font-face{
     font-family: 'DM-sans-bold';
-    src:url('assets/fonts/DMSans-Bold.ttf');
+    // src:url('assets/fonts/DMSans-Bold.ttf');
+    src:url('assets/fonts/Barlow-Bold.ttf');
 }
 
 .text-bold{
@@ -31,6 +34,7 @@
 
 body{
   background-color: #F0F0F0 !important;
+  font-family: 'DM-sans' !important;
 }
 
 
@@ -739,7 +743,7 @@ ul.dateUl span.red {
   
   td{
     font-size: 14px;
-    padding: 6px;
+    padding: 6px 3px;
   }
 }
 
@@ -754,7 +758,7 @@ ul.dateUl span.red {
 
 
 .policy-table{
-  height:302px;
+  height:451px;
   overflow-y: auto;
   overflow-x: hidden;
 }
