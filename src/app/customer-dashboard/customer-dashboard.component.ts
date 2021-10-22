@@ -21,6 +21,10 @@ export class CustomerDashboardComponent implements OnInit {
   cpostalCode: any;
   cidNumber: any;
   ccompanyName: any;
+  ccompanyEmail: any;
+  ccompanyMobileNumber: any;
+  ccompanyAddress: any;
+  ccompanyRegistrationNumber: any;
 
   sessionfname: any;
   sessionlname: any;
@@ -35,6 +39,7 @@ export class CustomerDashboardComponent implements OnInit {
   ctotalBasePremium: any;
   ctotalPremiumPaid: any;
   ctotalSaving: any;
+  ccorporatePolicy: any;
 
   constructor(
     private _service: AdminConsoleService,
@@ -65,6 +70,12 @@ export class CustomerDashboardComponent implements OnInit {
         this.ctotalPremiumPaid = this.sessionamount;
         this.ctotalSaving = this.customerPolicies[0].totalSaving;
 
+        if(this.ccorporatePolicy == "yes"){
+          this.ccorporatePolicy = "Corporate";
+        }else{
+          this.ccorporatePolicy = "Individual";
+        }
+
         console.log("Policies: ");
         console.log(this.customerPolicies);
         console.log(this.cpolicies+" "+this.ctotalBasePremium);
@@ -94,6 +105,16 @@ export class CustomerDashboardComponent implements OnInit {
         }
         this.cidNumber = countNum+vis;
         this.ccompanyName = data.response.company.companyName;
+        this.ccompanyEmail = data.response.company.email;
+        this.ccompanyMobileNumber = data.response.company.mobileNumber;
+        this.ccompanyAddress = data.response.company.address;
+        this.ccompanyRegistrationNumber = data.response.company.companyRegNumber;
+        var  crn = this.ccompanyRegistrationNumber.slice(-4),  countNum = '';
+
+        for(let i = (this.ccompanyRegistrationNumber.length)-4; i>0; i--){
+            countNum += '*';
+        }
+        this.ccompanyRegistrationNumber = countNum+crn;
     });
     
   }

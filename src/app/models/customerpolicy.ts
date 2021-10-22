@@ -9,5 +9,6 @@ export class CustomerPolicy{
     totalBasePremium: string;
     totalSaving:string;
     policyStatus:string;
+    corporatePolicy:any;
     constructor(){}
 }

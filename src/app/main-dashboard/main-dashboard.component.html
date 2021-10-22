@@ -71,9 +71,10 @@
                         <label  class="searchBtn">
                           <i class="fas fa-search" ></i>
                         </label>
-                        <input matInput type="search" #searchVal (keydown)="searchPage($event,searchVal.value)" />
-                       <button mat-button matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()" (click)="searchVal.value=''"> </button>
-                       <!-- <input type="search"  class="search-box" #searchVal (keydown)="searchPage($event,searchVal.value)" placeholder="Search.."/> -->
+                        <!-- <input matInput type="search" #searchVal (keydown)="searchPage($event,searchVal.value)" /> -->
+                       
+                       <input type="text"  class="search-box" #searchVal (keydown)="searchPage($event,searchVal.value)" placeholder="Search.."/>
+                       <span (click)="clearSearch()" (click)="searchVal.value=''" class="searchClose"> &times;</span>
                       </div> 
                   </div>
               </div> 

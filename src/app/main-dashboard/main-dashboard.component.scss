@@ -318,6 +318,12 @@ a, a:hover{
 .searchText:focus{
     outline: none;
 }
+.searchClose{
+    position: absolute;
+    top: -5px;
+    right: 6px;
+    font-size: 25px !important;
+}
 .searchBtn{
     width: 2rem;
     height: 2rem;

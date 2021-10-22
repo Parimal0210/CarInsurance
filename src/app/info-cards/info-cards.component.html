@@ -20,8 +20,8 @@ $(document).ready(function() {
                 <div class="headingArea">
                     <h2>Refund</h2>
                     <div class="d-flex align-items-center">         
-                        <div class="dropdown">
-                            <form class="ngxdatepicker">
+                        <div class="dropdown" (onShown)="onOpenCalendar($event)" >
+                            <form class="ngxdatepicker" >
                                     <input [(ngModel)]="modelDate" autocomplete="off" class="form-control" name="date"
                                     bsDatepicker [bsConfig]="datePicker" [maxDate]="today" style="width: 150px; float: right; "
                                     (onShown)="onOpenCalendar($event)"  [bsValue]="modelDate"/>

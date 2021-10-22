@@ -93,7 +93,13 @@
                                            
                                        </td>
                                        <td>{{ cp.manufacturerYear}}</td>
-                                       <td>Indivisual</td>
+                                       <ng-container *ngIf="cp.corporatePolicy=='yes'">
+                                         <td>Corporate</td>
+                                       </ng-container>
+                                       <ng-container *ngIf="cp.corporatePolicy=='no'">
+                                        <td>Individual</td>
+                                      </ng-container>
+                                       <!-- <td>{{ cp.corporatePolicy}}</td> -->
                                        <td>{{ cp.policyNumber}}</td>
                                        <td>{{ cp.basePremium | number}}</td>
                                        <td>{{ cp.policyStatus }}</td>
@@ -149,32 +155,54 @@
                                <td><span>ID NUMBER</span></td>
                                <td>{{cidNumber}}</td> 
                            </tr>
-                           <tr><td colspan="2"><hr></td></tr>
 
-                           <tr>
-                            <td><span>COMPANY NAME</span></td>
-                            <td>Example PVT. Ltd.</td>
-                           </tr>
+                           <tr><td colspan="2"><hr></td></tr>
 
                            
 
-                        <tr>
-                            <td><span>COMPANY EMAIL</span></td>
-                            <td>example@example.com</td>
-                        </tr>
-                        <tr>
-                            <td><span>COMPANY MOBILE NUMBER</span></td>
-                            <td>+87 8787878972</td>
-                        </tr>
-                        <tr>
-                            <td><span>COMPANY ADDRESS</span></td>
-                            <td>23-C, example, dummy address</td>
-                        </tr> 
-                        <tr>
-                            <td><span>REGISTARTION NUMBER</span></td>
-                            <td>099888776878686</td> 
-                        </tr>
+                           <ng-container *ngIf="ccompanyName  != null">
+                                <tr>
+                                    <td><span>COMPANY NAME</span></td>
+                                        <ng-container *ngIf="ccompanyName==null">
+                                            <td>Not Available</td>
+                                        </ng-container>
+                                        <td>{{ccompanyName}}</td>
+                                </tr>
+        
+                                <tr>
+                                    <td><span>COMPANY EMAIL</span></td>
+                                        <ng-container *ngIf="ccompanyEmail==null">
+                                            <td>Not Available</td>
+                                        </ng-container>
+                                        <td>{{ccompanyEmail}}</td>
+                                </tr>
+                                <tr>
+                                    <td><span>COMPANY MOBILE NUMBER</span></td>
+                                        <ng-container *ngIf="ccompanyMobileNumber==null">
+                                            <td>Not Available</td>
+                                        </ng-container>
+                                        <td>{{ccompanyMobileNumber}}</td>
+                                </tr>
+                                <tr>
+                                    <td><span>COMPANY ADDRESS</span></td>
+                                        <ng-container *ngIf="ccompanyAddress==null">
+                                            <td>Not Available</td>
+                                        </ng-container>
+                                        <td>{{ccompanyAddress}}</td>
+                                </tr> 
+                                <tr>
+                                    <td><span>REGISTARTION NUMBER</span></td>
+                                        <ng-container *ngIf="ccompanyRegistrationNumber==null">
+                                            <td>Not Available</td>
+                                        </ng-container>
+                                        <td>{{ccompanyRegistrationNumber}}</td> 
+                                </tr>
+                           </ng-container>
+
                        </table>
+                       <ng-container *ngIf="ccompanyName == null">
+                        <div class="w-100 text-center">Company Information Not Available</div>
+                       </ng-container>
                         </div>
                    </div>
                    
