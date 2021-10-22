@@ -13,7 +13,7 @@
             <div class="custom-card">
               <div class="headingArea"> 
                   <h2>Latest OTP</h2> 
-                  <div class="btn"><button class="btn fa fa-refresh" (click)="refreshOTP()"></button></div>
+                  <div class="btn"><button class="btn fa fa-refresh" (click)="refreshOTP()" (click)="myPaginator.page=1"></button></div>
               </div> 
               <div class="tableStyle">
                 <div class="add-scroll">
@@ -48,9 +48,8 @@
                   <span class="ml-2 page-info">Showing {{potps+1}} of {{totalOtpPages}}</span>
                   <pagination #myPaginator class="my-pagination"
                   total-items="totalOtpItems"
-                
-                
                   [directionLinks]="true" 
+                  
                   [totalItems]="totalOtpItems"
                   [itemsPerPage]="pageSize"
                   [maxSize]="3"

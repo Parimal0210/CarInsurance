@@ -36,7 +36,7 @@ export class MainDashboardComponent implements OnInit {
   customerDetails: CustomerDetails[];
   customerPolicies: CustomerPolicy[];
   pageSize:number=5;
-
+  pageEvent:Event;
   totalOtpItems:number
   totalOtpPages:number
 
@@ -133,6 +133,11 @@ export class MainDashboardComponent implements OnInit {
       this.customers = data.response.list;
       console.log("Search Customers: ");
       console.log(this.customers);
+      this.pageNum = +data.response.pageNo;
+      this.pageSize = +data.response.pagesize;
+      this.totalPages = +data.response.totalPageSize;
+      this.totalItems =  this.totalPages * this.pageSize
+      console.log(this.pageNum,this.pageSize,this.totalItems)
     });
   }
 
@@ -171,6 +176,11 @@ export class MainDashboardComponent implements OnInit {
           this.customers = data.response.list;
           console.log("Search Customers: ");
           console.log(this.customers);
+          this.pageNum = +data.response.pageNo;
+          this.pageSize = +data.response.pagesize;
+          this.totalPages = +data.response.totalPageSize;
+          this.totalItems =  this.totalPages * this.pageSize
+          console.log(this.pageNum,this.pageSize,this.totalItems)
         });
       }
   }
@@ -205,9 +215,8 @@ export class MainDashboardComponent implements OnInit {
   pageChanged:PageChangedEvent;
   refreshOTP(){
     // this.pageChanged.page = 1
-    // this.sendOtpPage(this.pageChanged)
-   
-    this.potps =1
+    // this.sendOtpPage(this.pageChanged
+    this.potps = 1
     this.pgOtp.pageNo = this.potps-1
 
     this._service.latestOtp(this.pgOtp).subscribe((data: any)=>{
