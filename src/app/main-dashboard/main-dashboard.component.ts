@@ -137,10 +137,6 @@ export class MainDashboardComponent implements OnInit {
   }
 
 
-  aCap:any=64
-  zCap:any=91
-  a:any=96
-  z:any=123
   searchPage(event:any,searchVal:string){
     console.log(event.keyCode);
   
@@ -162,6 +158,10 @@ export class MainDashboardComponent implements OnInit {
           this.customers = data.response.list;
           console.log("Search Customers: ");
           console.log(this.customers);
+          this.pageNum = data.response.pageNo;
+          this.pageSize = data.response.pagesize;
+          this.totalPages = data.response.totalPageSize;
+          this.totalItems =  this.totalPages * this.pageSize
         });
       }else{
         this.searchValue=""
