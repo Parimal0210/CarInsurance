@@ -161,7 +161,7 @@ export class MainDashboardComponent implements OnInit {
           this.pageNum = data.response.pageNo;
           this.pageSize = data.response.pagesize;
           this.totalPages = data.response.totalPageSize;
-          this.totalItems =  this.totalPages * this.pageSize
+          this.totalItems =  this.totalPages * this.pageSize;
         });
       }else{
         this.searchValue=""
