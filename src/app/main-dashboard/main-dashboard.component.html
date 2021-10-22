@@ -73,7 +73,7 @@
                         </label>
                         <!-- <input matInput type="search" #searchVal (keydown)="searchPage($event,searchVal.value)" /> -->
                        
-                       <input type="text"  class="search-box" #searchVal (keydown)="searchPage($event,searchVal.value)" placeholder="Search.."/>
+                       <input type="text"  class="search-box" #searchVal (keydown)="searchPage($event,searchVal.value,searchVal.value)" placeholder="Search.."/>
                        <span (click)="clearSearch()" (click)="searchVal.value=''" class="searchClose hand-cursor"> &times;</span>
                       </div> 
                   </div>

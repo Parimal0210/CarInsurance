@@ -36,7 +36,7 @@ export class MainDashboardComponent implements OnInit {
   customerDetails: CustomerDetails[];
   customerPolicies: CustomerPolicy[];
   pageSize:number=5;
-  pageEvent:Event;
+
   totalOtpItems:number
   totalOtpPages:number
 
@@ -76,7 +76,7 @@ export class MainDashboardComponent implements OnInit {
       this.name="";
       this.searchValue=""
       this.pg.pageNo -=1;
-      this._service.customerInfo(this.pg,this.searchValue).subscribe((data: any)=>{
+      this._service.customerInfo(this.pg,this.searchValue,this.searchValue).subscribe((data: any)=>{
       
         this.customers = data.response.list;
         console.log("All customers11");
@@ -112,14 +112,14 @@ export class MainDashboardComponent implements OnInit {
   sendPage(event: PageChangedEvent){
     this.pageNum =event.page;
     this.pg.pageNo = this.pageNum-1;
-    this._service.customerInfo(this.pg,this.searchValue).subscribe((data: any)=>{
+    this._service.customerInfo(this.pg,this.searchValue,this.searchValue).subscribe((data: any)=>{
       this.customers = data.response.list;
       console.log("All customers")
       console.log(this.customers);
        this.pageNum = +data.response.pageNo;
        this.pageSize = +data.response.pagesize;
        this.totalPages = +data.response.totalPageSize;
-       this.totalItems =  this.totalPages * this.pageSize
+       this.totalItems =  this.totalPages * this.pageSize;
        console.log(this.pageNum,this.pageSize,this.totalItems)
 
     });
@@ -127,22 +127,17 @@ export class MainDashboardComponent implements OnInit {
 
   clearSearch(){
     this.searchValue=""
-    this._service.searchInfo(this.searchPg,this.searchValue).subscribe((data: any)=>{
+    this._service.searchInfo(this.searchPg,this.searchValue,this.searchValue).subscribe((data: any)=>{
       console.log("Searched String33");
       console.log(this.searchValue);
       this.customers = data.response.list;
       console.log("Search Customers: ");
       console.log(this.customers);
-      this.pageNum = +data.response.pageNo;
-      this.pageSize = +data.response.pagesize;
-      this.totalPages = +data.response.totalPageSize;
-      this.totalItems =  this.totalPages * this.pageSize
-      console.log(this.pageNum,this.pageSize,this.totalItems)
     });
   }
 
 
-  searchPage(event:any,searchVal:string){
+  searchPage(event:any,searchVal:string,searchVal1:string){
     console.log(event.keyCode);
   
       if(event.keyCode === 8){
@@ -151,13 +146,14 @@ export class MainDashboardComponent implements OnInit {
       
       }else{
         this.searchValue = searchVal + event.key;
+        this.searchValue = searchVal1 + event.key;
       }
       
       console.log("new  string: "+this.searchValue);
       
       if(this.searchValue != ""){
     
-        this._service.searchInfo(this.searchPg,this.searchValue).subscribe((data: any)=>{
+        this._service.searchInfo(this.searchPg,this.searchValue,this.searchValue).subscribe((data: any)=>{
           console.log("Searched String11");
           console.log(this.searchValue);
           this.customers = data.response.list;
@@ -170,17 +166,12 @@ export class MainDashboardComponent implements OnInit {
         });
       }else{
         this.searchValue=""
-        this._service.searchInfo(this.searchPg,this.searchValue).subscribe((data: any)=>{
+        this._service.searchInfo(this.searchPg,this.searchValue,this.searchValue).subscribe((data: any)=>{
           console.log("Searched String22");
           console.log(this.searchValue);
           this.customers = data.response.list;
           console.log("Search Customers: ");
           console.log(this.customers);
-          this.pageNum = +data.response.pageNo;
-          this.pageSize = +data.response.pagesize;
-          this.totalPages = +data.response.totalPageSize;
-          this.totalItems =  this.totalPages * this.pageSize
-          console.log(this.pageNum,this.pageSize,this.totalItems)
         });
       }
   }
@@ -215,8 +206,9 @@ export class MainDashboardComponent implements OnInit {
   pageChanged:PageChangedEvent;
   refreshOTP(){
     // this.pageChanged.page = 1
-    // this.sendOtpPage(this.pageChanged
-    this.potps = 1
+    // this.sendOtpPage(this.pageChanged)
+   
+    this.potps =1
     this.pgOtp.pageNo = this.potps-1
 
     this._service.latestOtp(this.pgOtp).subscribe((data: any)=>{
