@@ -136,11 +136,6 @@ export class MainDashboardComponent implements OnInit {
     });
   }
 
-
-  aCap:any=64
-  zCap:any=91
-  a:any=96
-  z:any=123
   searchPage(event:any,searchVal:string){
     console.log(event.keyCode);
   
