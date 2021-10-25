@@ -93,18 +93,20 @@ export class AdminConsoleService implements HttpInterceptor{
         return this.http.post<any>(this.get_otpList_url,pgOtp);
       }
     
-      public customerInfo(paginationRequest:any,firstName:any):Observable<any>{
+      public customerInfo(paginationRequest:any,firstName:any,lastName:any):Observable<any>{
         const httpOptions = {
           paginationRequest,
-          firstName
+          firstName,
+          lastName
       };
         return this.http.post<any>(this.get_customerInfo_url,httpOptions);
       }
 
-      public searchInfo(paginationRequest:any,firstName:any):Observable<any>{
+      public searchInfo(paginationRequest:any,firstName:any,lastName:any):Observable<any>{
           const httpOptions = {
              paginationRequest,
-             firstName
+             firstName,
+             lastName
          };
         return this.http.post<any>(this.get_search_url,httpOptions);
       }
