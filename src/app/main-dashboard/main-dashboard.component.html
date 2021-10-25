@@ -13,7 +13,7 @@
             <div class="custom-card">
               <div class="headingArea"> 
                   <h2>Latest OTP</h2> 
-                  <div class="btn"><button class="btn fa fa-refresh" (click)="refreshOTP()" (click)="myPaginator.page=1"></button></div>
+                  <button class="btn btn-light" (click)="refreshOTP()" (click)="myPaginator.page=1"><i class="bi-arrow-repeat"></i></button>
               </div> 
               <div class="tableStyle">
                 <div class="add-scroll">
@@ -65,18 +65,17 @@
           <div class="col-md-12 "> 
             <div class="custom-card">
               <div class="headingArea"> 
-                    <h2>Customers</h2> 
-                    <div class="dateUl"> 
-                      <div class="searchBox"   >
-                        <label  class="searchBtn">
-                          <i class="fas fa-search" ></i>
-                        </label>
-                        <!-- <input matInput type="search" #searchVal (keydown)="searchPage($event,searchVal.value)" /> -->
-                       
-                       <input type="text"  class="search-box" #searchVal (keydown)="searchPage($event,searchVal.value,searchVal.value)" placeholder="Search.."/>
-                       <span (click)="clearSearch()" (click)="searchVal.value=''" class="searchClose hand-cursor"> &times;</span>
-                      </div> 
-                  </div>
+                    <h2>Customers</h2>  
+                    <div class="searchBox">
+                      <label  class="searchBtn">
+                        <i class="bi-search" ></i>
+                      </label>
+                      <!-- <input matInput type="search" #searchVal (keydown)="searchPage($event,searchVal.value)" /> -->
+                      
+                      <input type="text"  #searchVal (keydown)="searchPage($event,searchVal.value,searchVal.value)" placeholder="Search.."/>
+                      <span (click)="clearSearch()" (click)="searchVal.value=''" class="searchClose hand-cursor"> <i class="bi-x"></i></span>
+                    </div> 
+                  
               </div> 
               <div class="tableStyle">
                 <div class="add-scroll">

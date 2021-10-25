@@ -273,21 +273,15 @@ ul.dateUl span.red {
     cursor: pointer;
 }
 
-.search-box{
-  border: solid 1px #282828;
-  display: inline-block;
-  position: relative;
-  border-radius: 50px;
-}
+ 
 
-.search-box input[type="text"] {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
-  font-weight: bold;
-  width: 50px;
-  height: 50px;
-  padding: 5px 40px 5px 10px;
-
+.searchBox input{
+  font-family: 'DM-sans', sans-serif !important;
+  font-size: 14px; 
+  padding: 5px 40px 5px 29px;  
+    border:  1px solid #b1b1b1; 
+    border-radius: 50px !important;
+ 
 }
 
 
@@ -303,7 +297,7 @@ a, a:hover{
 }
 .searchBox{
     position: relative;
-    display: flex;
+    
         
 }
 .searchText{
@@ -320,9 +314,9 @@ a, a:hover{
 }
 .searchClose{
     position: absolute;
-    top: -5px;
-    right: 6px;
-    font-size: 25px !important;
+    top: 2px;
+    right: 11px;
+    font-size: 20px !important;
 }
 .searchBtn{
     width: 2rem;
@@ -336,6 +330,7 @@ a, a:hover{
 
     i{
         font-size: 10px;
+        line-height: 3.5;
     }
 }
 .searchText{
