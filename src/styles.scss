@@ -4,9 +4,14 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css");
 
 
-
+@font-face{
+  font-family: 'DM-sans-light';
+  // src:url('assets/fonts/DMSans-Regular.ttf');
+  src:url('assets/fonts/Barlow-Light.ttf');
+}
 
 
 @font-face{
@@ -318,20 +323,10 @@ span#basic-addon2 {
     margin-left: 20px;
 }
 
-// form.ngxdatepicker::after {
-//      content: '';
-//     position: absolute;
-//     right: -3px;
-//     width: 0;
-//     top: 13px;
-//     height: 0;
-//     border-top: 6px solid black;
-//     border-left: 5px solid transparent;
-//     border-right: 5px solid transparent;
-//     cursor: pointer;
-//   //  left: -20px;
-// }
 
+.bs-datepicker{
+  box-shadow: 0px 3px 8px 0px #d9d9d9 !important;
+}
 
 /*font-family: 'Poppins', sans-serif;
 font-family: 'Roboto', sans-serif;*/
@@ -782,4 +777,17 @@ ul.dateUl span.red {
 
 .table-hover tbody tr:hover {
   background-color: rgb(255 255 255) !important;
+}
+
+.sub-info{
+  padding:12px 20px;
+  border: 1px solid #e9e9e9 !important;
+
+  table tr:last-child td{
+    border-bottom:none !important;
+  }
+
+  .width-175{
+    width:175px;
+  }
 }

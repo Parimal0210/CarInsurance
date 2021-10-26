@@ -31,16 +31,16 @@ $(document).ready(function() {
                         <div class="datePicker">
                             <form class="ngxdatepicker dropdown-item datePickerDropDown" >
                                 <button class="dropdown-toggle no-border form-control pr-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-date-inline-picker="true" [(ngModel)]="modelDate" autocomplete="off" name="date"
-                                bsDatepicker [bsConfig]="datePicker" [maxDate]="today" 
-                                (onShown)="onOpenCalendar($event)"  [bsValue]="modelDate">
-                                {{modelDate | date:'MMMM yyyy'}}
-                            </button>                   
+                                    bsDatepicker [bsConfig]="datePicker" [maxDate]="today" 
+                                    (onShown)="onOpenCalendar($event)"  [bsValue]="modelDate">
+                                         {{modelDate | date:'MMMM yyyy'}}
+                                 </button>                   
                             </form>
                           </div>
                         <button class="btn btn-danger ml-4" style="float: right;"(click)="tutuka()"> Upload</button>
                         
                     </div>
-  
+            
                 </div>
                 <!--table code here-->
                 <div class="tableStyle fix-height">
@@ -70,14 +70,25 @@ $(document).ready(function() {
                             <ng-container *ngIf="i === myIndex">
                                 <ng-container *ngIf="isDisplay">
                                     <tr>
-                                        <th>Policy Number</th>
-                                        <th>Licence Plate Number</th>
-                                        <th>Refund Amount</th>
-                                     </tr>
-                                    <tr *ngFor="let rd of refundEachDatas; let j=index">
-                                            <td>{{rd.policyNumber}}</td>
-                                            <td>{{rd.licencePlateNumber}}</td>
-                                            <td><span class="red">R {{rd.rebateAmount | number}}</span></td>
+                                        <td colspan="7" class="sub-info">
+                                            <table class="w-100">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Policy Number</th>
+                                                        <th>Licence Plate Number</th>
+                                                        <th>Refund Amount</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor="let rd of refundEachDatas; let j=index">
+                                                            <td class="width-175">{{rd.policyNumber}}</td>
+                                                            <td class="width-175">{{rd.licencePlateNumber}}</td>
+                                                            <td><span class="red">R {{rd.rebateAmount | number}}</span></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    
                                     </tr>
                                 </ng-container>
                             </ng-container>

@@ -284,7 +284,7 @@ ul.dateUl span.red {
 }
 
 .search-box input[type="text"] {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM-sans', sans-serif;
   font-size: 14px;
   font-weight: bold;
   width: 50px;
@@ -293,3 +293,21 @@ ul.dateUl span.red {
 
 }
 
+.blackbox{
+    background-color: #24272a;
+    position: relative;
+    padding: 0;
+    h2{
+        color:#fff !important;
+        font-family: 'DM-sans-light';
+        font-size: 20px; 
+        margin-bottom: 0;
+        padding: 48px 21px; 
+    }
+}
+
+.start-img{
+    position: absolute;
+    right:0;
+    top:20px;
+}
