@@ -1,5 +1,5 @@
 import { BsDatepickerConfig, BsDatepickerModule, DatepickerDateCustomClasses } from 'ngx-bootstrap/datepicker';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 //test code
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
@@ -16,8 +16,9 @@ import { SummaryData } from '../models/SummaryData';
 import { RefundData } from '../models/RefundData';
 import { RefundEachData } from '../models/RefundEachData';
 import { AdminConsoleService } from '../services/admin_console.service';
-
+import { ItemModel, BeforeOpenCloseMenuEventArgs, DropDownButtonComponent  } from '@syncfusion/ej2-angular-splitbuttons';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { BsDropdownDirective } from 'ngx-bootstrap/dropdown';
 // import { MatTableDataSource } from '@angular/material/table';
 // import {  MatPaginator } from '@angular/material/paginator';
 // import {  MatSort } from '@angular/material/sort';
@@ -71,7 +72,10 @@ export class InfoCardsComponent implements OnInit {
 
   onOpenCalendar(ngxdatepicker: any) {
     ngxdatepicker.monthSelectHandler = (event: any): void => {
-      this.modelDate = event.date
+      if(event.date > this.today)
+        this.modelDate = this.today
+      else
+        this.modelDate = event.date
       this.updateMyDate(this.modelDate);
       return;
     };

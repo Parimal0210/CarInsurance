@@ -13,7 +13,7 @@
             <div class="custom-card">
               <div class="headingArea"> 
                   <h2>Latest OTP</h2> 
-                  <div class="btn"><button class="btn fa fa-refresh" (click)="refreshOTP()" (click)="myPaginator.page=1"></button></div>
+                  <div class="btn"><button class="btn fa fa-refresh" (click)="refresh(myPaginator)" (click)="myPaginator.page=1"></button></div>
               </div> 
               <div class="tableStyle">
                 <div class="add-scroll">
@@ -30,8 +30,10 @@
                     <tbody>
                       <tr
                         *ngFor="
-                          let o of otps
-                            
+                          let o of otps | paginate: { 
+                            itemsPerPage: pageSize, 
+                            currentPage: potps, 
+                            totalItems: totalOtpItems }                          
                         "
                       >
                         <td>{{ o.name | titlecase }}</td>
@@ -56,7 +58,8 @@
                   previousText="<"   
                   nextText=">"
                   [align]="true"
-                  (pageChanged)="sendOtpPage($event)"></pagination>
+                  (pageChanged)="sendOtpPage($event)"
+                  (pageChanged)="potps = $event.page"></pagination>
                 </div>
               </div>
             </div>   

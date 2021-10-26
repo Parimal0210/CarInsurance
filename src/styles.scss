@@ -318,18 +318,20 @@ span#basic-addon2 {
     margin-left: 20px;
 }
 
-form.ngxdatepicker::after {
-    content: '';
-    position: absolute;
-    right: -3px;
-    width: 0;
-    top: 13px;
-    height: 0;
-    border-top: 6px solid black;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    cursor: pointer;
-}
+// form.ngxdatepicker::after {
+//      content: '';
+//     position: absolute;
+//     right: -3px;
+//     width: 0;
+//     top: 13px;
+//     height: 0;
+//     border-top: 6px solid black;
+//     border-left: 5px solid transparent;
+//     border-right: 5px solid transparent;
+//     cursor: pointer;
+//   //  left: -20px;
+// }
+
 
 /*font-family: 'Poppins', sans-serif;
 font-family: 'Roboto', sans-serif;*/

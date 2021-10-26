@@ -8,6 +8,7 @@ import { Otp } from '../models/otp';
 import { AdminConsoleService } from '../services/admin_console.service';
 import {  PaginationRequest } from '../models/PaginationRequest';
 import { PageChangedEvent } from 'ngx-bootstrap/pagination';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -36,7 +37,7 @@ export class MainDashboardComponent implements OnInit {
   customerDetails: CustomerDetails[];
   customerPolicies: CustomerPolicy[];
   pageSize:number=5;
-
+  config: any;
   totalOtpItems:number
   totalOtpPages:number
 
@@ -60,10 +61,11 @@ export class MainDashboardComponent implements OnInit {
   // key: string = 'name';
   // reverse: boolean = false;
   
-  constructor(private _service: AdminConsoleService, private http: HttpClient) { 
+  constructor(private _service: AdminConsoleService, private http: HttpClient, private router: Router) { 
     // this.paginationRequest.pageNo=this.pageNum;
     // this.paginationRequest.pageSize=this.pageSize;
     // console.log(this.paginationRequest);
+   
   }
 
   // sort(key:any){
@@ -177,7 +179,8 @@ export class MainDashboardComponent implements OnInit {
   }
 
   sendOtpPage(event: PageChangedEvent){
-    this.potps =event.page
+    
+   this.potps =event.page
     this.pgOtp.pageNo = this.potps-1
 
     this._service.latestOtp(this.pgOtp).subscribe((data: any)=>{
@@ -186,6 +189,7 @@ export class MainDashboardComponent implements OnInit {
       this.pageSize = data.response.pagesize;
       this.totalOtpPages = data.response.totalPageSize;
       this.totalOtpItems =  this.totalOtpPages * this.pageSize
+      
       console.log(this.potps,this.totalOtpPages,this.totalOtpItems)
   })
   }
@@ -203,7 +207,7 @@ export class MainDashboardComponent implements OnInit {
     sessionStorage.setItem('Amount',_amount);
   }
 
-  pageChanged:PageChangedEvent;
+  
   refreshOTP(){
     // this.pageChanged.page = 1
     // this.sendOtpPage(this.pageChanged)
@@ -218,7 +222,14 @@ export class MainDashboardComponent implements OnInit {
       this.totalOtpPages = data.response.totalPageSize;
       this.totalOtpItems =  this.totalOtpPages * this.pageSize
       console.log(this.potps,this.totalOtpPages,this.totalOtpItems)
+     // this.location.reload();
+     this.router.navigate(['/main-dashboard'])
   })
+
+  }
+  refresh(pageChanged:PageChangedEvent){
+    pageChanged.page=1
+    this.sendOtpPage(pageChanged);
   }
 }
 

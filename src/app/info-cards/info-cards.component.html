@@ -20,15 +20,23 @@ $(document).ready(function() {
                 <div class="headingArea">
                     <h2>Refund</h2>
                     <div class="d-flex align-items-center">         
-                        <div class="dropdown" (onShown)="onOpenCalendar($event)" >
+                        <!-- <div class="dropdown hand-cursor"  (onShown)="onOpenCalendar($event)" >
                             <form class="ngxdatepicker" >
-                                    <input [(ngModel)]="modelDate" autocomplete="off" class="form-control" name="date"
-                                    bsDatepicker [bsConfig]="datePicker" [maxDate]="today" style="width: 150px; float: right; "
-                                    (onShown)="onOpenCalendar($event)"  [bsValue]="modelDate"/>
-                                    <!-- {{modelDate}} -->
-                                      
+                                    <input id="datePick"  data-date-inline-picker="true"  #datePickers [(ngModel)]="modelDate" autocomplete="off" class="form-control " name="date"
+                                    bsDatepicker [bsConfig]="datePicker" [maxDate]="today" style="width: 130px; "
+                                    (onShown)="onOpenCalendar($event)"  [bsValue]="modelDate" />
+                                    
                             </form>
-                        </div> 
+                        </div>   -->
+                        <div class="datePicker">
+                            <form class="ngxdatepicker dropdown-item datePickerDropDown" >
+                                <button class="dropdown-toggle no-border form-control pr-0" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-date-inline-picker="true" [(ngModel)]="modelDate" autocomplete="off" name="date"
+                                bsDatepicker [bsConfig]="datePicker" [maxDate]="today" 
+                                (onShown)="onOpenCalendar($event)"  [bsValue]="modelDate">
+                                {{modelDate | date:'MMMM yyyy'}}
+                            </button>                   
+                            </form>
+                          </div>
                         <button class="btn btn-danger ml-4" style="float: right;"(click)="tutuka()"> Upload</button>
                         
                     </div>

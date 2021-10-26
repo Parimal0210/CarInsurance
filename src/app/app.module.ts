@@ -21,7 +21,7 @@ import { AdminConsoleService } from './services/admin_console.service';
 import { PaginationModule,PaginationConfig } from 'ngx-bootstrap/pagination';
 import { CountdownModule  } from 'ngx-countdown';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
-
+import { BsDropdownModule,BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -52,11 +52,13 @@ const maskConfig: Partial<IConfig> = {
     PaginationModule,
     CountdownModule,
     NgxMaskModule.forRoot(maskConfig),
+    BsDropdownModule,
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [AdminConsoleService,
     DatePipe,
     PaginationConfig,
+    BsDropdownConfig,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: AdminConsoleService,
