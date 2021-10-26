@@ -72,8 +72,8 @@ $(document).ready(function() {
                                                 </thead>
                                                 <tbody>
                                                     <tr *ngFor="let rd of refundEachDatas; let j=index">
-                                                            <td>{{rd.policyNumber}}</td>
-                                                            <td>{{rd.licencePlateNumber}}</td>
+                                                            <td class="width-175">{{rd.policyNumber}}</td>
+                                                            <td class="width-175">{{rd.licencePlateNumber}}</td>
                                                             <td><span class="red">R {{rd.rebateAmount | number}}</span></td>
                                                     </tr>
                                                 </tbody>
