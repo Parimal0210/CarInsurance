@@ -1,9 +1,11 @@
 import { Time } from '@angular/common';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Inject, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { _getOptionScrollPosition } from '@angular/material/core';
 import { Router } from '@angular/router';
+import { setTime } from 'ngx-bootstrap/chronos/utils/date-setters';
 import { interval  } from 'rxjs';
+import { dematerialize } from 'rxjs/operators';
 import { AdminConsoleService } from '../services/admin_console.service';
 
 @Component({
@@ -18,7 +20,8 @@ val : any
 otp : any
 invalidOTP:String='';
 fOtp: any;
-  constructor(private auth: AdminConsoleService,private router: Router) {
+logoutTime: number;
+  constructor(private auth: AdminConsoleService,@Inject(Router) private router: Router) {
 
     }
 
@@ -88,3 +91,6 @@ console.log("Value = "+val1);
   }
 
 }
+
+
+

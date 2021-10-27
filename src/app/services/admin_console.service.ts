@@ -7,6 +7,11 @@ import { first, map } from 'rxjs/operators';
 import { Injector } from '@angular/core';
 import { HttpInterceptor } from '@angular/common/http';
 import {  PaginationRequest } from '../models/PaginationRequest';
+import { Router } from '@angular/router';
+
+const MINUTES_UNITL_AUTO_LOGOUT = 40 // in mins
+const CHECK_INTERVAL = 15000 // in ms
+const STORE_KEY =  'lastAction';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -44,7 +49,14 @@ export class AdminConsoleService implements HttpInterceptor{
     private get_search_url = this.baseApiUrl+"getCustomerInfo";
     private login_url = environment.apiUrl+"/customerLogin";
 
-    constructor(private http: HttpClient,private injector: Injector) { }
+    constructor(private http: HttpClient,private injector: Injector, private router: Router) {
+
+      this.check();
+    this.initListener();
+    this.initInterval();
+    localStorage.setItem(STORE_KEY,Date.now().toString());
+
+     }
 
 
     public get_CheckMonthYear(){
@@ -194,5 +206,48 @@ export class AdminConsoleService implements HttpInterceptor{
       }
     })
     return next.handle(tokenizedReq)
+  }
+
+
+
+  public getLastAction() {
+    return parseInt(localStorage.getItem(STORE_KEY)!);
+  }
+ public setLastAction(lastAction: number) {
+    localStorage.setItem(STORE_KEY, lastAction.toString());
+  }
+
+ 
+
+  initListener() {
+    document.body.addEventListener('click', () => this.reset());
+    document.body.addEventListener('mouseover',()=> this.reset());
+    document.body.addEventListener('mouseout',() => this.reset());
+    document.body.addEventListener('keydown',() => this.reset());
+    document.body.addEventListener('keyup',() => this.reset());
+    document.body.addEventListener('keypress',() => this.reset());
+  }
+
+  reset() {
+    this.setLastAction(Date.now());
+  }
+
+  initInterval() {
+    setInterval(() => {
+      this.check();
+    }, CHECK_INTERVAL);
+  }
+
+  check() {
+    const now = Date.now();
+    const timeleft = this.getLastAction() + MINUTES_UNITL_AUTO_LOGOUT * 60 * 1000;
+    const diff = timeleft - now;
+    const isTimeout = diff < 0;
+
+    if (isTimeout)  {
+      localStorage.clear();
+      sessionStorage.clear();
+      this.router.navigate(['/']);
+    }
   }
 }

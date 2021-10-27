@@ -26,18 +26,18 @@
                       <tr>
                         <th>CUSTOMER NAME</th>
                         <th>EMAIL</th>
-                        <th>PHONE NUMBER</th>
-                        <th>OTP CODE</th>
-                        <th>EXPIRY DATE</th>
+                        <th class="text-right">PHONE NUMBER</th>
+                        <th class="text-right">OTP CODE</th>
+                        <th class="text-right">EXPIRY DATE</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr *ngFor="let o of otps">
                         <td>{{ o.name | titlecase }}</td>
                         <td>{{ o.email }}</td>
-                        <td>{{ o.mobileNumber }}</td>
-                        <td>{{ o.code }}</td>
-                        <td class="otp-date-col">{{ o.expiryDate }}</td>
+                        <td class="text-right">{{ o.mobileNumber }}</td>
+                        <td class="text-right">{{ o.code }}</td>
+                        <td class="otp-date-col text-right">{{ o.expiryDate }}</td>
 
                       </tr>
                     </tbody>
@@ -81,10 +81,10 @@
                     <thead>
                       <tr>
                         <th>NAME</th>
-                        <th>VEHICLES</th>
-                        <th>POLICIES</th>
-                        <th>CARD BALANCE</th>
-                        <th>CREATED DATE</th>
+                        <th class="text-right">VEHICLES</th>
+                        <th class="text-right">POLICIES</th>
+                        <th class="text-right">CARD BALANCE</th>
+                        <th class="text-right">CREATED DATE</th>
                         
                       </tr>
                     </thead>
@@ -96,11 +96,11 @@
                             >
 
                       <td  id="customerName" >{{ customer.name | titlecase}}</td>
-                        <td>{{ customer.vehicles }}</td>
-                        <td>{{ customer.policies }}</td>
-                        <td>R {{ customer.amount | number : '1.2-2' }}</td>
-                        <td class="otp-date-col">{{ customer.createdDate | date:'yyyy-MM-dd' }}</td>
-
+                        <td class="text-right">{{ customer.vehicles }}</td>
+                        <td class="text-right">{{ customer.policies }}</td>
+                        <td class="text-right"> R {{ customer.amount | number : '1.2-2' }}</td>
+                        <td class="otp-date-col text-right">{{ customer.createdDate | date:'yyyy-MM-dd' }}</td>
+                        <!-- align="right" style="width: 12%;" -->
                       </tr>
                     </tbody>
                   </table>

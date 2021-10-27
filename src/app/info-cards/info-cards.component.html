@@ -66,6 +66,14 @@ $(document).ready(function() {
                             <ng-container *ngIf="i === myIndex">
                                 <ng-container *ngIf="isDisplay">
                                     <tr>
+                                        <th>Policy Number</th>
+                                        <th class="text-right">Licence Plate Number</th>
+                                        <th class="text-right">Refund Amount</th>
+                                     </tr>
+                                    <tr *ngFor="let rd of refundEachDatas; let j=index">
+                                            <td >{{rd.policyNumber}}</td>
+                                            <td class="text-right">{{rd.licencePlateNumber}}</td>
+                                            <td class="text-right"><span class="red">R {{rd.rebateAmount | number}}</span></td>
                                         <td colspan="7" class="sub-info">
                                             <table class="w-100">
                                                 <thead>
