@@ -40,9 +40,9 @@ $(document).ready(function() {
                         <thead>
                             <tr>
                                 <th>Customer Name</th>
-                                <th>Policies</th>
-                                <th>Vehicles</th>
-                                <th>Refund</th>
+                                <th class="text-right">Policies</th>
+                                <th class="text-right">Vehicles</th>
+                                <th class="text-right">Refund</th>
                                 <th>Uploaded</th>
                                 <th>Uploaded On</th>
                                 <th>Upload Message</th>
@@ -51,9 +51,9 @@ $(document).ready(function() {
                         <tbody *ngFor = "let r of refunds;let i =index" >
                             <tr class="hand-cursor"  (click)="getValueOfTd(r.customerId)" (click)="toggleDisplay(i)">
                                 <td>{{r.name}}</td>
-                                <td>{{r.policyCount}}</td>
-                                <td>{{r.vehicles}}</td>
-                                <td><span class="red">R {{r.refund | number}}</span></td>
+                                <td class="text-right">{{r.policyCount}}</td>
+                                <td class="text-right">{{r.vehicles}}</td>
+                                <td class="text-right"><span class="red">R {{r.refund | number}}</span></td>
                                 <td>{{r.tutukaUploadFlag}}</td>
                                 <td *ngIf="r.uploadedOn">{{r.uploadedOn}}</td> <td *ngIf="!r.uploadedOn">NA</td>
                                 <td *ngIf="r.uploadMessage">{{r.uploadMessage}}</td><td *ngIf="!r.uploadMessage">NA</td>          
@@ -63,13 +63,13 @@ $(document).ready(function() {
                                 <ng-container *ngIf="isDisplay">
                                     <tr>
                                         <th>Policy Number</th>
-                                        <th>Licence Plate Number</th>
-                                        <th>Refund Amount</th>
+                                        <th class="text-right">Licence Plate Number</th>
+                                        <th class="text-right">Refund Amount</th>
                                      </tr>
                                     <tr *ngFor="let rd of refundEachDatas; let j=index">
-                                            <td>{{rd.policyNumber}}</td>
-                                            <td>{{rd.licencePlateNumber}}</td>
-                                            <td><span class="red">R {{rd.rebateAmount | number}}</span></td>
+                                            <td >{{rd.policyNumber}}</td>
+                                            <td class="text-right">{{rd.licencePlateNumber}}</td>
+                                            <td class="text-right"><span class="red">R {{rd.rebateAmount | number}}</span></td>
                                     </tr>
                                 </ng-container>
                             </ng-container>
