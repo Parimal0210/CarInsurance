@@ -13,7 +13,12 @@
             <div class="custom-card">
               <div class="headingArea"> 
                   <h2>Latest OTP</h2> 
-                  <div class="btn"><button class="btn fa fa-refresh" (click)="refreshOTP()" (click)="myPaginator.page=1"></button></div>
+                  <!--SPINNER
+                     <div class="spinner-border" role="status">
+                    <span class="sr-only" id="loading"></span>
+                </div> -->
+                  <button class="btn btn-light" (click)="refresh(myPaginator)"><i class="bi-arrow-repeat"></i></button>
+                 
               </div> 
               <div class="tableStyle">
                 <div class="add-scroll">
@@ -28,12 +33,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr
-                        *ngFor="
-                          let o of otps
-                            
-                        "
-                      >
+                      <tr *ngFor="let o of otps">
                         <td>{{ o.name | titlecase }}</td>
                         <td>{{ o.email }}</td>
                         <td class="text-right">{{ o.mobileNumber }}</td>
@@ -45,11 +45,10 @@
                   </table>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
-                  <span class="ml-2 page-info">Showing {{potps+1}} of {{totalOtpPages}}</span>
+                  <span class="ml-2 page-info">Showing {{potps}} of {{totalOtpPages}}</span>
                   <pagination #myPaginator class="my-pagination"
-                  total-items="totalOtpItems"
                   [directionLinks]="true" 
-                  
+                  [(ngModel)]="potps"
                   [totalItems]="totalOtpItems"
                   [itemsPerPage]="pageSize"
                   [maxSize]="3"
@@ -65,18 +64,17 @@
           <div class="col-md-12 "> 
             <div class="custom-card">
               <div class="headingArea"> 
-                    <h2>Customers</h2> 
-                    <div class="dateUl"> 
-                      <div class="searchBox"   >
-                        <label  class="searchBtn">
-                          <i class="fas fa-search" ></i>
-                        </label>
-                        <!-- <input matInput type="search" #searchVal (keydown)="searchPage($event,searchVal.value)" /> -->
-                       
-                       <input type="text"  class="search-box" #searchVal (keydown)="searchPage($event,searchVal.value,searchVal.value)" placeholder="Search.."/>
-                       <span (click)="clearSearch()" (click)="searchVal.value=''" class="searchClose hand-cursor"> &times;</span>
-                      </div> 
-                  </div>
+                    <h2>Customers</h2>  
+                    <div class="searchBox">
+                      <label  class="searchBtn">
+                        <i class="bi-search" ></i>
+                      </label>
+                      <!-- <input matInput type="search" #searchVal (keydown)="searchPage($event,searchVal.value)" /> -->
+                      
+                      <input type="text"  #searchVal (keydown)="searchPage($event,searchVal.value,searchVal.value)" placeholder="Search.."/>
+                      <span (click)="clearSearch()" (click)="searchVal.value=''" class="searchClose hand-cursor"> <i class="bi-x"></i></span>
+                    </div> 
+                  
               </div> 
               <div class="tableStyle">
                 <div class="add-scroll">
@@ -93,9 +91,7 @@
                     </thead>
                     <tbody>
                       <tr class="hand-cursor"
-                        *ngFor="
-                          let customer of customers
-                            | paginate : {  itemsPerPage:10 , currentPage: pageNum , totalItems: totalItems } "
+                        *ngFor="let customer of customers"
                             (click)="getValueOfTd(customer.name, customer.customerId, customer.amount)"
                             routerLink="/customer-dashboard"
                             >
@@ -111,9 +107,10 @@
                   </table>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
-                  <span class="ml-2 page-info">Showing {{pageNum+1}} of {{totalPages}}</span>
+                  <span class="ml-2 page-info">Showing {{pageNum}} of {{totalPages}}</span>
                   <pagination class="my-pagination"
                   [directionLinks]="true" 
+                  [(ngModel)]="pageNum"
                   [totalItems]="totalItems"
                   [itemsPerPage]="pageSize"
                   [maxSize]="3"
