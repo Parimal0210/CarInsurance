@@ -51,9 +51,7 @@ $(document).ready(function() {
                                 <th>Policies</th>
                                 <th>Vehicles</th>
                                 <th>Refund</th>
-                                <th>Uploaded</th>
-                                <th>Uploaded On</th>
-                                <th>Upload Message</th>
+                                <th>Status Message</th>
                             </tr>
                         </thead>
                         <tbody *ngFor = "let r of refunds;let i =index" >
@@ -62,9 +60,7 @@ $(document).ready(function() {
                                 <td>{{r.policyCount}}</td>
                                 <td>{{r.vehicles}}</td>
                                 <td><span class="red">R {{r.refund | number}}</span></td>
-                                <td>{{r.tutukaUploadFlag}}</td>
-                                <td *ngIf="r.uploadedOn">{{r.uploadedOn}}</td> <td *ngIf="!r.uploadedOn">NA</td>
-                                <td *ngIf="r.uploadMessage">{{r.uploadMessage}}</td><td *ngIf="!r.uploadMessage">NA</td>          
+                                <td>This is Status Message</td>
                             </tr>
 
                             <ng-container *ngIf="i === myIndex">
@@ -77,6 +73,9 @@ $(document).ready(function() {
                                                         <th>Policy Number</th>
                                                         <th>Licence Plate Number</th>
                                                         <th>Refund Amount</th>
+                                                        <th>Uploaded</th>
+                                                        <th>Uploaded On</th>
+                                                        <th>Upload Message</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -84,6 +83,9 @@ $(document).ready(function() {
                                                             <td class="width-175">{{rd.policyNumber}}</td>
                                                             <td class="width-175">{{rd.licencePlateNumber}}</td>
                                                             <td><span class="red">R {{rd.rebateAmount | number}}</span></td>
+                                                            <td class="width-175">{{rd.tutukaUploadFlag}}</td>
+                                                            <td class="width-175" *ngIf="rd.uploadedOn">{{rd.uploadedOn}}</td> <td *ngIf="!rd.uploadedOn">NA</td>
+                                                            <td class="width-175" *ngIf="rd.uploadMessage">{{rd.uploadMessage}}</td><td *ngIf="!rd.uploadMessage">NA</td> 
                                                     </tr>
                                                 </tbody>
                                             </table>
