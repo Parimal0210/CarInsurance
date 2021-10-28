@@ -48,18 +48,18 @@ $(document).ready(function() {
                         <thead>
                             <tr>
                                 <th>Customer Name</th>
-                                <th>Policies</th>
-                                <th>Vehicles</th>
-                                <th>Refund</th>
+                                <th  class="text-right">Policies</th>
+                                <th  class="text-right">Vehicles</th>
+                                <th  class="text-right">Refund</th>
                                 <th>Status Message</th>
                             </tr>
                         </thead>
                         <tbody *ngFor = "let r of refunds;let i =index" >
                             <tr class="hand-cursor"  (click)="getValueOfTd(r.customerId)" (click)="toggleDisplay(i)">
                                 <td>{{r.name}}</td>
-                                <td>{{r.policyCount}}</td>
-                                <td>{{r.vehicles}}</td>
-                                <td><span class="red">R {{r.refund | number}}</span></td>
+                                <td  class="text-right">{{r.policyCount}}</td>
+                                <td  class="text-right">{{r.vehicles}}</td>
+                                <td  class="text-right"><span class="red">R {{r.refund | number}}</span></td>
                                 <td>This is Status Message</td>
                             </tr>
 
@@ -69,12 +69,15 @@ $(document).ready(function() {
                                         <th>Policy Number</th>
                                         <th class="text-right">Licence Plate Number</th>
                                         <th class="text-right">Refund Amount</th>
+                                        <!-- <th>Uploaded</th>
+                                        <th>Uploaded On</th>
+                                        <th>Upload Message</th> -->
                                      </tr>
                                     <tr *ngFor="let rd of refundEachDatas; let j=index">
                                             <td >{{rd.policyNumber}}</td>
                                             <td class="text-right">{{rd.licencePlateNumber}}</td>
                                             <td class="text-right"><span class="red">R {{rd.rebateAmount | number}}</span></td>
-                                        <td colspan="7" class="sub-info">
+                                        <!-- <td colspan="7" class="sub-info">
                                             <table class="w-100">
                                                 <thead>
                                                     <tr>
@@ -92,12 +95,12 @@ $(document).ready(function() {
                                                             <td class="width-175">{{rd.licencePlateNumber}}</td>
                                                             <td><span class="red">R {{rd.rebateAmount | number}}</span></td>
                                                             <td class="width-175">{{rd.tutukaUploadFlag}}</td>
-                                                            <td class="width-175" *ngIf="rd.uploadedOn">{{rd.uploadedOn}}</td> <td *ngIf="!rd.uploadedOn">NA</td>
-                                                            <td class="width-175" *ngIf="rd.uploadMessage">{{rd.uploadMessage}}</td><td *ngIf="!rd.uploadMessage">NA</td> 
+                                                            <td class="width-175" ngIf="rd.uploadedOn">{{rd.uploadedOn}}</td> <td ngIf="!rd.uploadedOn">NA</td>
+                                                            <td class="width-175" ngIf="rd.uploadMessage">{{rd.uploadMessage}}</td><td ngIf="!rd.uploadMessage">NA</td> 
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                        </td>
+                                        </td> -->
                                     
                                     </tr>
                                 </ng-container>

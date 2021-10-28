@@ -23,6 +23,7 @@ import { CountdownModule  } from 'ngx-countdown';
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { BsDropdownModule,BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -55,6 +56,7 @@ const maskConfig: Partial<IConfig> = {
     NgxMaskModule.forRoot(maskConfig),
     BsDropdownModule,
     NgbModule,
+    
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [AdminConsoleService,
@@ -65,6 +67,9 @@ const maskConfig: Partial<IConfig> = {
     provide: HTTP_INTERCEPTORS,
     useClass: AdminConsoleService,
     multi: true
+  },
+  {
+    provide: LocationStrategy, useClass: HashLocationStrategy
   }
   ],
   bootstrap: [AppComponent]
