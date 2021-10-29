@@ -109,7 +109,7 @@ summary : SummaryData[];
       console.log(data)
       this.summaryAll = data.response;
       this.summary = this.summaryAll.allSummaryDatas
-      console.log("Response: "+this.summary);
+      console.log(this.summary);
 
       this.totalCustomers = this.summaryAll.totalCustomerCount;
       this.totalVehicles = this.summaryAll.totalVehicleCount;

@@ -60,7 +60,7 @@ export class InfoCardsComponent implements OnInit {
   statusMessageDone : String;
   dateCustomClasses: DatepickerDateCustomClasses[] | any;
 
-  
+  tutukaStatusMessage:string
 
   filePath : String;
 
@@ -109,6 +109,7 @@ export class InfoCardsComponent implements OnInit {
     console.log(date.getMonth()+1+" "+date.getFullYear())
     this._service.get_RefundData(date.getMonth()+1,date.getFullYear()).subscribe((data) => {
       this.refunds = data.response;
+      
         console.log(this.refunds)
         console.log("Count: "+this.refunds.length)
     })
@@ -194,7 +195,14 @@ flag:Boolean =false;
     this.statusMessageDone='';
   }
 
-  tutuka(){}
+  tutuka(){
+    this._service.uploadRefund(this.modelDate.getMonth()+1,this.modelDate.getFullYear()).subscribe((data: any)=>{
+     this.tutukaStatusMessage = data.response
+      console.log(this.tutukaStatusMessage);
+    });
+    
+    //window.location.reload()
+  }
   ngOnInit(): void {
 
     // this.dataSource.data = this.refunds;
