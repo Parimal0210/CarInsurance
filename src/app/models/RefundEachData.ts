@@ -7,8 +7,8 @@ export class RefundEachData{
     rebateAmount:number;
     licencePlateNumber: number;
     tutukaUploadFlag: boolean;
-    uploadedOn: String;
+    uploadedOn: Date;
     uploadMessage: String;
-    
+
     constructor(){}
 }

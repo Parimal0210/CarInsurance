@@ -41,6 +41,7 @@ export class AdminConsoleService implements HttpInterceptor{
     private add_rebateData_url = this.baseApiUrl+"getRebateData";
 
     private get_rebateData_url = this.baseApiUrl+"displayRefundData";
+    private upload_refund_url = this.baseApiUrl+"uploadRefund";
     private get_chart_url = this.baseApiUrl+"getChartData";
 
     private get_otpList_url = this.baseApiUrl+"getOtpList";
@@ -77,6 +78,10 @@ export class AdminConsoleService implements HttpInterceptor{
             params: { month, year}
         };
         return this.http.get<any>(this.get_rebateData_url+'/'+month+'/'+year);
+      }
+
+      public uploadRefund(month:number,year:number):Observable<any>{
+        return this.http.get<any>(this.upload_refund_url+'/'+month+'/'+year);
       }
     
     public getGraphData():Observable<any>{

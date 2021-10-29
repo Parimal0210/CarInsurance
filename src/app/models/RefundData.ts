@@ -6,7 +6,7 @@ export class RefundData{
     policyCount:String;
     vehicles:number;
     refund:number;
-   
+    statusMessage:string;
 
     constructor(){}
 }
