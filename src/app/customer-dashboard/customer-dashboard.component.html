@@ -32,13 +32,13 @@
                                 <h6>{{cpolicies}}<span>Policies</span></h6>
                             </li>
                             <li>
-                                <h6>{{ctotalBasePremium | number}} <span>Total Base Premium</span></h6>
+                                <h6>R {{ctotalBasePremium | number : '1.2-2'}} <span>Total Base Premium</span></h6>
                             </li>
                             <li>
-                                <h6>{{ctotalSaving | number}} <span>Total Savings</span></h6>
+                                <h6>R {{ctotalSaving | number : '1.2-2'}} <span>Total Savings</span></h6>
                             </li>
                             <li>
-                                <h6>{{ctotalPremiumPaid | number}} <span>Debit Card Balance</span></h6>
+                                <h6>R {{ctotalPremiumPaid | number : '1.2-2'}} <span>Debit Card Balance</span></h6>
                             </li>
                         </ul>
                     </div>
@@ -101,7 +101,7 @@
                                       </ng-container>
                                        <!-- <td>{{ cp.corporatePolicy}}</td> -->
                                        <td>{{ cp.policyNumber}}</td>
-                                       <td>{{ cp.basePremium | number}}</td>
+                                       <td>R {{ cp.basePremium | number : '1.2-2'}}</td>
                                        <td>{{ cp.policyStatus }}</td>
                                     <tr>
                                 </tbody>
