@@ -19,6 +19,7 @@ import { AdminConsoleService } from '../services/admin_console.service';
 import { ItemModel, BeforeOpenCloseMenuEventArgs, DropDownButtonComponent  } from '@syncfusion/ej2-angular-splitbuttons';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { BsDropdownDirective } from 'ngx-bootstrap/dropdown';
+import { Router } from '@angular/router';
 // import { MatTableDataSource } from '@angular/material/table';
 // import {  MatPaginator } from '@angular/material/paginator';
 // import {  MatSort } from '@angular/material/sort';
@@ -86,8 +87,7 @@ export class InfoCardsComponent implements OnInit {
     console.log($event.target.files[0]); // outputs the first file
   }
 
-  constructor(public datepipe: DatePipe,private _service: AdminConsoleService
-    ) {
+  constructor(public datepipe: DatePipe,private _service: AdminConsoleService,private router:Router) {
       // this.dataSource = new MatTableDataSource();
 
    this.fetchedDate = this.datepipe.transform(this.fetchedDate, 'MMMM YYYY')
@@ -199,8 +199,12 @@ flag:Boolean =false;
     this._service.uploadRefund(this.modelDate.getMonth()+1,this.modelDate.getFullYear()).subscribe((data: any)=>{
      this.tutukaStatusMessage = data.response
       console.log(this.tutukaStatusMessage);
+
+      this.refunds.map((data)=>{
+        data.statusMessage = this.tutukaStatusMessage;
+      })
     });
-    
+   
     //window.location.reload()
   }
   ngOnInit(): void {

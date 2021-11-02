@@ -131,12 +131,19 @@ export class MainDashboardComponent implements OnInit {
 
   clearSearch(){
     this.searchValue=""
+    this.searchPg.pageNo=0;
+    this.searchPg.pageSize=5;
     this._service.searchInfo(this.searchPg,this.searchValue,this.searchValue).subscribe((data: any)=>{
       console.log("Searched String33");
       console.log(this.searchValue);
       this.customers = data.response.list;
       console.log("Search Customers: ");
       console.log(this.customers);
+      this.pageNum = +data.response.pageNo+1;
+      this.pageSize = +data.response.pagesize;
+      this.totalPages = +data.response.totalPageSize;
+      this.totalItems =  this.totalPages * this.pageSize;
+      console.log(this.pageNum,this.pageSize,this.totalItems)
     });
   }
 
