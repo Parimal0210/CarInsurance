@@ -60,7 +60,7 @@ $(document).ready(function() {
                                 <td class="text-right">{{r.policyCount}}</td>
                                 <td class="text-right">{{r.vehicles}}</td>
                                 <td class="text-right"><span class="red">R {{r.refund | number}}</span></td>
-                                <td *ngIf="r.statusMessage">{{r.statusMessage}}</td><td *ngIf="!r.statusMessage">NA</td>
+                                <td >{{r.statusMessage}}</td>
                             </tr>
 
                             <ng-container *ngIf="i === myIndex">
