@@ -57,9 +57,9 @@ $(document).ready(function() {
                         <tbody *ngFor = "let r of refunds;let i =index" >
                             <tr class="hand-cursor"  (click)="getValueOfTd(r.customerId)" (click)="toggleDisplay(i)">
                                 <td>{{r.name}}</td>
-                                <td>{{r.policyCount}}</td>
-                                <td>{{r.vehicles}}</td>
-                                <td><span class="red">R {{r.refund | number}}</span></td>
+                                <td  class="text-right">{{r.policyCount}}</td>
+                                <td  class="text-right">{{r.vehicles}}</td>
+                                <td  class="text-right"><span class="red">R {{r.refund | number}}</span></td>
                                 <td *ngIf="tutukaStatusMessage">{{tutukaStatusMessage}}</td><td *ngIf="!tutukaStatusMessage">NA</td>
                             </tr>
 
