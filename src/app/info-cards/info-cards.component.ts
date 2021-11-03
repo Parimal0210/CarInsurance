@@ -116,7 +116,7 @@ export class InfoCardsComponent implements OnInit {
       this.refunds = data.response;
       
       this.refunds.forEach((data1)=>{
-        
+       
         this._service.getRefundEachData(data1.customerId,this.modelDate.getMonth()+1,this.modelDate.getFullYear()).subscribe((data: any)=>{
           this.refundEachDatas = data.response;
           console.log("Customer Each Policy Details for Customer Id: "+data1.customerId);
@@ -134,14 +134,16 @@ export class InfoCardsComponent implements OnInit {
             })
     
             this.refunds.map((data)=>{
-              data.statusMessage = this.successCount+" Successful! "+this.failCount+" Failed!";
+              data1.statusMessage = this.successCount+" Successful! "+this.failCount+" Failed!";
             })
+
           }else{
             this.refunds.map((data)=>{
               data.statusMessage = "NA";
             })
           }
-          
+          this.successCount=0
+          this.failCount=0
         });
       })
       
