@@ -61,6 +61,8 @@ export class InfoCardsComponent implements OnInit {
   statusMessageDone : String;
   dateCustomClasses: DatepickerDateCustomClasses[] | any;
 
+  successCount:number;
+  failCount:number;
   tutukaStatusMessage:string
 
   filePath : String;
@@ -104,11 +106,46 @@ export class InfoCardsComponent implements OnInit {
     this.getAllData(newDate);
   }
 
+  
   getAllData(date:Date){
 
+    this.successCount=0
+    this.failCount=0
     console.log(date.getMonth()+1+" "+date.getFullYear())
     this._service.get_RefundData(date.getMonth()+1,date.getFullYear()).subscribe((data) => {
       this.refunds = data.response;
+      
+      this.refunds.forEach((data1)=>{
+       
+        this._service.getRefundEachData(data1.customerId,this.modelDate.getMonth()+1,this.modelDate.getFullYear()).subscribe((data: any)=>{
+          this.refundEachDatas = data.response;
+          console.log("Customer Each Policy Details for Customer Id: "+data1.customerId);
+          console.log(data);
+          
+          
+          console.log(this.refundEachDatas);
+    
+          if(this.refundEachDatas[0]['uploadedOn']){
+            this.refundEachDatas.forEach((data)=>{
+              if(data.tutukaUploadFlag.valueOf() == false)
+                this.failCount = this.failCount + 1;
+              if(data.tutukaUploadFlag.valueOf() == true)
+                this.successCount = this.successCount + 1;  
+            })
+    
+            this.refunds.map((data)=>{
+              data1.statusMessage = this.successCount+" Successful! "+this.failCount+" Failed!";
+            })
+
+          }else{
+            this.refunds.map((data)=>{
+              data.statusMessage = "NA";
+            })
+          }
+          this.successCount=0
+          this.failCount=0
+        });
+      })
       
         console.log(this.refunds)
         console.log("Count: "+this.refunds.length)
@@ -178,7 +215,6 @@ flag:Boolean =false;
     this._service.getRefundEachData(rowCustomerId,this.modelDate.getMonth()+1,this.modelDate.getFullYear()).subscribe((data: any)=>{
       this.refundEachDatas = data.response;
       console.log("Customer Each Policy Details for Customer Id: "+rowCustomerId);
-      
       console.log(this.refundEachDatas);
     });
   }
@@ -199,12 +235,8 @@ flag:Boolean =false;
     this._service.uploadRefund(this.modelDate.getMonth()+1,this.modelDate.getFullYear()).subscribe((data: any)=>{
      this.tutukaStatusMessage = data.response
       console.log(this.tutukaStatusMessage);
-
-      this.refunds.map((data)=>{
-        data.statusMessage = this.tutukaStatusMessage;
-      })
     });
-   
+   this.getAllData(this.modelDate)
     //window.location.reload()
   }
   ngOnInit(): void {
