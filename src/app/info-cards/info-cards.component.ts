@@ -64,7 +64,6 @@ export class InfoCardsComponent implements OnInit {
   successCount:number;
   failCount:number;
   tutukaStatusMessage:string
-
   filePath : String;
 
   fetchedDate : Date | any
@@ -122,7 +121,8 @@ export class InfoCardsComponent implements OnInit {
           console.log("Customer Each Policy Details for Customer Id: "+data1.customerId);
           console.log(data);
           
-          
+
+          console.log("check below");
           console.log(this.refundEachDatas);
     
           if(this.refundEachDatas[0]['uploadedOn']){
@@ -136,7 +136,7 @@ export class InfoCardsComponent implements OnInit {
             this.refunds.map((data)=>{
               data1.statusMessage = this.successCount+" Successful! "+this.failCount+" Failed!";
             })
-
+           
           }else{
             this.refunds.map((data)=>{
               data.statusMessage = "NA";
@@ -234,16 +234,14 @@ flag:Boolean =false;
   tutuka(){
     this._service.uploadRefund(this.modelDate.getMonth()+1,this.modelDate.getFullYear()).subscribe((data: any)=>{
      this.tutukaStatusMessage = data.response
-      console.log(this.tutukaStatusMessage);
+      console.log("response returned: "+this.tutukaStatusMessage);
+      this.getAllData(this.modelDate)
     });
-   this.getAllData(this.modelDate)
-    //window.location.reload()
-  }
+   }
   ngOnInit(): void {
 
     // this.dataSource.data = this.refunds;
-    
-    this.today = new Date()
+      this.today = new Date()
 
     this.modelDate = new Date()
     this.yesterday = new Date();
