@@ -83,9 +83,9 @@ data3 = new Array <number[]>();
 
 summaryAll : TotalSummaryData;
 
-totalCustomers : Number;
-totalVehicles : Number;
-totalRefund : Number;
+totalCustomers : number;
+totalVehicles : number;
+totalRefund : number;
 
 summary : SummaryData[];
 

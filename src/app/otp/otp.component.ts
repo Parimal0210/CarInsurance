@@ -66,7 +66,7 @@ console.log("Value = "+val1);
                 console.log("Data = "+res)
                 this.invalidOTP='';
                 //alert("Logged in successfully!!!")
-                this.router.navigate(['/main-dashboard']);
+                this.router.navigate(['/admin/main-dashboard']);
        } ,
        err => {
          this.invalidOTP='INVALID OTP!';

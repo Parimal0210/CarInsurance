@@ -30,7 +30,7 @@ export class AdminConsoleService implements HttpInterceptor{
     public currentUser: Observable<User>;
     emailData = {};
     otpData = {};
-  
+    
     isLoggedIn = false;
 
     private baseApiUrl = environment.apiUrl+"/rebate_data/"
