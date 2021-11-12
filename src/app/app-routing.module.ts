@@ -9,9 +9,9 @@ import { OtpComponent } from './otp/otp.component';
 
 const routes: Routes = [
   {path: '',redirectTo: '/login-otp',pathMatch:'full'},
-  {path: 'admin/customer-dashboard', component: CustomerDashboardComponent}, //2nd
-  {path: 'admin/main-dashboard', component: MainDashboardComponent}, //1st
-  {path: 'admin/info-cards', component: InfoCardsComponent }, //3rd
+  {path: 'customer-dashboard', component: CustomerDashboardComponent}, //2nd
+  {path: 'main-dashboard', component: MainDashboardComponent}, //1st
+  {path: 'info-cards', component: InfoCardsComponent }, //3rd
 
   {path: 'login-otp', component: LoginOtpComponent},
   {path: 'otp', component: OtpComponent}

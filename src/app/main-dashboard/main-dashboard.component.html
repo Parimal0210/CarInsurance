@@ -92,7 +92,7 @@
                       <tr class="hand-cursor"
                         *ngFor="let customer of customers"
                             (click)="getValueOfTd(customer.name, customer.customerId, customer.amount)"
-                            routerLink="/admin/customer-dashboard"
+                            routerLink="/customer-dashboard"
                             >
 
                       <td  id="customerName" >{{ customer.name | titlecase}}</td>
