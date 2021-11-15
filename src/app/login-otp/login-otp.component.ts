@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminConsoleService } from '../services/admin_console.service';
+// import { MatSpinner } from '@angular/material';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-login-otp',
@@ -14,14 +16,19 @@ export class LoginOtpComponent implements OnInit {
    loginForm : FormGroup | any
    userName:any;
 
+  
   constructor(private auth: AdminConsoleService,
-    private router : Router, private actroute: ActivatedRoute) {
+    private router : Router, private actroute: ActivatedRoute, private spinner: NgxSpinnerService) {
 
     }
 
   ngOnInit(): void {
     this.userName = document.getElementById('userName');
     this.userName.focus();
+  }
+
+  loadSpinner(){
+    this.spinner.show();
   }
 
     GetOTP(loginForm: NgForm){
@@ -34,6 +41,9 @@ export class LoginOtpComponent implements OnInit {
 
     this.auth.send_otp(data).subscribe(
       res => {
+     
+        this.spinner.hide();
+      
                 //console.log("user is = "+loginForm.value)
                let UserData : any = loginForm.value;
                 this.router.navigate(['/otp']/* ,{

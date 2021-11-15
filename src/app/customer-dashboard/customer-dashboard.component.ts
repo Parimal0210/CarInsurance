@@ -50,6 +50,7 @@ export class CustomerDashboardComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
   
     this.sessionfname = sessionStorage.getItem('fname');
     this.sessionlname = sessionStorage.getItem('lname');

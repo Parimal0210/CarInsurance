@@ -239,7 +239,7 @@ flag:Boolean =false;
     });
    }
   ngOnInit(): void {
-
+    window.scrollTo(0, 0);
     // this.dataSource.data = this.refunds;
       this.today = new Date()
 

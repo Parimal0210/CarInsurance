@@ -1,5 +1,5 @@
 <!-- <p>login-otp works!</p> -->
-<div class="container-fluid">
+<div class="container-fluid" >
   <div class="d-flex justify-content-center row align-items-center" style="height:100vh; background-color: #F3F3F3;">
     <div class="card col-10 col-md-6 col-lg-6 col-xl-3 p-3">
       <div class="card-body">
@@ -17,14 +17,13 @@
                 
             </div>
             <div class="d-grid">
-              <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary hand-cursor">Get OTP </button>
+              <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary hand-cursor" (click)="loadSpinner()">Get OTP </button>
             </div>
           </div>
         </form>
 
         <!-- 2nd screen -->
-
-
+        <ngx-spinner bdColor = "rgba(0, 0, 0, 0.7)" size = "medium" color = "#e81d2c" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
       </div>
 
     </div>

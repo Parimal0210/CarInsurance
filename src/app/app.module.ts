@@ -24,6 +24,9 @@ import { NgxMaskModule, IConfig } from 'ngx-mask';
 import { BsDropdownModule,BsDropdownConfig } from 'ngx-bootstrap/dropdown';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgxSpinnerModule } from "ngx-spinner";
+
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -56,7 +59,8 @@ const maskConfig: Partial<IConfig> = {
     NgxMaskModule.forRoot(maskConfig),
     BsDropdownModule,
     NgbModule,
-    
+    MatProgressSpinnerModule,
+    NgxSpinnerModule,
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [AdminConsoleService,

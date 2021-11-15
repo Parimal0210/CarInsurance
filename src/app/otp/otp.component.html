@@ -22,14 +22,14 @@
                     <div class="d-grid">
                         <h6><countdown [config]="{ leftTime: 1200, format: 'mm:ss' }"></countdown></h6>
                         <label for="invalidOTP" class="label text-center" style="color: red;">{{invalidOTP}}</label>
-                        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary">Login Now </button>
+                        <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary" (click)="loadSpinner()">Login Now </button>
                         <small (click)="Goback()" class="hand-cursor text-center mt-3">Back</small>
 
                     </div>
                 </div>
               </form>
 
-
+              <ngx-spinner bdColor = "rgba(0, 0, 0, 0.7)" size = "medium" color = "#e81d2c" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
             </div>
 
         </div>

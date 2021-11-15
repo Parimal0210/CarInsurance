@@ -7,6 +7,7 @@ import { setTime } from 'ngx-bootstrap/chronos/utils/date-setters';
 import { interval  } from 'rxjs';
 import { dematerialize } from 'rxjs/operators';
 import { AdminConsoleService } from '../services/admin_console.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-otp',
@@ -21,7 +22,7 @@ otp : any
 invalidOTP:String='';
 fOtp: any;
 logoutTime: number;
-  constructor(private auth: AdminConsoleService,@Inject(Router) private router: Router) {
+  constructor(private auth: AdminConsoleService,@Inject(Router) private router: Router, private spinner: NgxSpinnerService) {
 
     }
 
@@ -30,6 +31,11 @@ logoutTime: number;
     this.fOtp = document.getElementById('otpnumber');
     this.fOtp.focus();
 
+  }
+
+
+  loadSpinner(){
+    this.spinner.show();
   }
 getLoginData(){
   this.auth.current__applicantData.subscribe(
@@ -63,6 +69,7 @@ console.log("Value = "+val1);
 //console.log(loginForm.value)
     this.auth.enter_otp(data).subscribe(
       res => {
+                this.spinner.hide();
                 console.log("Data = "+res)
                 this.invalidOTP='';
                 //alert("Logged in successfully!!!")
