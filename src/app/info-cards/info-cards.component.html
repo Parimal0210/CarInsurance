@@ -132,7 +132,7 @@ $(document).ready(function() {
                     <p id="file-name" class="margin-10 bold-10"></p>
                     <div class="d-flex w-100">
                         <input class="w-100 border" #fileUpload style="margin-right: 2px;" id="file-type" type="file" size="4" (change)="onChange($event)" name="file"/>
-                        <button class="btn btn-primary ml-3" (click)="uploadExcel()" [disabled]="!file" value="Upload">Upload</button>
+                        <button class="btn btn-primary ml-3" (click)="uploadExcel()" [disabled]="!file" value="Upload"  (click)="loadSpinner()">Upload</button>
                     </div>
                     <fieldset style="margin-top: 20px;">
                         <textarea name="answerField" [readonly]=true class="form-control" focus-me="true" *ngIf="!statusMessageDone && !statusMessage" rows="5" cols="52"></textarea>
@@ -146,4 +146,6 @@ $(document).ready(function() {
           </div>
       </div>
   </div>
+  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.7)" size = "medium" color = "#e81d2c" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
+
 </div>

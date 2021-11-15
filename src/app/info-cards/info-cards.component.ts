@@ -23,6 +23,7 @@ import { Router } from '@angular/router';
 // import { MatTableDataSource } from '@angular/material/table';
 // import {  MatPaginator } from '@angular/material/paginator';
 // import {  MatSort } from '@angular/material/sort';
+import { NgxSpinnerService } from "ngx-spinner";
 
  const moment = _rollupMoment || _moment;
 
@@ -88,7 +89,7 @@ export class InfoCardsComponent implements OnInit {
     console.log($event.target.files[0]); // outputs the first file
   }
 
-  constructor(public datepipe: DatePipe,private _service: AdminConsoleService,private router:Router) {
+  constructor(public datepipe: DatePipe,private _service: AdminConsoleService,private router:Router, private spinner: NgxSpinnerService) {
       // this.dataSource = new MatTableDataSource();
 
    this.fetchedDate = this.datepipe.transform(this.fetchedDate, 'MMMM YYYY')
@@ -105,7 +106,10 @@ export class InfoCardsComponent implements OnInit {
     this.getAllData(newDate);
   }
 
-  
+  loadSpinner(){
+    this.spinner.show();
+  }
+
   getAllData(date:Date){
 
     this.successCount=0
@@ -184,24 +188,28 @@ flag:Boolean =false;
   
                   console.log("File path main: "+this.filePath)
                   this._service.post_addRebateData(this.filePath,this.modelDate.getMonth()+1).subscribe((data:any) => {
+                    this.spinner.hide();
                     if(data.statusCode == 200){
                       this.statusMessageDone = data.statusMessage;
                       console.log("Status: "+this.statusMessageDone)
         
                       this._service.get_RefundData(this.modelDate.getMonth()+1,this.modelDate.getFullYear()).subscribe((data:any)=>{
                         this.refunds = data.response;
-                                     
+                        
                       },(error) => {
+                        this.spinner.hide();
                         this.statusMessage = error.error.statusMessage;
                         console.log("Error: "+this.statusMessage)
                       })
                     }
                   },(error) => {                
+                    this.spinner.hide();
                       this.statusMessage = error.error.statusMessage;
                       console.log("Error1: "+this.statusMessage)
                   })
                   
               },error =>{
+                this.spinner.hide();
                 console.log(error)
               }
           )    
