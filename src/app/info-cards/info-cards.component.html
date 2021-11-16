@@ -37,7 +37,7 @@ $(document).ready(function() {
                                  </button>                   
                             </form>
                           </div>
-                        <button class="btn btn-danger ml-4" [disabled]="!refunds"style="float: right;"(click)="tutuka()"> Upload</button>
+                        <button class="btn btn-danger ml-4" [disabled]="!refunds"style="float: right;"(click)="tutuka()" (click)="loadSpinner()"> Upload</button>
                         
                     </div>
             
@@ -71,8 +71,8 @@ $(document).ready(function() {
                                                 <thead>
                                                     <tr>
                                                         <th>Policy Number</th>
-                                                        <th>Licence Plate Number</th>
-                                                        <th>Refund Amount</th>
+                                                        <th class="text-right">Licence Plate Number</th>
+                                                        <th class="text-right">Refund Amount</th>
                                                         <th>Uploaded</th>
                                                         <th>Uploaded On</th>
                                                         <th>Upload Message</th>

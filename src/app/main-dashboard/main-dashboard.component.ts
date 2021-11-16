@@ -40,6 +40,8 @@ export class MainDashboardComponent implements OnInit {
   config: any;
   totalOtpItems:number
   totalOtpPages:number
+  searchMessage: string='';
+  checkResult:any;
 
   paginationRequest : PaginationRequest;
   searchValue:string="";
@@ -169,6 +171,10 @@ export class MainDashboardComponent implements OnInit {
           console.log("Searched String11");
           console.log(this.searchValue);
           this.customers = data.response.list;
+          this.checkResult = data.response.list;
+          if(this.checkResult == null){
+            this.searchMessage = "No Data Found !"
+          }
           console.log("Search Customers: ");
           console.log(this.customers);
           this.pageNum = data.response.pageNo+1;
@@ -183,6 +189,10 @@ export class MainDashboardComponent implements OnInit {
           console.log("Searched String22");
           console.log(this.searchValue);
           this.customers = data.response.list;
+          this.checkResult = data.response.list;
+          if(this.checkResult == null){
+            this.searchMessage = "No Data Found !"
+          }
           console.log("Search Customers: ");
           console.log(this.customers);
           this.pageNum = data.response.pageNo+1;

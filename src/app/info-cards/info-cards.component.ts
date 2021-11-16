@@ -241,7 +241,8 @@ flag:Boolean =false;
 
   tutuka(){
     this._service.uploadRefund(this.modelDate.getMonth()+1,this.modelDate.getFullYear()).subscribe((data: any)=>{
-     this.tutukaStatusMessage = data.response
+     this.tutukaStatusMessage = data.response;
+     this.spinner.hide();
       console.log("response returned: "+this.tutukaStatusMessage);
       this.getAllData(this.modelDate)
     });
