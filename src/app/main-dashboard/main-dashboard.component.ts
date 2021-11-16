@@ -42,7 +42,6 @@ export class MainDashboardComponent implements OnInit {
   totalOtpPages:number
   searchMessage: string='';
   checkResult:any;
-
   paginationRequest : PaginationRequest;
   searchValue:string="";
    pg = {
@@ -83,7 +82,6 @@ export class MainDashboardComponent implements OnInit {
       this.searchValue=""
       this.pg.pageNo -=1;
       this._service.customerInfo(this.pg,this.searchValue,this.searchValue).subscribe((data: any)=>{
-      
         this.customers = data.response.list;
         console.log("All customers11");
         console.log(this.customers);
@@ -171,10 +169,7 @@ export class MainDashboardComponent implements OnInit {
           console.log("Searched String11");
           console.log(this.searchValue);
           this.customers = data.response.list;
-          this.checkResult = data.response.list;
-          if(this.checkResult == null){
-            this.searchMessage = "No Data Found !"
-          }
+        
           console.log("Search Customers: ");
           console.log(this.customers);
           this.pageNum = data.response.pageNo+1;
