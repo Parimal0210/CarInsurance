@@ -148,7 +148,12 @@ export class InfoCardsComponent implements OnInit {
           }
           this.successCount=0
           this.failCount=0
-        });
+        },(error)=>{
+          this.refunds.map((data)=>{
+            data.statusMessage = error.error.statusMessage;
+          })
+        }
+        );
       })
       
         console.log(this.refunds)
