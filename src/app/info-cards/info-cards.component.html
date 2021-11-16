@@ -38,7 +38,7 @@ $(document).ready(function() {
                             </form>
                           </div>
                         <button class="btn btn-danger ml-4" [disabled]="!refunds"style="float: right;"(click)="tutuka()" (click)="loadSpinner()"> Upload</button>
-                        
+                        <ngx-spinner bdColor = "rgba(0, 0, 0, 0.7)" size = "medium" color = "#e81d2c" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
                     </div>
             
                 </div>

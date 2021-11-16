@@ -171,8 +171,8 @@ export class MainDashboardComponent implements OnInit {
           console.log("Searched String11");
           console.log(this.searchValue);
           this.customers = data.response.list;
-          this.checkResult = data.response.list;
-          if(this.checkResult == null){
+          this.checkResult = data.response.list.size();
+          if(this.checkResult == 0){
             this.searchMessage = "No Data Found !"
           }
           console.log("Search Customers: ");
@@ -189,8 +189,8 @@ export class MainDashboardComponent implements OnInit {
           console.log("Searched String22");
           console.log(this.searchValue);
           this.customers = data.response.list;
-          this.checkResult = data.response.list;
-          if(this.checkResult == null){
+          this.checkResult = data.response.list.size();
+          if(this.checkResult == 0){
             this.searchMessage = "No Data Found !"
           }
           console.log("Search Customers: ");
