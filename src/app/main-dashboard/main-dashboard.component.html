@@ -103,13 +103,11 @@
                         <td class="otp-date-col text-right">{{ customer.createdDate | date:'yyyy-MM-dd' }}</td>
                         <!-- align="right" style="width: 12%;" -->
                       </tr>
-                      <!-- <tr *ngIf="checkResult == 0">
-                        <td>{{searchMessage}}</td>
-                      </tr> -->
+                  
                     </tbody>
                   </table>
                   <div *ngIf="!totalPages" class="col-md-12 text-center mb-3">
-                    <label>No data found.</label>
+                    <div class="w-100 text-center">No Data Found !</div>
                  </div>
                 </div>
                 <div class="d-flex justify-content-between align-items-center">
