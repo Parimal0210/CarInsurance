@@ -62,7 +62,7 @@ console.log("Value = "+val1);
     const data = {
   emailOrMobile: this.val,
   otpCode : val1,
-  type: 'Registration'
+  type: 'login'
   };
  
 //console.log("Data in OTP = "+data)
@@ -77,6 +77,7 @@ console.log("Value = "+val1);
        } ,
        err => {
          this.invalidOTP='INVALID OTP!';
+         this.spinner.hide();
        } //console.log("something went wrong = "+err)
     )
 
