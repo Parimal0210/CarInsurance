@@ -143,14 +143,14 @@ export class InfoCardsComponent implements OnInit {
            
           }else{
             this.refunds.map((data)=>{
-              data.statusMessage = "NA";
+              data1.statusMessage = "NA";
             })
           }
           this.successCount=0
           this.failCount=0
         },(error)=>{
           this.refunds.map((data)=>{
-            data.statusMessage = error.error.statusMessage;
+            data1.statusMessage = error.error.statusMessage;
           })
         }
         );
@@ -191,7 +191,7 @@ flag:Boolean =false;
                   this.filePath = event.response
                   console.log("File path: "+this.filePath)
   
-                  console.log("File path main: "+this.filePath)
+                  // console.log("File path main: "+this.filePath)
                   this._service.post_addRebateData(this.filePath,this.modelDate.getMonth()+1).subscribe((data:any) => {
                     this.spinner.hide();
                     if(data.statusCode == 200){
