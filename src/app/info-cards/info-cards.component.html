@@ -37,8 +37,8 @@ $(document).ready(function() {
                                  </button>                   
                             </form>
                           </div>
-                        <button class="btn btn-danger ml-4" [disabled]="!refunds"style="float: right;"(click)="tutuka()" (click)="loadSpinner()"> Upload</button>
-                        
+                        <button class="btn btn-danger ml-4" [disabled]="!refunds"style="float: right;"(click)="tutuka()" (click)="loadSpinner()"> Transfer</button>
+                        <ngx-spinner bdColor = "rgba(0, 0, 0, 0.7)" size = "medium" color = "#e81d2c" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
                     </div>
             
                 </div>
@@ -71,7 +71,7 @@ $(document).ready(function() {
                                                 <thead>
                                                     <tr>
                                                         <th>Policy Number</th>
-                                                        <th class="text-right">Licence Plate Number</th>
+                                                        <th class="text-right">Reg Number</th>
                                                         <th class="text-right">Refund Amount</th>
                                                         <th>Uploaded</th>
                                                         <th>Uploaded On</th>
@@ -81,8 +81,8 @@ $(document).ready(function() {
                                                 <tbody>
                                                     <tr *ngFor="let rd of refundEachDatas; let j=index">
                                                             <td class="width-175">{{rd.policyNumber}}</td>
-                                                            <td class="width-175 text-right">{{rd.licencePlateNumber}}</td>
-                                                            <td class="text-right"><span class="red">R {{rd.rebateAmount | number}}</span></td>
+                                                            <td class="width-165 text-right">{{rd.licencePlateNumber}}</td>
+                                                            <td class="width-165 text-right"><span class="red">R {{rd.rebateAmount | number}}</span></td>
                                                             <td class="width-100">{{rd.tutukaUploadFlag}}</td>
                                                             <td class="width-175" *ngIf="rd.uploadedOn">{{rd.uploadedOn | date:'yyyy-MM-dd hh:mm:ss'}}</td> <td *ngIf="!rd.uploadedOn">NA</td>
                                                             <td class="width-175" *ngIf="rd.uploadMessage">{{rd.uploadMessage}}</td><td *ngIf="!rd.uploadMessage">NA</td> 
