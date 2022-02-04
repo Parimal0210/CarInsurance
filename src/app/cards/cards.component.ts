@@ -117,22 +117,23 @@ summary : SummaryData[];
 
       console.log("Customers: "+this.totalCustomers);
       this.summary.forEach((x:SummaryData) =>{
-       let arr = new Array(x.summaryDataId,x.customersCount)
+       let arr = new Array(x.month,x.customersCount)
         this.data1.push(arr)
       })
       console.log("data1"+this.data1)
 
       this.summary.forEach((x:SummaryData) => {
-        let arr = new Array(x.summaryDataId,x.vehiclesCount)
+        let arr = new Array(x.month,x.vehiclesCount)
         this.data2.push(arr)
       })
       console.log(this.data2)
 
       this.summary.forEach((x:SummaryData) => {
-        let arr = new Array(x.summaryDataId,x.totalRefund)
+        let arr = new Array(x.month,x.totalRefund)
         this.data3.push(arr)
       })
       console.log(this.data3)
+
 
 
       const chartDataCustomer = {
