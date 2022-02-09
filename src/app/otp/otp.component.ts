@@ -62,7 +62,8 @@ console.log("Value = "+val1);
     const data = {
   emailOrMobile: this.val,
   otpCode : val1,
-  type: 'login'
+  type: 'login',
+  adminApplication: 'AdminConsole'
   };
  
 //console.log("Data in OTP = "+data)

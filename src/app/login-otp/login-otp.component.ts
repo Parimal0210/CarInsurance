@@ -35,7 +35,8 @@ export class LoginOtpComponent implements OnInit {
 
   const data = {
   emailOrMobile: this.loginUserData,
-  type: 'login'
+  type: 'login',
+  adminApplication: 'AdminConsole'
 
     };
 
