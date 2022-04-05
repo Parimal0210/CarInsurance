@@ -142,7 +142,7 @@ export class AdminConsoleService implements HttpInterceptor{
   send_otp(emailData: {})
   {
 
-     return this.http.post<any>(`${this.login_url}/sendOTP`,emailData, {responseType: 'json'})
+     return this.http.post<any>(`${this.login_url}/sendOTPAdmin`,emailData, {responseType: 'json'})
     .pipe(map(user => {
       return user;
     }));
@@ -152,7 +152,7 @@ export class AdminConsoleService implements HttpInterceptor{
 
    // let reqHeader = new HttpHeaders({ 'Content-Type': 'application/json','No-Auth':'True' });
 
-    return this.http.post<any>(`${this.login_url}/login`,otpData, {responseType: 'json'})
+    return this.http.post<any>(`${this.login_url}/loginAdmin`,otpData, {responseType: 'json'})
     .pipe(map (response => {
 
       //returns the token field in api response
