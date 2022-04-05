@@ -4,5 +4,4 @@ export const environment = {
     // apiUrl:'http://159.138.169.79:8080'
       // apiUrl: 'http://localhost:8080'
     apiUrl:'https://app.5050.insure'
-    // hellossss
 };
