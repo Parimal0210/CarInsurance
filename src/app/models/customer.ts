@@ -5,7 +5,8 @@ export class Customer{
     policies: number;
     amount: number;
     createdDate: string;
-    constructor(name: string, customerId: number, vehicles: number, policies: number, amount: number, createdDate: string
+    policyId: number;
+    constructor(name: string, customerId: number, vehicles: number, policies: number, amount: number, createdDate: string, policyId: number
         ){
         this.name = name;
         this.customerId = customerId;
@@ -13,5 +14,6 @@ export class Customer{
         this.policies = policies;
         this.amount = amount;
         this.createdDate = createdDate;
+        this.policyId = policyId;
     }
 }

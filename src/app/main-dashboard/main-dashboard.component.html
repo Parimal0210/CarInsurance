@@ -83,7 +83,7 @@
                       <tr>
                         <th>NAME</th>
                         <th class="text-right">VEHICLES</th>
-                        <th class="text-right">POLICIES</th>
+                        <th class="text-right">POLICY NO</th>
                         <th class="text-right">CARD BALANCE</th>
                         <th class="text-right">CREATED DATE</th>
                         
@@ -92,7 +92,7 @@
                     <tbody>
                       <tr class="hand-cursor"
                         *ngFor="let customer of customers"
-                            (click)="getValueOfTd(customer.name, customer.customerId, customer.amount)"
+                            (click)="getValueOfTd(customer.name, customer.customerId, customer.amount, customer.policyId)"
                             routerLink="/customer-dashboard"
                             >
 

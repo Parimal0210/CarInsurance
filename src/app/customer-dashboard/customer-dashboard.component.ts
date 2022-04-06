@@ -30,6 +30,7 @@ export class CustomerDashboardComponent implements OnInit {
   sessionlname: any;
   sessionCustomerId: any;
   sessionamount: any;
+  sessionPolicyId: any;
 
   customerDetails: CustomerDetails[];
   customerPolicies: CustomerPolicy[];
@@ -59,9 +60,10 @@ export class CustomerDashboardComponent implements OnInit {
     this.myDate = new Date();
 
     this.sessionCustomerId = sessionStorage.getItem('CustomerId')
+    this.sessionPolicyId = sessionStorage.getItem('PolicyId')
 
     this._service
-      .getPolicyDetails(this.sessionCustomerId)
+      .getPolicyDetails(this.sessionPolicyId)
       .subscribe((data: any) => {
         this.customerPolicies = data.response.reverse();
 

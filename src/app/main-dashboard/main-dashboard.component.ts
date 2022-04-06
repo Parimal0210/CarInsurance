@@ -213,7 +213,7 @@ export class MainDashboardComponent implements OnInit {
   })
   }
 
-  getValueOfTd(customer:any, _customerId: any, _amount: any){
+  getValueOfTd(customer:any, _customerId: any, _amount: any, _policyId: any){
 
     this.fname = customer.split(' ')[0];
     this.lname = customer.split(' ')[1];
@@ -221,9 +221,14 @@ export class MainDashboardComponent implements OnInit {
     sessionStorage.setItem('fname',this.fname);
     sessionStorage.setItem('lname',this.lname);
 
-    console.log("Id: "+_customerId);
+    
+    
     sessionStorage.setItem('CustomerId',_customerId);
     sessionStorage.setItem('Amount',_amount);
+    sessionStorage.setItem('PolicyId',_policyId);
+
+    console.log("Customer Id: "+_customerId);
+    console.log("Policy Id: "+_policyId);
   }
 
   refresh(pageChanged:PageChangedEvent){
