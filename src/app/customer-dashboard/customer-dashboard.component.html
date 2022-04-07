@@ -160,7 +160,7 @@
 
                            
 
-                           <ng-container *ngIf="ccompanyName  != null">
+                           <ng-container *ngIf="individual == false && corporate == true">
                                 <tr>
                                     <td><span>COMPANY NAME</span></td>
                                         <ng-container *ngIf="ccompanyName==null">
@@ -200,7 +200,7 @@
                            </ng-container>
 
                        </table>
-                       <ng-container *ngIf="ccompanyName == null">
+                       <ng-container *ngIf="individual == true && corporate == false">
                         <div class="w-100 text-center">Company Information Not Available</div>
                        </ng-container>
                         </div>

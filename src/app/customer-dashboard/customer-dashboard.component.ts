@@ -42,6 +42,9 @@ export class CustomerDashboardComponent implements OnInit {
   ctotalSaving: any;
   ccorporatePolicy: any;
 
+  individual: boolean = false;
+  corporate: boolean = false;
+
   constructor(
     private _service: AdminConsoleService,
     private http: HttpClient,
@@ -81,6 +84,15 @@ export class CustomerDashboardComponent implements OnInit {
 
         console.log("Policies: ");
         console.log(this.customerPolicies);
+        if(this.customerPolicies[0].corporatePolicy == "yes"){
+          this.corporate = true;
+          this.individual = false;
+          console.log("Corporate");
+        }else{
+          this.individual = true;
+          this.corporate = false;
+          console.log("Individual");
+        }
         console.log(this.cpolicies+" "+this.ctotalBasePremium);
       });
 
@@ -100,6 +112,7 @@ export class CustomerDashboardComponent implements OnInit {
         this.cidNumber  = data.response.idNumber;
         // console.log("CidNumber: ");
         // console.log(this.cidNumber);
+        // console.log("for verification:   "+data.response);
         
         var  vis = this.cidNumber.slice(-4),  countNum = '';
 
