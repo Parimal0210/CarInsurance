@@ -24,7 +24,7 @@ export class ExcelService {
       type: EXCEL_TYPE
     });
     //+ new Date().getTime()
-    FileSaver.saveAs(data, fileName + '_Template'  + EXCEL_EXTENSION);
+    FileSaver.saveAs(data, fileName + EXCEL_EXTENSION);
   }
 
 }

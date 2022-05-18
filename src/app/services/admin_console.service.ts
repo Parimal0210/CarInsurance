@@ -266,7 +266,7 @@ export class AdminConsoleService implements HttpInterceptor{
         "endDate":endDate
     }
     
-    return this.http.post<any>("http://localhost:8080/rebate_data/vehicleUsageReports",httpOptions);
+    return this.http.post<any>(this.baseApiUrl+"vehicleUsageReports",httpOptions);
     
 }
 

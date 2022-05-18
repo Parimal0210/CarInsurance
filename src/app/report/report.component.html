@@ -43,7 +43,7 @@
                                                 <th *ngFor="let i of v.dateRange">{{i | date:'MMM d,y'}}</th>
                                             </ng-container>
                                         </ng-container>
-                                        <th>Total</th>
+                                        <th class="heading-total">Total</th>
                                     </tr>
                                 </thead>
                                 <tbody class="bottom-margin" *ngIf="VehicleUsageDetails">
@@ -53,7 +53,7 @@
                                         <ng-container>
                                             <td *ngFor="let i of v.usedVehicle">{{i}}</td>
                                         </ng-container>
-                                        <td><span class="red">{{v.totalUse}}</span></td>
+                                        <td class="font-weight-bold"><span class="red">{{v.totalUse}}</span></td>
                                     </tr>
                                 </tbody>
 
