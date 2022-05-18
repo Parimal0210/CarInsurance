@@ -259,4 +259,15 @@ export class AdminConsoleService implements HttpInterceptor{
       this.router.navigate(['/']);
     }
   }
+
+  public getVehicleUsage(startDate:Date,endDate:Date):Observable<any>{
+    const httpOptions = {
+        "startDate":startDate,
+        "endDate":endDate
+    }
+    
+    return this.http.post<any>("http://localhost:8080/rebate_data/vehicleUsageReports",httpOptions);
+    
+}
+
 }

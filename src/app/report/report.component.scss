@@ -1,0 +1,223 @@
+body {
+  background-color: #f0f0f0;
+  font-family: sans-serif, "DM Sans", "Lucida Sans Regular";
+}
+
+.data {
+  background-color: #f0f0f0;
+  font-family: sans-serif, "DM Sans", "Lucida Sans Regular";
+}
+
+.rateBoxWarp {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", sans-serif;
+}
+
+.rateBox {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 20px #0000000d;
+  border-radius: 5px;
+  padding: 16px;
+}
+
+.rateBox h2 {
+  color: #282828;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.rateBox h3 {
+  color: #282828;
+  font-size: 25px;
+}
+
+.rateBox h3 span {
+  display: block;
+  color: #282828;
+  font-size: 10px;
+  opacity: 0.5;
+  font-weight: 400;
+}
+
+.middleArea {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 10px 20px #0000000d;
+  border-radius: 5px;
+}
+
+.dateUl li {
+  display: inline-block;
+  margin-left: 18px;
+}
+
+.dateList {
+  color: #24282a;
+  font-size: 14px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.uploadBtn {
+  background: #ee1234;
+  box-shadow: 0px 10px 20px #0000000d;
+  border-radius: 5px;
+  border: #ee1234 solid 1px;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 6px 20px;
+  display: inline-block;
+}
+
+.headingArea {
+  padding: 20px;
+  border-bottom: #e9e9e9 solid 1px;
+}
+
+hr {
+  background-color: #ffffff solid 1px;
+}
+
+.headingArea h2 {
+  color: #282828;
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.tableStyle {
+  padding: 20px;
+}
+
+.tableStyle .table thead th {
+  color: #282828;
+  opacity: 0.6;
+  font-size: 12px;
+  text-transform: uppercase;
+  border: none;
+  border-bottom: #e9e9e9 solid 1px;
+  font-weight: 400 !important;
+}
+
+.tableStyle .table td {
+  border: none;
+  border-bottom: #e9e9e9 solid 1px;
+  color: #282828;
+  font-size: 14px;
+}
+
+.tableStyle .table td .red {
+  color: #e81d2c;
+}
+.close-button {
+  background: #ff0019;
+  background: rgba(255, 0, 25, 0.75);
+  border: 0 none !important;
+  color: #fff7cc;
+  float: right;
+  font-size: 34px;
+  height: 35px;
+  line-height: 1;
+  margin: 0px 1px;
+  opacity: 1;
+  text-align: center;
+  text-shadow: none;
+  -webkit-transition: background 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
+  vertical-align: top;
+  width: 46px;
+}
+
+.topright {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.no-border {
+  border: none;
+}
+
+.datePickerDropDown {
+  right: 20px;
+  background-color: transparent;
+}
+
+tr:hover {
+  cursor: pointer;
+}
+
+.table-label {
+  display: inline-block;
+}
+
+.form-control {
+  width: 180px;
+  display: inline-block;
+  float: right;
+}
+
+.tableFixHeight {
+  height: 390px;
+}
+
+.fix-height {
+  height: 390px;
+  overflow: auto;
+}
+
+.tableFixwidth {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  width: 100%;
+  height: 390px;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: #e2e2fb;
+}
+
+.bottom-margin {
+  margin-bottom: 2050px;
+}
+
+.tableFixwidth table {
+  white-space: nowrap;
+}
+
+.date-range-message {
+  text-align: center;
+  vertical-align: center;
+  margin-top: 130px;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+  height: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  border: 8px solid transparent;
+  background-clip: content-box;
+  background-color: #a9acd699;
+  height: 152px;
+}
+
+.button-right button {
+  float: right;
+}
+
+@media only screen and (max-width: 600px) {
+  .input {
+    padding: 10px;
+    margin: 0px -5px;
+  }
+}

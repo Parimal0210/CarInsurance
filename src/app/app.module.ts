@@ -26,6 +26,9 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ReportComponent } from './report/report.component';
+import { ExcelService } from './services/excel.service';
+
 
 
 const maskConfig: Partial<IConfig> = {
@@ -41,6 +44,7 @@ const maskConfig: Partial<IConfig> = {
     CustomerDashboardComponent,
     OtpComponent,
     LoginOtpComponent,
+    ReportComponent,
    // NavigationBarComponent
   ],
   imports: [
@@ -61,12 +65,15 @@ const maskConfig: Partial<IConfig> = {
     NgbModule,
     MatProgressSpinnerModule,
     NgxSpinnerModule,
+    
+    
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [AdminConsoleService,
     DatePipe,
     PaginationConfig,
     BsDropdownConfig,
+    ExcelService,
   {
     provide: HTTP_INTERCEPTORS,
     useClass: AdminConsoleService,

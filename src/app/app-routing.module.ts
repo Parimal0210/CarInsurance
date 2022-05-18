@@ -5,6 +5,7 @@ import { InfoCardsComponent } from './info-cards/info-cards.component';
 import { LoginOtpComponent } from './login-otp/login-otp.component';
 import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
 import { OtpComponent } from './otp/otp.component';
+import { ReportComponent } from './report/report.component';
 
 
 const routes: Routes = [
@@ -12,9 +13,9 @@ const routes: Routes = [
   {path: 'customer-dashboard', component: CustomerDashboardComponent}, //2nd
   {path: 'main-dashboard', component: MainDashboardComponent}, //1st
   {path: 'info-cards', component: InfoCardsComponent }, //3rd
-
+  {path: 'report', component: ReportComponent},//4th
   {path: 'login-otp', component: LoginOtpComponent},
-  {path: 'otp', component: OtpComponent}
+  {path: 'otp', component: OtpComponent},
 ];
 
 @NgModule({
