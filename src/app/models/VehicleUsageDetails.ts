@@ -2,8 +2,8 @@ export class VehicleUsageDetail {
     
     modelName: string;
     licensePlateNumber: string;
-    usedVehicle:number[];
-    dateRange: Date[];
+    usedVehicles:number[];
     totalUse: number;
-    
+    policyNumber: string;
+    customerName: string;
 }

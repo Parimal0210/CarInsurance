@@ -4,8 +4,8 @@ import { VehicleUsageDetail } from '../models/VehicleUsageDetails';
 import { AdminConsoleService } from '../services/admin_console.service';
 import { NgxSpinnerService } from "ngx-spinner";
 import { ExcelService } from '../services/excel.service';
-import { Foo } from '../models/Foo';
 import { DatePipe } from '@angular/common';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-report',
@@ -23,15 +23,18 @@ export class ReportComponent implements OnInit {
   finalData: any = [];
   data: any;
   dRange: [];
-  uVehicle: [];
+  uVehicle: any = [];
   vehicle: any = [];
   mName: [];
   lPlateNumber: [];
   date: any;
-
+  vehicleKeyDate: any = [];
+  vehicleKeyValue: any = [];
+  todaysDate: any;
   constructor(private _service: AdminConsoleService, private http: HttpClient, private spinner: NgxSpinnerService, private excelService: ExcelService, public datepipe: DatePipe) { }
 
   ngOnInit(): void {
+    this.todaysDate = new Date();
   }
 
   //This method is responsible for mapping response
@@ -39,39 +42,54 @@ export class ReportComponent implements OnInit {
   //object to downloadExcel() to downloadExcel report.
 
   searchByDateRange() {
-    console.log(this.startDate)
-    console.log(this.endDate)
-    this._service.getVehicleUsage(this.startDate, this.endDate).subscribe((data: any) => {
+    var date1 = new Date();
+    var date2 = new Date();
+    date1 = this.startDate;
+    date2 = this.endDate;
+    var diff = Math.abs(Date.parse("" + date1) - Date.parse("" + date2));
+    var diffDays = Math.ceil(diff / (1000 * 3600 * 24));
 
-      this.VehicleUsageDetails = data.response;
+    if (this.startDate > this.endDate) {
+      alert("Please select proper From date and To date!");
+    } else if (diffDays > 35) {
+      alert("Difference between two dates should be less than or equal to 35.")
+    } else {
 
-      for (let i = 0; i < 1; i++) {
-        this.dRange = data.response[i].dateRange;
-      }
+      this.spinner.show();
+      this._service.getVehicleUsage(this.startDate, this.endDate).subscribe((data: any) => {
 
-      for (let k = 0; k < data.response.length; k++) {
-        this.jsonData["modelName"] = data.response[k].modelName;
-        this.jsonData["licensePlateNumber"] = data.response[k].licensePlateNumber;
+        this.VehicleUsageDetails = data.response;
 
-        this.vehicle[k] = data.response[k].usedVehicle;
+        for (let k = 0; k < data.response.length; k++) {
+          this.jsonData["customerName"]=data.response[k].customerName;
+          this.jsonData["policyNumber"]=data.response[k].policyNumber;
+          this.jsonData["modelName"] = data.response[k].modelName;
+          this.jsonData["licensePlateNumber"] = data.response[k].licensePlateNumber;
 
-        for (let l = 0; l < this.dRange.length; l++) {
-          this.date = this.datepipe.transform(this.dRange[l], 'yyyy-MM-dd');
-          this.jsonData[this.date] = this.vehicle[k][l];
+          this.vehicle = data.response[k].usedVehicles;
+
+          this.vehicleKeyDate = Object.keys(this.vehicle);
+          this.vehicleKeyValue = Object.values(this.vehicle);
+
+          var arr = Object.keys(this.vehicle).map(key => ({ type: key, value: this.vehicle[key] }));
+          this.uVehicle = arr.sort((a, b) => a.type.localeCompare(b.type))
+
+          for (let i = 0; i < this.uVehicle.length; i++) {
+            this.date = this.datepipe.transform(this.uVehicle[i].type, 'yyyy-MM-dd');
+            this.jsonData[this.date] = this.uVehicle[i].value;
+          }
+
+          this.jsonData["Total"] = data.response[k].totalUse;
+          this.newJsonData[k] = this.jsonData;
+          this.finalData[k] = Object.assign([], this.newJsonData[k]);
         }
-        this.jsonData["Total"] = data.response[k].totalUse;
-        this.newJsonData[k] = this.jsonData;
-
-        this.finalData[k] = Object.assign([], this.newJsonData[k]);
-      }
-      this.spinner.hide();
-    });
+        this.spinner.hide();
+      });
+    }
   }
 
 
-  loadSpinner() {
-    this.spinner.show();
-  }
+
 
   //This method is responsible for downloading the excel report for selected date range 
   downloadExcel() {
